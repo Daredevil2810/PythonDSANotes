@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Count Occurrences of an Element in an Array in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to count Occurrences of an Element in an Array. Count how many times a target value appears by increasing a counter whenever the current…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/arrays-strings-04.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Count Occurrences of an Element in an Array in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to count Occurrences of an Element in an Array. Count how many times a target value appears by increasing a counter whenever the current…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/arrays-strings-04.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Count Occurrences of an Element in an Array in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to count Occurrences of an Element in an Array. Count how many times a target value appears by increasing a counter whenever the current…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Count Occurrences of an Element in an Array","item":"https://YOUR-SITE-URL/python-programs/arrays-strings-04.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Count Occurrences of an Element in an Array in Python","description":"Python program to count Occurrences of an Element in an Array. Count how many times a target value appears by increasing a counter whenever the current…","url":"https://YOUR-SITE-URL/python-programs/arrays-strings-04.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Arrays & Strings","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/arrays-strings-04.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Arrays &amp; Strings</span></div></div><div class='with-side'><aside class='side' aria-label='Arrays &amp; Strings'><span class='side-title'>Arrays &amp; Strings</span><a href='python-programs/arrays-strings-01.html'>Find the Largest Element in an Array</a><a href='python-programs/arrays-strings-02.html'>Reverse an Array</a><a href='python-programs/arrays-strings-03.html'>Check if a String is a Palindrome</a><a href='python-programs/arrays-strings-04.html' class='active'>Count Occurrences of an Element in an Array</a><a href='python-programs/arrays-strings-05-1.html'>Two sum problem (Find two numbers with target sum)</a><a href='python-programs/arrays-strings-05-2.html'>Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map)</a><a href='python-programs/arrays-strings-06.html'>Move Zeros to end of array</a><a href='python-programs/arrays-strings-07.html'>Find second largest element in array</a><a href='python-programs/arrays-strings-08.html'>Reverse a string</a><a href='python-programs/arrays-strings-09.html'>Find factorial of a number</a><a href='python-programs/arrays-strings-10.html'>Check Prime number</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>ARRAYS &amp; STRINGS</span><span class='badge badge-gray'>EASY</span></div><h1>Count Occurrences of an Element in an Array in Python</h1><p class='lead'>Count how many times a target value appears by increasing a counter whenever the current element matches it.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='arrays-strings-04' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:arrays-strings-04' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_04.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Count Occurrences of an Element in an Array :
+
+arr = [1, 2, 3, 4, 2, 5]
+
+target = 2
+count = 0
+
+for num in arr:
+    if num == target:
+        count += 1
+
+print(f&quot;Element {target} occurs {count} times&quot;)
+
+
+# Output : 
+
+# Element 2 occurs 2 times</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>Counting is one of the most common array operations and introduces the accumulator pattern.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>If a class list contains several grades, scan each grade and add one to the count whenever it equals the grade you are tracking.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Initialize count to zero.</li><li>Visit each element once.</li><li>If it equals target, increment count.</li><li>Return the final count.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>count = 0</code></td><td>Start the accumulator at zero.</td></tr><tr><td><code data-code>for num in arr</code></td><td>Scan every value.</td></tr><tr><td><code data-code>if num == target</code></td><td>Check for a match.</td></tr><tr><td><code data-code>count += 1</code></td><td>Increase the total for each match.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>Array</code></td><td>[1,2,3,4,2,5], target=2</td></tr><tr><td><code>1</code></td><td>no match → 0</td></tr><tr><td><code>2</code></td><td>match → 1</td></tr><tr><td><code>3,4</code></td><td>no match → 1</td></tr><tr><td><code>2</code></td><td>match → 2</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n)</p><p><strong>Space:</strong> O(1)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Starting count at 1 gives an incorrect answer when the target is absent.</li><li>Changing the loop to stop after the first match changes the problem.</li><li>Do not confuse value frequency with index position.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use a simple counter when you need the frequency of one known value.</p><p><strong>Avoid it when:</strong> If you need frequencies for many different values, build a frequency dictionary in one pass.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>How would you count every distinct value at once?</li><li>What is the space complexity of a frequency dictionary?</li><li>How would you find the most frequent element?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Count negative values.</li><li>Count values greater than a target.</li><li>Build a frequency dictionary for the entire array.</li></ul></section><section class='ls'><h2><i>11</i>Same idea, different implementation</h2><div class='tags'><a class='tag done' href='python-programs/arrays-strings-2-06.html'>Count Occurrences of element in Array →</a></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/arrays-strings-03.html'>← Check if a String is a Palindrome</a><a class='button button-primary' href='python-programs/arrays-strings-05-1.html'>Two sum problem (Find two numbers with target sum) →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

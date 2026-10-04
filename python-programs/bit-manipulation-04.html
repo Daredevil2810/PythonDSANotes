@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Clear the ith Bit of a Number in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to clear the ith Bit of a Number. Turn a selected bit off by AND-ing with the inverse of a mask.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/bit-manipulation-04.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Clear the ith Bit of a Number in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to clear the ith Bit of a Number. Turn a selected bit off by AND-ing with the inverse of a mask.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/bit-manipulation-04.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Clear the ith Bit of a Number in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to clear the ith Bit of a Number. Turn a selected bit off by AND-ing with the inverse of a mask.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Clear the ith Bit of a Number","item":"https://YOUR-SITE-URL/python-programs/bit-manipulation-04.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Clear the ith Bit of a Number in Python","description":"Python program to clear the ith Bit of a Number. Turn a selected bit off by AND-ing with the inverse of a mask.","url":"https://YOUR-SITE-URL/python-programs/bit-manipulation-04.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Bit Manipulation","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/bit-manipulation-04.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Bit Manipulation</span></div></div><div class='with-side'><aside class='side' aria-label='Bit Manipulation'><span class='side-title'>Bit Manipulation</span><a href='python-programs/bit-manipulation-01.html'>Check if a Number is Even or Odd using Bitwise Problem</a><a href='python-programs/bit-manipulation-02.html'>Check if the ith Bit is Set</a><a href='python-programs/bit-manipulation-03.html'>Set the ith Bit</a><a href='python-programs/bit-manipulation-04.html' class='active'>Clear the ith Bit of a Number</a><a href='python-programs/bit-manipulation-05.html'>Toggle the ith Bit of a Number</a><a href='python-programs/bit-manipulation-06.html'>Count Set Bits in a Number</a><a href='python-programs/bit-manipulation-07.html'>Find XOR of Two Numbers</a><a href='python-programs/bit-manipulation-08.html'>Swap Two Numbers without Temporary Variable (using XOR)</a><a href='python-programs/bit-manipulation-09.html'>Find the Only Non-Repeating Element (when others appear twice)</a><a href='python-programs/bit-manipulation-10.html'>Find the Two Non-Repeating Elements (when others appear twice)</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-purple'>BIT MANIPULATION</span><span class='badge badge-gray'>EASY</span></div><h1>Clear the ith Bit of a Number in Python</h1><p class='lead'>Turn a selected bit off by AND-ing with the inverse of a mask.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='bit-manipulation-04' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:bit-manipulation-04' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_04.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Clear the ith Bit of a Number :
+
+def clear_bit(num, i):
+    return num &amp; ~(1 &lt;&lt; i)
+
+# Example
+n = 10   # (1010 in binary)
+i = 3    # clear 3rd bit
+print(&quot;Original:&quot;, bin(n), &quot;=&quot;, n)
+print(&quot;After clearing bit&quot;, i, &quot;:&quot;, bin(clear_bit(n, i)), &quot;=&quot;, clear_bit(n, i))
+
+
+# Output :
+
+# Original: 0b1010 = 10
+# After clearing bit 3 : 0b10 = 2</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>It demonstrates how AND can preserve chosen bits while forcing one target bit to zero.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>10 is 1010. Clearing bit 3 uses mask 1000, inverted to ...0111 for the relevant low bits. 1010 &amp; 0111 = 0010, which is 2.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Build the mask 1 &lt;&lt; i.</li><li>Invert the mask with ~ so every bit except i is 1.</li><li>AND the number with the inverted mask.</li><li>The target bit becomes 0 while the other bits are preserved.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>def clear_bit(num, i):</code></td><td>Defines a reusable clearing operation.</td></tr><tr><td><code data-code>1 &lt;&lt; i</code></td><td>Creates a mask for the target position.</td></tr><tr><td><code data-code>~(1 &lt;&lt; i)</code></td><td>Makes the target mask bit 0 and the other bits 1.</td></tr><tr><td><code data-code>num &amp; ...</code></td><td>Preserves every other bit and clears bit i.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>n = 10</code></td><td>Binary: 1010</td></tr><tr><td><code>i = 3</code></td><td>Target the leftmost 1 in 1010</td></tr><tr><td><code>1 &lt;&lt; 3</code></td><td>Mask = 1000</td></tr><tr><td><code>~(1 &lt;&lt; 3)</code></td><td>All relevant bits except bit 3 are 1</td></tr><tr><td><code>10 &amp; ~(1 &lt;&lt; 3)</code></td><td>Result = 0010 = 2</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(1)</p><p><strong>Space:</strong> O(1)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Using OR, which cannot clear a 1 bit.</li><li>Forgetting the ~ operator in this common mask pattern.</li><li>Getting confused by Python’s signed representation of ~; the AND operation still produces the intended bit result.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it when one flag must be switched off while other packed flags remain unchanged.</p><p><strong>Avoid it when:</strong> Avoid it when named boolean variables make the state easier to understand.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why is the mask inverted before AND?</li><li>What happens if the target bit is already 0?</li><li>How is clearing different from toggling?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Clear a bit that is 1 and one that is already 0.</li><li>Implement set, clear, and toggle as one utility module.</li><li>Explain the mask in binary.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/bit-manipulation-03.html'>← Set the ith Bit</a><a class='button button-primary' href='python-programs/bit-manipulation-05.html'>Toggle the ith Bit of a Number →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

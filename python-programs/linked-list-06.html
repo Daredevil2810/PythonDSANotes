@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Delete Node from End in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to delete Node from End. Find the second-to-last node and set its next reference to None.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/linked-list-06.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Delete Node from End in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to delete Node from End. Find the second-to-last node and set its next reference to None.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/linked-list-06.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Delete Node from End in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to delete Node from End. Find the second-to-last node and set its next reference to None.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Delete Node from End","item":"https://YOUR-SITE-URL/python-programs/linked-list-06.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Delete Node from End in Python","description":"Python program to delete Node from End. Find the second-to-last node and set its next reference to None.","url":"https://YOUR-SITE-URL/python-programs/linked-list-06.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Linked List","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/linked-list-06.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Linked List</span></div></div><div class='with-side'><aside class='side' aria-label='Linked List'><span class='side-title'>Linked List</span><a href='python-programs/linked-list-01.html'>Create a Singly Linked List and Display</a><a href='python-programs/linked-list-02.html'>Insert Node at Beginning</a><a href='python-programs/linked-list-03.html'>Insert Node at End</a><a href='python-programs/linked-list-04.html'>Insert Node at Specific Position</a><a href='python-programs/linked-list-05.html'>Delete Node from Beginning</a><a href='python-programs/linked-list-06.html' class='active'>Delete Node from End</a><a href='python-programs/linked-list-07.html'>Delete Node from Specific Position</a><a href='python-programs/linked-list-08.html'>Search Node in Linked List</a><a href='python-programs/linked-list-09.html'>Count Nodes in Linked List</a><a href='python-programs/linked-list-10.html'>Find Maximum and Minimum Node in Linked List</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>LINKED LIST</span><span class='badge badge-gray'>MEDIUM</span></div><h1>Delete Node from End in Python</h1><p class='lead'>Find the second-to-last node and set its next reference to None.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='linked-list-06' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:linked-list-06' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_06.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Delete Node from End :
+
+# Update secondToLast.next = null, If the list has only one node, set head = null.
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def delete_from_end(head):
+    if head is None:        # Empty list
+        return None
+    if head.next is None:   # Single node
+        return None
+
+    current = head
+    while current.next.next:  # Traverse to second-to-last
+        current = current.next
+    current.next = None       # Delete last node
+    return head
+
+def display(head):
+    current = head
+    while current:
+        print(current.data, end=&quot; -&gt; &quot;)
+        current = current.next
+    print(&quot;None&quot;)
+
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+print(&quot;Original Linked List:&quot;)
+display(head)
+
+head = delete_from_end(head)
+print(&quot;After Deleting from End:&quot;)
+display(head)
+
+
+# Output :
+
+# Original Linked List:
+# 10 -&gt; 20 -&gt; 30 -&gt; None
+# After Deleting from End:
+# 10 -&gt; 20 -&gt; None</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>A singly linked list has no backward pointer, so the predecessor must normally be found first.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>10 → 20 → 30 becomes 10 → 20 by changing 20.next to None.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Handle an empty list.</li><li>Handle a single-node list.</li><li>Traverse until current.next.next is None.</li><li>Set current.next to None.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>if head.next is None</code></td><td>A one-node list becomes empty.</td></tr><tr><td><code data-code>while current.next.next</code></td><td>Stops at the predecessor of the last node.</td></tr><tr><td><code data-code>current.next = None</code></td><td>Removes the last link.</td></tr><tr><td><code data-code>return head</code></td><td>The first node remains unchanged.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>Before</code></td><td>10 → 20 → 30</td></tr><tr><td><code>Stop</code></td><td>current = 20</td></tr><tr><td><code>Cut link</code></td><td>20.next = None</td></tr><tr><td><code>After</code></td><td>10 → 20 → None</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n)</p><p><strong>Space:</strong> O(1)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Handle the one-node case first.</li><li>Do not walk to None because the predecessor is needed.</li><li>Remember that a singly linked list cannot move backward.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it when deleting the last node without a tail/predecessor reference.</p><p><strong>Avoid it when:</strong> Avoid repeated O(n) end deletions when a doubly linked list or another structure is more suitable.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why is this O(n)?</li><li>How would a doubly linked list help?</li><li>What happens with one node?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Implement deletion with a tail pointer.</li><li>Implement it for a doubly linked list.</li><li>Delete the final two nodes safely.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/linked-list-05.html'>← Delete Node from Beginning</a><a class='button button-primary' href='python-programs/linked-list-07.html'>Delete Node from Specific Position →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

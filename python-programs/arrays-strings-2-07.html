@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Remove Duplicates from Array in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to remove Duplicates from Array. Create a new array containing each value only once, keeping the first occurrence order.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/arrays-strings-2-07.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Remove Duplicates from Array in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to remove Duplicates from Array. Create a new array containing each value only once, keeping the first occurrence order.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/arrays-strings-2-07.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Remove Duplicates from Array in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to remove Duplicates from Array. Create a new array containing each value only once, keeping the first occurrence order.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Remove Duplicates from Array","item":"https://YOUR-SITE-URL/python-programs/arrays-strings-2-07.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Remove Duplicates from Array in Python","description":"Python program to remove Duplicates from Array. Create a new array containing each value only once, keeping the first occurrence order.","url":"https://YOUR-SITE-URL/python-programs/arrays-strings-2-07.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Arrays & Strings · Part 2","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/arrays-strings-2-07.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Arrays &amp; Strings · Part 2</span></div></div><div class='with-side'><aside class='side' aria-label='Arrays &amp; Strings · Part 2'><span class='side-title'>Arrays &amp; Strings · Part 2</span><a href='python-programs/arrays-strings-2-01.html'>Find Maximum and Minimum in an Array</a><a href='python-programs/arrays-strings-2-02.html'>Reverse an Array</a><a href='python-programs/arrays-strings-2-03.html'>Sum of Array Elements</a><a href='python-programs/arrays-strings-2-04.html'>Find Average of Array elements</a><a href='python-programs/arrays-strings-2-05.html'>Search element in Array (Linear Search)</a><a href='python-programs/arrays-strings-2-06.html'>Count Occurrences of element in Array</a><a href='python-programs/arrays-strings-2-07.html' class='active'>Remove Duplicates from Array</a><a href='python-programs/arrays-strings-2-08.html'>Reverse a String</a><a href='python-programs/arrays-strings-2-09.html'>Count Vowels and Consonants in a string</a><a href='python-programs/arrays-strings-2-10.html'>Check Palindrome String</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>ARRAYS &amp; STRINGS · PART 2</span><span class='badge badge-gray'>EASY</span></div><h1>Remove Duplicates from Array in Python</h1><p class='lead'>Create a new array containing each value only once, keeping the first occurrence order.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='arrays-strings-2-07' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:arrays-strings-2-07' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_07.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Remove Duplicates from Array :
+
+arr = [1, 2, 3, 2, 4, 1, 5]
+unique_arr = list(dict.fromkeys(arr))
+
+print(&quot;Array after removing duplicates : &quot;, unique_arr)
+
+
+# Output :
+
+# Array after removing duplicates :  [1, 2, 3, 4, 5]</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>This introduces uniqueness and the useful property of Python dictionaries preserving insertion order.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>From [1,2,3,2,4,1], keep the first 1,2,3,4 and ignore later repeats.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Use a dictionary as an insertion-ordered set of seen values.</li><li>Convert its keys back to a list.</li><li>The first occurrence of each value determines its position in the result.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>dict.fromkeys(arr)</code></td><td>Creates dictionary keys from the values, discarding duplicate keys while preserving insertion order in modern Python.</td></tr><tr><td><code data-code>list(...)</code></td><td>Converts the unique keys back into a list.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>Input</code></td><td>[1,2,3,2,4,1,5]</td></tr><tr><td><code>See 1,2,3</code></td><td>Keep each first occurrence</td></tr><tr><td><code>See 2</code></td><td>Already seen → skip</td></tr><tr><td><code>See 4</code></td><td>Keep</td></tr><tr><td><code>See 1,5</code></td><td>1 seen → skip; 5 keep</td></tr><tr><td><code>Result</code></td><td>[1,2,3,4,5]</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n) average</p><p><strong>Space:</strong> O(n)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>This requires hashable elements; lists cannot be dictionary keys.</li><li>If order does not matter, a set may be enough.</li><li>Creating a new list means the original array is not modified.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it when you need unique hashable values while preserving first-seen order.</p><p><strong>Avoid it when:</strong> For unhashable elements or when custom equality rules are needed, use a different approach.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why does dict.fromkeys preserve order?</li><li>How would you remove duplicates in place?</li><li>What is the difference between set and dict.fromkeys?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Remove duplicate strings case-insensitively.</li><li>Remove duplicates from a sorted array in place.</li><li>Keep only values that occur exactly once.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/arrays-strings-2-06.html'>← Count Occurrences of element in Array</a><a class='button button-primary' href='python-programs/arrays-strings-2-08.html'>Reverse a String →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

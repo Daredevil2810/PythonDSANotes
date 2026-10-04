@@ -1,0 +1,10 @@
+Program 01 : Find Maximum and Minimum in an Array
+Program 02 : Reverse an Array
+Program 03 : Sum of Array Elements
+Program 04 : Find Average of Array elements
+Program 05 : Search element in Array (Linear Search)
+Program 06 : Count occurances of element in Array
+Program 07 : Remove Duplicates from Array
+Program 08 : Reverse a String
+Program 09 : Count Vowels and Consonants in a string
+Program 10 : Check Palindrome String

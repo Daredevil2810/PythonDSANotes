@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Encapsulation &amp; private attributes — Python Tutorial for Beginners</title>
+  <meta name="description" content="Protect data so it is changed only in safe ways. Encapsulation means restricting direct access to data and exposing safe methods instead. In Python, a name…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-lessons/encapsulation.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Encapsulation &amp; private attributes — Python Tutorial for Beginners">
+  <meta property="og:description" content="Protect data so it is changed only in safe ways. Encapsulation means restricting direct access to data and exposing safe methods instead. In Python, a name…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-lessons/encapsulation.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Encapsulation &amp; private attributes — Python Tutorial for Beginners">
+  <meta name="twitter:description" content="Protect data so it is changed only in safe ways. Encapsulation means restricting direct access to data and exposing safe methods instead. In Python, a name…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://YOUR-SITE-URL/python.html"},{"@type":"ListItem","position":3,"name":"Encapsulation & private attributes","item":"https://YOUR-SITE-URL/python-lessons/encapsulation.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Encapsulation & private attributes — Python tutorial","description":"Protect data so it is changed only in safe ways. Encapsulation means restricting direct access to data and exposing safe methods instead. In Python, a name…","url":"https://YOUR-SITE-URL/python-lessons/encapsulation.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Python programming","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-lessons/encapsulation.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="python">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='python.html'>Python</a><span>/</span><span>Object-Oriented Programming</span></div></div><div class='with-side'><aside class='side' aria-label='Python lessons'><span class='side-title'>01 · Python Basics</span><a href='python-lessons/what-is-python.html'>What is Python &amp; how it runs</a><a href='python-lessons/variables-data-types.html'>Variables &amp; data types</a><span class='side-title' style='margin-top:14px'>02 · Control Flow</span><a href='python-lessons/if-elif-else.html'>Decisions: if, elif, else</a><a href='python-lessons/loops-range.html'>Loops: for, while &amp; range()</a><a href='python-lessons/loop-control.html'>break, continue, pass, for…else &amp; nested loops</a><span class='side-title' style='margin-top:14px'>03 · Functions</span><a href='python-lessons/functions-basics.html'>Functions: def, parameters &amp; return</a><a href='python-lessons/args-kwargs.html'>*args and **kwargs</a><a href='python-lessons/scope-legb.html'>Scope &amp; the LEGB rule</a><a href='python-lessons/lambda-higher-order.html'>lambda, map, filter &amp; reduce</a><span class='side-title' style='margin-top:14px'>04 · Object-Oriented Programming</span><a href='python-lessons/classes-objects.html'>Classes &amp; objects</a><a href='python-lessons/method-types.html'>Instance, class &amp; static methods</a><a href='python-lessons/inheritance.html'>Inheritance, super() &amp; overriding</a><a href='python-lessons/encapsulation.html' class='active'>Encapsulation &amp; private attributes</a><a href='python-lessons/polymorphism-abstraction.html'>Polymorphism &amp; abstraction</a><span class='side-title' style='margin-top:14px'>05 · Files, Exceptions</span><a href='python-lessons/file-handling.html'>File handling</a><a href='python-lessons/exceptions.html'>Exception handling</a><a href='python-lessons/modules-packages.html'>Modules &amp; packages</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PYTHON</span><span class='badge badge-gray'>SECTION 04</span><span class='badge badge-gray'>8 MIN</span></div><h1>Encapsulation &amp; private attributes</h1><p class='lead'>Protect data so it is changed only in safe ways.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-encapsulation' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:encapsulation' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p><strong>Encapsulation</strong> means restricting direct access to data and exposing safe methods instead. In Python, a name that starts with a double underscore (<code>__balance</code>) is treated as private.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>If anyone can set <code>balance = -999</code> directly, bugs are guaranteed. With encapsulation, changes go through methods like <code>deposit()</code> which can check the rules.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>A bank doesn&#39;t let you walk into the vault. You talk to the <strong>cashier</strong>, who follows rules for deposits and withdrawals. The vault is the private data; the cashier is the method.</p><div class='explain-tag'>Precise definition</div><p>Python does not have true private members. A double-underscore name is <strong>name-mangled</strong> to <code>_ClassName__name</code>, which makes accidental access fail. A single underscore (<code>_x</code>) is only a convention that means &quot;internal, please don&#39;t touch&quot;.</p></div></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>BankAccount</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance      # private
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+acc = BankAccount(1000)
+acc.deposit(500)
+print(acc.get_balance())
+
+try:
+    print(acc.__balance)
+except AttributeError:
+    print(&quot;AttributeError: __balance is private&quot;)</code></pre></div><div class='out'><span>OUTPUT</span><pre>1500
+AttributeError: __balance is private</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>self.__balance = balance</code></td><td>The double underscore marks the attribute as private.</td></tr><tr><td><code data-code>def deposit(self, amount):</code></td><td>The approved way to change the balance. This is where you&#39;d add checks.</td></tr><tr><td><code data-code>def get_balance(self):</code></td><td>The approved way to read it.</td></tr><tr><td><code data-code>acc.__balance</code></td><td>Direct access from outside fails with an <code>AttributeError</code>.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Believing <code>__x</code> is truly secret. It can still be reached as <code>_BankAccount__balance</code>.</li><li>Making everything private. Do it only for data that needs protecting.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use it for data with rules (money, passwords, counters) where you want to control how it changes.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>How do you make attributes private in Python?</summary><p>Prefix the name with a double underscore (<code>__</code>).</p></details><details><summary>What is encapsulation?</summary><p>Hiding internal data and exposing it only through methods.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Add a <code>withdraw(amount)</code> method to <code>BankAccount</code> that only withdraws if there is enough balance; otherwise print <code>Insufficient funds</code>.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Compare <code>amount</code> with <code>self.__balance</code> using <code>if</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def withdraw(self, amount):
+        if amount &lt;= self.__balance:
+            self.__balance -= amount
+        else:
+            print(&quot;Insufficient funds&quot;)
+
+    def get_balance(self):
+        return self.__balance
+
+acc = BankAccount(1000)
+acc.withdraw(1500)
+acc.withdraw(300)
+print(acc.get_balance())</code></pre></div><div class='out'><span>OUTPUT</span><pre>Insufficient funds
+700</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-lessons/inheritance.html'>← Inheritance, super() &amp; overriding</a><a class='button button-primary' href='python-lessons/polymorphism-abstraction.html'>Polymorphism &amp; abstraction →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

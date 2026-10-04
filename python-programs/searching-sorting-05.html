@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Selection sort in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to selection sort. Repeatedly find the smallest value in the unsorted portion and swap it into the next sorted position.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/searching-sorting-05.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Selection sort in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to selection sort. Repeatedly find the smallest value in the unsorted portion and swap it into the next sorted position.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/searching-sorting-05.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Selection sort in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to selection sort. Repeatedly find the smallest value in the unsorted portion and swap it into the next sorted position.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Selection sort","item":"https://YOUR-SITE-URL/python-programs/searching-sorting-05.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Selection sort in Python","description":"Python program to selection sort. Repeatedly find the smallest value in the unsorted portion and swap it into the next sorted position.","url":"https://YOUR-SITE-URL/python-programs/searching-sorting-05.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Searching & Sorting","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/searching-sorting-05.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Searching &amp; Sorting</span></div></div><div class='with-side'><aside class='side' aria-label='Searching &amp; Sorting'><span class='side-title'>Searching &amp; Sorting</span><a href='python-programs/searching-sorting-01.html'>Linear Search</a><a href='python-programs/searching-sorting-02.html'>Binary Search</a><a href='python-programs/searching-sorting-03.html'>Binary Search (Recursive Method)</a><a href='python-programs/searching-sorting-04.html'>Bubble sort</a><a href='python-programs/searching-sorting-05.html' class='active'>Selection sort</a><a href='python-programs/searching-sorting-06.html'>Insertion sort</a><a href='python-programs/searching-sorting-07.html'>Merge Sort</a><a href='python-programs/searching-sorting-08.html'>Quick Sort</a><a href='python-programs/searching-sorting-09.html'>Heap sort</a><a href='python-programs/searching-sorting-10.html'>Counting sort</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>SEARCHING &amp; SORTING</span><span class='badge badge-gray'>EASY</span></div><h1>Selection sort in Python</h1><p class='lead'>Repeatedly find the smallest value in the unsorted portion and swap it into the next sorted position.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='searching-sorting-05' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:searching-sorting-05' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_05.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Selection sort systematically : 
+
+# Selection Sort repeatedly selects the minimum element from the unsorted part and places it at the beginning.
+
+arr = [64, 25, 12, 22 , 11]
+n = len(arr)
+
+for i in range(n - 1):
+    min_index = i
+    for j in range(i + 1, n):
+        if arr[j] &lt; arr[min_index]:
+            min_index = j
+    if min_index != i:
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+print(&quot;Sorted array : &quot;, arr)
+
+
+# Output :
+
+# Sorted array :  [11, 12, 22, 25, 64]</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>Selection sort makes the idea of separating sorted and unsorted regions very clear and uses few swaps.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>For [64,25,12,22,11], find 11 first and put it at index 0, then find 12 for index 1, and continue.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Treat the current index as the start of the unsorted region.</li><li>Search the remaining elements for the smallest value.</li><li>Remember its index.</li><li>Swap it into the current position.</li><li>Move the boundary one position right.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>min_index = i</code></td><td>Assume the first unsorted value is the minimum.</td></tr><tr><td><code data-code>for j in range(i + 1, n)</code></td><td>Search the rest of the unsorted region.</td></tr><tr><td><code data-code>if arr[j] &lt; arr[min_index]</code></td><td>Update the minimum candidate.</td></tr><tr><td><code data-code>arr[i], arr[min_index] = ...</code></td><td>Place the minimum at its final position for this pass.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>i=0</code></td><td>Minimum of entire array is 11 → swap with 64</td></tr><tr><td><code>i=1</code></td><td>Minimum of remaining [25,12,22,64] is 12</td></tr><tr><td><code>i=2</code></td><td>Minimum of remaining is 22</td></tr><tr><td><code>i=3</code></td><td>Minimum of remaining is 25</td></tr><tr><td><code>Result</code></td><td>[11,12,22,25,64]</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n²)</p><p><strong>Space:</strong> O(1)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>The inner loop must begin at i+1.</li><li>Do not swap every time a smaller value is found; remember the minimum and swap once per pass.</li><li>Selection sort is not generally stable in this swap-based form.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it for teaching or when minimizing the number of swaps matters on very small inputs.</p><p><strong>Avoid it when:</strong> Avoid it for large arrays because its comparisons remain quadratic.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why does Selection Sort perform O(n²) comparisons even on sorted input?</li><li>How many swaps does it make at most?</li><li>Is this implementation stable?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Sort descending.</li><li>Count comparisons and swaps separately.</li><li>Implement a stable selection-sort variant.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/searching-sorting-04.html'>← Bubble sort</a><a class='button button-primary' href='python-programs/searching-sorting-06.html'>Insertion sort →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

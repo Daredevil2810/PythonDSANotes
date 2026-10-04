@@ -1,0 +1,10 @@
+Program 01 : Linear Search
+Program 02 : Binary Search
+Program 03 : Binary Search (Recursive Method)
+Program 04 : Bubble sort systematically
+Program 05 : Selection sort systematically
+Program 06 : Insertion sort systematically
+Program 07 : Merge Sort systematically
+Program 08 : Quick Sort systematically
+Program 09 : Heap sort
+Program 10 : Counting sort systematically

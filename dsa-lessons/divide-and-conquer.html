@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Divide &amp; Conquer in Python — DSA Tutorial with Code | Python DSA Notes</title>
+  <meta name="description" content="Split a problem into smaller independent pieces, solve them, and combine the results. Divide-and-conquer repeatedly partitions a problem until the pieces…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/dsa-lessons/divide-and-conquer.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Divide &amp; Conquer in Python — DSA Tutorial with Code | Python DSA Notes">
+  <meta property="og:description" content="Split a problem into smaller independent pieces, solve them, and combine the results. Divide-and-conquer repeatedly partitions a problem until the pieces…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/dsa-lessons/divide-and-conquer.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Divide &amp; Conquer in Python — DSA Tutorial with Code | Python DSA Notes">
+  <meta name="twitter:description" content="Split a problem into smaller independent pieces, solve them, and combine the results. Divide-and-conquer repeatedly partitions a problem until the pieces…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"DSA roadmap","item":"https://YOUR-SITE-URL/dsa.html"},{"@type":"ListItem","position":3,"name":"Divide & Conquer","item":"https://YOUR-SITE-URL/dsa-lessons/divide-and-conquer.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Divide & Conquer in Python — DSA tutorial","description":"Split a problem into smaller independent pieces, solve them, and combine the results. Divide-and-conquer repeatedly partitions a problem until the pieces…","url":"https://YOUR-SITE-URL/dsa-lessons/divide-and-conquer.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Data structures and algorithms","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/dsa-lessons/divide-and-conquer.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="dsa">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='dsa.html'>DSA roadmap</a><span>/</span><span>Level 5</span></div></div><div class='with-side'><aside class='side' aria-label='DSA lessons'><span class='side-title'>LEVEL 0</span><a href='dsa-lessons/programming-logic-loops.html'>Loops &amp; Conditions</a><a href='dsa-lessons/programming-logic-functions.html'>Functions</a><a href='dsa-lessons/programming-logic-patterns.html'>Pattern Printing</a><span class='side-title' style='margin-top:14px'>LEVEL 1</span><a href='dsa-lessons/complexity-big-o.html'>Complexity &amp; Big O</a><a href='dsa-lessons/arrays.html'>Arrays</a><a href='dsa-lessons/strings.html'>Strings</a><a href='dsa-lessons/searching.html'>Searching</a><a href='dsa-lessons/sorting.html'>Sorting</a><a href='dsa-lessons/hashing.html'>Hashing</a><span class='side-title' style='margin-top:14px'>LEVEL 2</span><a href='dsa-lessons/linked-list.html'>Linked List</a><a href='dsa-lessons/stack.html'>Stack</a><a href='dsa-lessons/queue.html'>Queue</a><a href='dsa-lessons/deque.html'>Deque</a><span class='side-title' style='margin-top:14px'>LEVEL 3</span><a href='dsa-lessons/two-pointers.html'>Two Pointers</a><a href='dsa-lessons/sliding-window.html'>Sliding Window</a><a href='dsa-lessons/prefix-sum.html'>Prefix Sum</a><a href='dsa-lessons/binary-search-patterns.html'>Binary Search Patterns</a><a href='dsa-lessons/recursion.html'>Recursion</a><a href='dsa-lessons/backtracking.html'>Backtracking</a><span class='side-title' style='margin-top:14px'>LEVEL 4</span><a href='dsa-lessons/trees.html'>Trees</a><a href='dsa-lessons/binary-search-tree.html'>Binary Search Tree</a><a href='dsa-lessons/heap-priority-queue.html'>Heap / Priority Queue</a><a href='dsa-lessons/graphs.html'>Graphs</a><a href='dsa-lessons/trie.html'>Trie</a><span class='side-title' style='margin-top:14px'>LEVEL 5</span><a href='dsa-lessons/greedy.html'>Greedy Algorithms</a><a href='dsa-lessons/divide-and-conquer.html' class='active'>Divide &amp; Conquer</a><a href='dsa-lessons/dynamic-programming.html'>Dynamic Programming</a><a href='dsa-lessons/bit-manipulation.html'>Bit Manipulation</a><a href='dsa-lessons/graph-algorithms.html'>Graph Algorithms</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>DSA</span><span class='badge badge-gray'>LEVEL 5</span><span class='badge badge-gray'>MEDIUM</span></div><h1>Divide &amp; Conquer in Python</h1><p class='lead'>Split a problem into smaller independent pieces, solve them, and combine the results.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='dsa-lesson-divide-and-conquer' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='dsa-lesson:divide-and-conquer' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>Divide-and-conquer repeatedly partitions a problem until the pieces are easy, then combines their answers.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>It produces efficient algorithms such as merge sort and supports parallel-style reasoning.</p></section><section class='ls'><h2><i>3</i>How it works</h2><div class='explain'><div class='explain-tag'>Everyday idea</div><p>Cut a big job into smaller jobs, solve each, then assemble the result.</p><div class='explain-tag'>Technical view</div><p>If T(n)=aT(n/b)+f(n), recurrence analysis describes the resulting complexity. Merge sort gives O(n log n).</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Divide the input.</li><li>Recursively solve each part.</li><li>Combine the partial results.</li><li>Check the recurrence or total work.</li></ol></section><section class='ls'><h2><i>4</i>Python code, step by step</h2><div class='code-box'><div class='code-header'><span>example.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>def merge_sort(values):
+    if len(values) &lt;= 1:
+        return values
+    mid = len(values) // 2
+    left = merge_sort(values[:mid])
+    right = merge_sort(values[mid:])
+    return merge(left, right)
+
+def merge(a, b):
+    out = []
+    i = j = 0
+    while i &lt; len(a) and j &lt; len(b):
+        if a[i] &lt;= b[j]:
+            out.append(a[i]); i += 1
+        else:
+            out.append(b[j]); j += 1
+    return out + a[i:] + b[j:]</code></pre></div><div class='out'><span>OUTPUT / RESULT</span><pre>Sorted list</pre></div><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>mid = len(values) // 2</code></td><td>Splits the input into two halves.</td></tr><tr><td><code data-code>merge(left, right)</code></td><td>Combines two sorted halves.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Forgetting a base case.</li><li>Ignoring the cost of the combine step.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use divide-and-conquer when subproblems are independent and a clean combine step exists.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>Why is merge sort O(n log n)?</summary><p>There are log n levels of splitting and O(n) merging work at each level.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Find the maximum value using divide and conquer.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Split, find each half maximum, then take max.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>def maximum(a):
+    if len(a) == 1: return a[0]
+    mid = len(a)//2
+    return max(maximum(a[:mid]), maximum(a[mid:]))</code></pre></div></details></div></section><section class='ls'><h2><i>9</i>Practise with real programs</h2><div class='tags'><a class='tag done' href='python-programs/searching-sorting-09.html'>Heap sort →</a></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='dsa-lessons/greedy.html'>← Greedy Algorithms</a><a class='button button-primary' href='dsa-lessons/dynamic-programming.html'>Dynamic Programming →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

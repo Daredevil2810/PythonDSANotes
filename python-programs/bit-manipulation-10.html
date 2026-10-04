@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Find the Two Non-Repeating Elements (when others appear twice) in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to find the Two Non-Repeating Elements (when others appear twice). Find the two values that appear once when every other value appears twice…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/bit-manipulation-10.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Find the Two Non-Repeating Elements (when others appear twice) in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to find the Two Non-Repeating Elements (when others appear twice). Find the two values that appear once when every other value appears twice…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/bit-manipulation-10.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Find the Two Non-Repeating Elements (when others appear twice) in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to find the Two Non-Repeating Elements (when others appear twice). Find the two values that appear once when every other value appears twice…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Find the Two Non-Repeating Elements (when others appear twice)","item":"https://YOUR-SITE-URL/python-programs/bit-manipulation-10.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Find the Two Non-Repeating Elements (when others appear twice) in Python","description":"Python program to find the Two Non-Repeating Elements (when others appear twice). Find the two values that appear once when every other value appears twice…","url":"https://YOUR-SITE-URL/python-programs/bit-manipulation-10.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Bit Manipulation","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/bit-manipulation-10.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Bit Manipulation</span></div></div><div class='with-side'><aside class='side' aria-label='Bit Manipulation'><span class='side-title'>Bit Manipulation</span><a href='python-programs/bit-manipulation-01.html'>Check if a Number is Even or Odd using Bitwise Problem</a><a href='python-programs/bit-manipulation-02.html'>Check if the ith Bit is Set</a><a href='python-programs/bit-manipulation-03.html'>Set the ith Bit</a><a href='python-programs/bit-manipulation-04.html'>Clear the ith Bit of a Number</a><a href='python-programs/bit-manipulation-05.html'>Toggle the ith Bit of a Number</a><a href='python-programs/bit-manipulation-06.html'>Count Set Bits in a Number</a><a href='python-programs/bit-manipulation-07.html'>Find XOR of Two Numbers</a><a href='python-programs/bit-manipulation-08.html'>Swap Two Numbers without Temporary Variable (using XOR)</a><a href='python-programs/bit-manipulation-09.html'>Find the Only Non-Repeating Element (when others appear twice)</a><a href='python-programs/bit-manipulation-10.html' class='active'>Find the Two Non-Repeating Elements (when others appear twice)</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-purple'>BIT MANIPULATION</span><span class='badge badge-gray'>HARD</span></div><h1>Find the Two Non-Repeating Elements (when others appear twice) in Python</h1><p class='lead'>Find the two values that appear once when every other value appears twice by first XOR-ing everything, then splitting values using a distinguishing set bit.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='bit-manipulation-10' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:bit-manipulation-10' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_10.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>#  Find the Two Non-Repeating Elements (when others appear twice) :
+
+def find_two_unique(arr):
+    xor_all = 0
+    for num in arr:
+        xor_all ^= num
+
+    # Rightmost set bit
+    rightmost_set_bit = xor_all &amp; -xor_all
+
+    num1, num2 = 0, 0
+    for num in arr:
+        if num &amp; rightmost_set_bit:
+            num1 ^= num
+        else:
+            num2 ^= num
+
+    print(&quot;The two unique elements are:&quot;, num1, &quot;and&quot;, num2)
+
+arr = [2, 4, 7, 9, 2, 4]
+find_two_unique(arr)
+
+
+# Output :
+
+# The two unique elements are: 7 and 9</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>It extends the single-unique XOR trick and teaches how one XOR result can reveal a bit where the two unique values differ.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>For [2, 4, 7, 9, 2, 4], the total XOR is 7 ^ 9. Its rightmost set bit separates 7 and 9 into different groups; duplicates still cancel within their groups.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>XOR every array element to get xor_all = unique1 ^ unique2.</li><li>Extract the rightmost set bit with xor_all &amp; -xor_all.</li><li>Partition elements according to whether that bit is set.</li><li>XOR each partition separately.</li><li>Duplicates cancel inside their partition, leaving the two unique values.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>xor_all = 0</code></td><td>Starts the combined XOR.</td></tr><tr><td><code data-code>xor_all ^= num</code></td><td>Finds unique1 ^ unique2 because pairs cancel.</td></tr><tr><td><code data-code>rightmost_set_bit = xor_all &amp; -xor_all</code></td><td>Isolates a bit on which the two unique values differ.</td></tr><tr><td><code data-code>if num &amp; rightmost_set_bit</code></td><td>Places values with that distinguishing bit into one group.</td></tr><tr><td><code data-code>num1 ^= num / num2 ^= num</code></td><td>Cancels duplicates within each group.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>Array</code></td><td>[2, 4, 7, 9, 2, 4]</td></tr><tr><td><code>Total XOR</code></td><td>2^4^7^9^2^4 = 7^9 = 14</td></tr><tr><td><code>Rightmost set bit</code></td><td>14 is 1110, so xor_all &amp; -xor_all = 2</td></tr><tr><td><code>Partition</code></td><td>7 goes to set-bit group; 9 goes to the other group</td></tr><tr><td><code>XOR groups</code></td><td>Duplicates cancel → 7 and 9</td></tr><tr><td><code>Result</code></td><td>The two unique elements are 7 and 9</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n)</p><p><strong>Space:</strong> O(1) auxiliary</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Using the method when more than two values are unique.</li><li>Skipping the partition step and expecting xor_all itself to give both answers.</li><li>Forgetting that the isolated bit must be set in one unique value and clear in the other.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it for the classic constraint where exactly two elements occur once and all remaining elements occur twice.</p><p><strong>Avoid it when:</strong> Use a frequency map when the occurrence rules are different or clarity is more important than constant extra space.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why does xor_all contain unique1 ^ unique2?</li><li>Why does xor_all &amp; -xor_all isolate the rightmost set bit?</li><li>Why must the two unique values land in different groups?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Work through the algorithm on a new array by hand.</li><li>Implement a dictionary-based solution and compare space usage.</li><li>Explain why duplicates cannot cross the partition in a way that prevents cancellation.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/bit-manipulation-09.html'>← Find the Only Non-Repeating Element (when others appear twice)</a><a class='button button-primary' href='python-programs/patterns-01.html'>Solid Rectangle Pattern →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

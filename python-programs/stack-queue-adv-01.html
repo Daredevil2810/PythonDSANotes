@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Stack Using Single Queue (Efficient Pop) in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to stack Using Single Queue (Efficient Pop). Simulate LIFO stack behavior with a single FIFO queue by rotating the existing elements after…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/stack-queue-adv-01.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Stack Using Single Queue (Efficient Pop) in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to stack Using Single Queue (Efficient Pop). Simulate LIFO stack behavior with a single FIFO queue by rotating the existing elements after…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/stack-queue-adv-01.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stack Using Single Queue (Efficient Pop) in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to stack Using Single Queue (Efficient Pop). Simulate LIFO stack behavior with a single FIFO queue by rotating the existing elements after…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Stack Using Single Queue (Efficient Pop)","item":"https://YOUR-SITE-URL/python-programs/stack-queue-adv-01.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Stack Using Single Queue (Efficient Pop) in Python","description":"Python program to stack Using Single Queue (Efficient Pop). Simulate LIFO stack behavior with a single FIFO queue by rotating the existing elements after…","url":"https://YOUR-SITE-URL/python-programs/stack-queue-adv-01.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Stack & Queue · Advanced","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/stack-queue-adv-01.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Stack &amp; Queue · Advanced</span></div></div><div class='with-side'><aside class='side' aria-label='Stack &amp; Queue · Advanced'><span class='side-title'>Stack &amp; Queue · Advanced</span><a href='python-programs/stack-queue-adv-01.html' class='active'>Stack Using Single Queue (Efficient Pop)</a><a href='python-programs/stack-queue-adv-02.html'>Implement Queue Using Stack</a><a href='python-programs/stack-queue-adv-03.html'>Next Greater Element Problem</a><a href='python-programs/stack-queue-adv-04.html'>Stock Span Problem</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>STACK &amp; QUEUE · ADVANCED</span><span class='badge badge-gray'>MEDIUM</span></div><h1>Stack Using Single Queue (Efficient Pop) in Python</h1><p class='lead'>Simulate LIFO stack behavior with a single FIFO queue by rotating the existing elements after every push.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='stack-queue-adv-01' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:stack-queue-adv-01' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_01.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Stack Using Single Queue (Efficient Pop) :
+
+from collections import deque
+
+class StackUsingQueue:
+    def __init__(self):
+        self.queue = deque()
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def push(self, value):
+        size = len(self.queue)
+        self.queue.append(value)
+        for _ in range(size):
+            self.queue.append(self.queue.popleft())
+
+    def pop(self):
+        if self.is_empty():
+            print(&quot;Stack Underflow&quot;)
+            return None
+        return self.queue.popleft()
+
+    def peek(self):
+        if self.is_empty():
+            print(&quot;Stack is empty&quot;)
+            return None
+        return self.queue[0]
+
+    def display(self):
+        print(list(self.queue))
+
+stack = StackUsingQueue()
+stack.push(10)
+stack.push(20)
+stack.push(30)
+
+print(&quot;Stack:&quot;)
+stack.display()
+print(&quot;Top element:&quot;, stack.peek())
+print(&quot;Popped:&quot;, stack.pop())
+print(&quot;Stack after pop:&quot;)
+stack.display()
+
+
+# Output :
+
+# [30, 20, 10]
+# Top element: 30
+# Popped: 30
+# Stack after pop:
+# [20, 10]</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>It shows how one data structure can be used to reproduce the behavior of another and strengthens your understanding of operation trade-offs.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>Push 10, then 20, then 30. After each push, rotate the older elements behind the new value, so the queue becomes [30, 20, 10]. Removing from the front therefore behaves like stack pop.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Keep one queue containing the stack elements.</li><li>Append the new value to the back of the queue.</li><li>Remember the queue size before the append.</li><li>Rotate exactly that many old elements from front to back.</li><li>The newest value is now at the front, so pop and peek are O(1).</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>size = len(self.queue)</code></td><td>Stores how many old elements must be rotated.</td></tr><tr><td><code data-code>self.queue.append(value)</code></td><td>Adds the new stack top to the queue.</td></tr><tr><td><code data-code>for _ in range(size)</code></td><td>Visits only the elements that existed before this push.</td></tr><tr><td><code data-code>self.queue.append(self.queue.popleft())</code></td><td>Moves an old element behind the new top.</td></tr><tr><td><code data-code>return self.queue.popleft()</code></td><td>Removes the front, which represents the stack top.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>Push 10</code></td><td>Queue: [10]</td></tr><tr><td><code>Push 20</code></td><td>Append 20, rotate 10 → [20, 10]</td></tr><tr><td><code>Push 30</code></td><td>Append 30, rotate 20 and 10 → [30, 20, 10]</td></tr><tr><td><code>Peek</code></td><td>30</td></tr><tr><td><code>Pop</code></td><td>Removes 30 → [20, 10]</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n) push, O(1) pop/peek</p><p><strong>Space:</strong> O(n)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Rotating the newly added value too.</li><li>Rotating the wrong number of elements.</li><li>Assuming both push and pop can be O(1) with this single-queue strategy.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it as an interview exercise for understanding data-structure simulation and operation trade-offs.</p><p><strong>Avoid it when:</strong> Avoid this implementation when a normal stack is available and performance simplicity matters.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why is push O(n) here?</li><li>How would the complexity change if pop were made expensive instead?</li><li>Can a stack be implemented with a queue while keeping both push and pop O(1)?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Implement the version with O(1) push and O(n) pop.</li><li>Explain the invariant after every push.</li><li>Compare one queue versus two queues.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/stack-queue-06.html'>← Circular Queue Using Linked List</a><a class='button button-primary' href='python-programs/stack-queue-adv-02.html'>Implement Queue Using Stack →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

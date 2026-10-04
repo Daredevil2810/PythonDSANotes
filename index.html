@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <title>Python DSA Notes — Free Python &amp; DSA Tutorials with Interview Programs</title>
+  <meta name="description" content="Learn Python and data structures &amp; algorithms (DSA) for free: plain-language lessons, 91 interview programs with dry runs, a roadmap and interview…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Python DSA Notes — Free Python &amp; DSA Tutorials with Interview Programs">
+  <meta property="og:description" content="Learn Python and data structures &amp; algorithms (DSA) for free: plain-language lessons, 91 interview programs with dry runs, a roadmap and interview…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Python DSA Notes — Free Python &amp; DSA Tutorials with Interview Programs">
+  <meta name="twitter:description" content="Learn Python and data structures &amp; algorithms (DSA) for free: plain-language lessons, 91 interview programs with dry runs, a roadmap and interview…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/","inLanguage":"en","description":"Free Python and DSA tutorials, interview programs and practice."}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i> Free · Static · Always online</div>
+        <h1>Learn Python.<br><span class="grad">Master DSA.</span><br>Crack interviews.</h1>
+        <p>Every program explained in plain language, with real-life examples, so you can go from “I don’t get this code” to “I can explain it in an interview.”</p>
+
+        <button class="hero-search" data-search aria-label="Search the site">
+          <span aria-hidden="true">⌕</span><span>Search Python, DSA, algorithms…</span><kbd>/</kbd>
+        </button>
+        <div class="chips" aria-label="Quick searches">
+          <button class="chip" data-search="binary">binary search</button>
+          <button class="chip" data-search="palindrome">palindrome</button>
+          <button class="chip" data-search="linked list">linked list</button>
+          <button class="chip" data-search="knapsack">knapsack</button>
+          <button class="chip" data-search="lambda">lambda</button>
+        </div>
+      </div>
+
+      <div class="hero-card glass" aria-label="Example program">
+        <div class="window-bar"><i></i><i></i><i></i><small>binary_search.py</small></div>
+<pre><code data-hl>def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+
+    while low &lt;= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] &lt; target:
+            low = mid + 1      # ignore the left half
+        else:
+            high = mid - 1     # ignore the right half
+
+    return -1</code></pre>
+        <div class="complexity-row"><span>Time <b>O(log n)</b></span><span>Space <b>O(1)</b></span><span>Pattern <b>Divide &amp; Conquer</b></span></div>
+      </div>
+    </section>
+
+    <!-- STATS (filled from real data) -->
+    <div class="stats reveal" id="stats" aria-label="Site at a glance"></div>
+
+    <!-- PATHS -->
+    <section class="section reveal" id="paths">
+      <div class="section-heading">
+        <div><div class="eyebrow">Where to start</div><h2>Four ways in</h2></div>
+        <p>Pick a path. Everything is connected, so a Python lesson links to the program that uses it.</p>
+      </div>
+      <div class="path-grid">
+        <a class="path-card" data-c="blue" href="python.html">
+          <div class="path-icon">Py</div><span class="badge badge-blue">PYTHON</span>
+          <h3>Python A to Z</h3><p>17 lessons: data types, loops, functions, OOP, files and exceptions, explained line by line.</p>
+          <div class="path-foot"><span><b>17</b> lessons</span><span class="link-arrow">Open →</span></div>
+        </a>
+        <a class="path-card" data-c="orange" href="programs.html">
+          <div class="path-icon">{ }</div><span class="badge badge-orange">PROGRAMS</span>
+          <h3>Interview Programs</h3><p>The classic programs every fresher is asked: arrays, recursion, sorting, linked lists, DP and more.</p>
+          <div class="path-foot"><span><b id="pc-programs">91</b> programs</span><span class="link-arrow">Browse →</span></div>
+        </a>
+        <a class="path-card" data-c="teal" href="dsa.html">
+          <div class="path-icon">DS</div><span class="badge badge-teal">DSA</span>
+          <h3>DSA Roadmap</h3><p>Six levels from programming logic to dynamic programming, in the order that makes sense.</p>
+          <div class="path-foot"><span><b>6</b> levels</span><span class="link-arrow">See roadmap →</span></div>
+        </a>
+        <a class="path-card" data-c="purple" href="interview.html">
+          <div class="path-icon">?</div><span class="badge badge-purple">INTERVIEW</span>
+          <h3>Interview Prep</h3><p>Python, DSA, Django and HR questions with model answers, plus 9 patterns and 30 coding problems.</p>
+          <div class="path-foot"><span><b>120</b> questions + <b>30</b> problems</span><span class="link-arrow">Open →</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- LESSON ANATOMY + DEMO -->
+    <section class="section reveal" id="how">
+      <div class="section-heading">
+        <div><div class="eyebrow">How lessons work</div><h2>Understand it, then write it</h2></div>
+        <p>Every lesson follows the same shape, so you always know where to look.</p>
+      </div>
+      <div class="anatomy">
+        <ol class="steps-list">
+          <li>What is it?</li><li>Why do we need it?</li><li>Real-life example</li><li>How it works</li>
+          <li>Python code</li><li>Line-by-line meaning</li><li>Dry run</li><li>Time &amp; space</li>
+          <li>Common mistakes</li><li>When to use it</li><li>Interview questions</li><li>Try it yourself</li>
+        </ol>
+
+        <div class="demo-card" id="demo" aria-label="Interactive lesson preview">
+          <div class="demo-top">
+            <strong>Binary Search · target 23</strong>
+            <div class="toggle" role="group" aria-label="Explanation style">
+              <button class="on" data-mode="simple">Explain simply</button>
+              <button data-mode="tech">Technical</button>
+            </div>
+          </div>
+          <div class="demo-body">
+            <div class="bs-track" id="bsTrack" aria-hidden="true"></div>
+            <div id="bsText" aria-live="polite"></div>
+          </div>
+          <div class="demo-foot">
+            <button class="button button-small button-primary" id="bsNext">Next step →</button>
+            <button class="button button-small button-ghost" id="bsReset">Restart</button>
+            <small id="bsStep">Step 1 of 4</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="section reveal" id="roadmap">
+      <div class="section-heading">
+        <div><div class="eyebrow">The plan</div><h2>From zero to interview-ready</h2></div>
+        <a class="link-arrow" href="dsa.html">Full DSA roadmap →</a>
+      </div>
+      <div class="roadmap" id="roadmapList"></div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section class="section reveal" id="progress">
+      <div class="section-heading">
+        <div><div class="eyebrow">Your progress</div><h2>Pick up where you left off</h2></div>
+        <p>Saved only in this browser. No account, no tracking. Clearing site data resets it.</p>
+      </div>
+      <div class="progress-panel">
+        <div>
+          <div class="ring-wrap">
+            <div class="ring" id="progressRing" role="img" aria-label="Overall progress"><span>0%</span></div>
+            <div><h3>Programs</h3><p id="progressText"></p><div id="continueBox" style="margin-top:14px"></div></div>
+          </div>
+        </div>
+        <div class="bars" id="progressBars"></div>
+      </div>
+    </section>
+
+    <!-- BOOKMARKS -->
+    <section class="section reveal" id="bookmarks">
+      <div class="section-heading">
+        <div><div class="eyebrow">Saved for later</div><h2>Your bookmarks</h2></div>
+        <span class="status live" id="bookmarkCount">0 saved</span>
+      </div>
+      <div class="bookmark-grid" id="bookmarkList"></div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="section reveal" id="featured">
+      <div class="section-heading">
+        <div><div class="eyebrow">Start here</div><h2>Popular interview programs</h2></div>
+        <a class="link-arrow" href="programs.html">All programs →</a>
+      </div>
+      <div class="prog-grid" id="featuredGrid"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/data.js"></script>
+  <!-- Load the complete program lesson registry before app.js so homepage drawers
+       show the same full explanations as the Programs page. -->
+  <script src="assets/js/program-lessons.js"></script>
+  <script src="assets/js/program-lessons-stack.js"></script>
+  <script src="assets/js/program-lessons-advanced-stack.js"></script>
+  <script src="assets/js/program-lessons-dp.js"></script>
+  <script src="assets/js/program-lessons-bit.js"></script>
+  <script src="assets/js/program-lessons-patterns.js"></script>
+  <script src="assets/js/program-lessons-linked.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/interview-dsa.js"></script>
+  <script src="assets/js/interview-python.js"></script>
+  <script src="assets/js/interview-django.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map) in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to two sum problem (Find two numbers with target sum) using Dictionary (Hash Map). Find a target-sum pair by remembering values already seen…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/arrays-strings-05-2.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map) in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to two sum problem (Find two numbers with target sum) using Dictionary (Hash Map). Find a target-sum pair by remembering values already seen…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/arrays-strings-05-2.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map) in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to two sum problem (Find two numbers with target sum) using Dictionary (Hash Map). Find a target-sum pair by remembering values already seen…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map)","item":"https://YOUR-SITE-URL/python-programs/arrays-strings-05-2.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map) in Python","description":"Python program to two sum problem (Find two numbers with target sum) using Dictionary (Hash Map). Find a target-sum pair by remembering values already seen…","url":"https://YOUR-SITE-URL/python-programs/arrays-strings-05-2.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Arrays & Strings","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/arrays-strings-05-2.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Arrays &amp; Strings</span></div></div><div class='with-side'><aside class='side' aria-label='Arrays &amp; Strings'><span class='side-title'>Arrays &amp; Strings</span><a href='python-programs/arrays-strings-01.html'>Find the Largest Element in an Array</a><a href='python-programs/arrays-strings-02.html'>Reverse an Array</a><a href='python-programs/arrays-strings-03.html'>Check if a String is a Palindrome</a><a href='python-programs/arrays-strings-04.html'>Count Occurrences of an Element in an Array</a><a href='python-programs/arrays-strings-05-1.html'>Two sum problem (Find two numbers with target sum)</a><a href='python-programs/arrays-strings-05-2.html' class='active'>Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map)</a><a href='python-programs/arrays-strings-06.html'>Move Zeros to end of array</a><a href='python-programs/arrays-strings-07.html'>Find second largest element in array</a><a href='python-programs/arrays-strings-08.html'>Reverse a string</a><a href='python-programs/arrays-strings-09.html'>Find factorial of a number</a><a href='python-programs/arrays-strings-10.html'>Check Prime number</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>ARRAYS &amp; STRINGS</span><span class='badge badge-gray'>MEDIUM</span></div><h1>Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map) in Python</h1><p class='lead'>Find a target-sum pair by remembering values already seen, so each new value can be checked against its required complement in near-constant average time.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='arrays-strings-05-2' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:arrays-strings-05-2' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_05.2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Two sum problem (Find two numbers with target sum)
+# using Dictionary (Hash Map) :
+
+def two_sum_all_pairs(arr, target):
+    seen = {}
+    pairs = []
+
+    for i, num in enumerate(arr):
+        complement = target - num
+        if complement in seen:
+            pairs.append((seen[complement], i))  # store indexes
+        seen[num] = i   # save current number and index
+    
+    return pairs
+
+# Example
+arr = [2, 7, 11, 15, 1, 8, 2]
+target = 9
+result = two_sum_all_pairs(arr, target)
+
+if result:
+    for i, j in result:
+        print(f&quot;Pair found: {arr[i]} + {arr[j]} = {target} &quot;
+              f&quot;\nTheir Index positions: {i}, {j}&quot;)
+else:
+    print(&quot;No pair found&quot;)
+
+
+# Output : 
+
+# Pair found: 2 + 7 = 9 
+# Their Index positions: 0, 1
+# Pair found: 1 + 8 = 9
+# Their Index positions: 4, 5
+# Pair found: 7 + 2 = 9
+# Their Index positions: 1, 6</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>This is a classic example of using extra memory to reduce repeated searching. Instead of scanning the rest of the array for every number, store what you have already seen.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>For target 9 and current number 7, the needed complement is 2. If 2 is already in the dictionary, the pair is immediately available.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Create a dictionary that maps a value to its earlier index.</li><li>For each number, calculate complement = target - number.</li><li>If the complement is already stored, a valid pair has been found.</li><li>Otherwise store the current number and continue.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>seen = {}</code></td><td>Create a dictionary for values already visited.</td></tr><tr><td><code data-code>complement = target - num</code></td><td>Calculate the value needed to reach the target.</td></tr><tr><td><code data-code>if complement in seen</code></td><td>Check whether that needed value appeared earlier.</td></tr><tr><td><code data-code>pairs.append(...)</code></td><td>Use the stored index and current index to form the answer.</td></tr><tr><td><code data-code>seen[num] = i</code></td><td>Remember the current value for future elements.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>2</code></td><td>Need 7 → not seen → store 2</td></tr><tr><td><code>7</code></td><td>Need 2 → seen at index 0 → pair found</td></tr><tr><td><code>11</code></td><td>Need -2 → not seen</td></tr><tr><td><code>15</code></td><td>Need -6 → not seen</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n) average</p><p><strong>Space:</strong> O(n)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Checking the dictionary after inserting the current value can accidentally reuse the same element when the target is twice that value.</li><li>For duplicate values, decide whether you need the first index, last index, or all valid pairs.</li><li>The O(1) dictionary lookup is average-case, not a mathematical guarantee for every implementation detail.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use this pattern when you repeatedly need to ask whether a complementary value has already appeared.</p><p><strong>Avoid it when:</strong> If memory is severely constrained or the input is tiny, the simpler brute-force version may be preferable.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why does the dictionary reduce the time from O(n²) to O(n) average?</li><li>Why do we calculate the complement before storing the current number?</li><li>How would you solve the problem if the array were already sorted?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Return the first valid index pair.</li><li>Solve Two Sum for a sorted array using two pointers.</li><li>Adapt the idea to find whether any three numbers sum to a target.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/arrays-strings-05-1.html'>← Two sum problem (Find two numbers with target sum)</a><a class='button button-primary' href='python-programs/arrays-strings-06.html'>Move Zeros to end of array →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

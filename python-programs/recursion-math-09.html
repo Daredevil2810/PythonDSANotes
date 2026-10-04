@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Count Number of Digits using Recursion in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to count Number of Digits using Recursion. Count how many times a number can be divided by 10 before reaching zero.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/recursion-math-09.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Count Number of Digits using Recursion in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to count Number of Digits using Recursion. Count how many times a number can be divided by 10 before reaching zero.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/recursion-math-09.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Count Number of Digits using Recursion in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to count Number of Digits using Recursion. Count how many times a number can be divided by 10 before reaching zero.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Count Number of Digits using Recursion","item":"https://YOUR-SITE-URL/python-programs/recursion-math-09.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Count Number of Digits using Recursion in Python","description":"Python program to count Number of Digits using Recursion. Count how many times a number can be divided by 10 before reaching zero.","url":"https://YOUR-SITE-URL/python-programs/recursion-math-09.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Recursion & Math","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/recursion-math-09.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Recursion &amp; Math</span></div></div><div class='with-side'><aside class='side' aria-label='Recursion &amp; Math'><span class='side-title'>Recursion &amp; Math</span><a href='python-programs/recursion-math-01.html'>Factorial using Recursion</a><a href='python-programs/recursion-math-02.html'>Fibonacci series using Recursion</a><a href='python-programs/recursion-math-03.html'>GCD (Greatest Common Divisor) using Recursion</a><a href='python-programs/recursion-math-04.html'>LCM (Least Common Multiple) using GCD</a><a href='python-programs/recursion-math-05.html'>Power of a number using Recursion</a><a href='python-programs/recursion-math-06.html'>Sum of digits using Recursion</a><a href='python-programs/recursion-math-07.html'>Reverse a number using Recursion</a><a href='python-programs/recursion-math-08.html'>Check Palindrome number using Recursion</a><a href='python-programs/recursion-math-09.html' class='active'>Count Number of Digits using Recursion</a><a href='python-programs/recursion-math-10.html'>Factorial of a number using Recursion</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-purple'>RECURSION &amp; MATH</span><span class='badge badge-gray'>EASY</span></div><h1>Count Number of Digits using Recursion in Python</h1><p class='lead'>Count how many times a number can be divided by 10 before reaching zero.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='recursion-math-09' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:recursion-math-09' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_09.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Count Number of Digits using Recursion : 
+
+def count_digits(n):
+    if n == 0:
+        return 0
+    else:
+        return 1 + count_digits(n // 10)
+    
+n = 12345
+print(f&quot;Number of digits in {n} is {count_digits(n)}&quot;)
+
+
+# Output : 
+
+# Number of digits in 12345 is 5</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>It reinforces the same digit-decomposition pattern used for digit sums and reversal.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>12345 becomes 1234, 123, 12, 1, and 0. There were five removals, so there are five digits.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>If n is zero, return zero.</li><li>Count one digit for the current number.</li><li>Remove the last digit with n // 10.</li><li>Add one to the recursive result.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>if n == 0</code></td><td>No digits remain.</td></tr><tr><td><code data-code>1 + count_digits(n // 10)</code></td><td>Count the current digit and recurse on the shortened number.</td></tr><tr><td><code data-code>n // 10</code></td><td>Drops the rightmost digit.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>12345</code></td><td>1 + count(1234)</td></tr><tr><td><code>1234</code></td><td>1 + count(123)</td></tr><tr><td><code>123</code></td><td>1 + count(12)</td></tr><tr><td><code>12</code></td><td>1 + count(1)</td></tr><tr><td><code>1</code></td><td>1 + count(0)</td></tr><tr><td><code>0</code></td><td>Base case → 0</td></tr><tr><td><code>Unwind</code></td><td>1+1+1+1+1 = 5</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(d), where d is the number of digits</p><p><strong>Space:</strong> O(d) call stack</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>The special case n = 0 is important because zero has one digit in normal decimal notation.</li><li>Negative inputs need explicit handling.</li><li>Using floating-point division changes the type and breaks the intended integer recursion.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it as a recursion exercise or as a building block for digit-based problems.</p><p><strong>Avoid it when:</strong> Use len(str(abs(n))) when conversion to a string is acceptable and clarity is the priority.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why does integer division by 10 remove a digit?</li><li>How should 0 be handled?</li><li>How would you count digits without recursion?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Count digits iteratively.</li><li>Count only even digits.</li><li>Find the number of digits in the binary representation.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/recursion-math-08.html'>← Check Palindrome number using Recursion</a><a class='button button-primary' href='python-programs/recursion-math-10.html'>Factorial of a number using Recursion →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

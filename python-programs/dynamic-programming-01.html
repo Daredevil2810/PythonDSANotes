@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Fibonacci Series Using Dynamic Programming in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to fibonacci Series Using Dynamic Programming. Build the Fibonacci sequence from the smallest known answers instead of recursively…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/dynamic-programming-01.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Fibonacci Series Using Dynamic Programming in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to fibonacci Series Using Dynamic Programming. Build the Fibonacci sequence from the smallest known answers instead of recursively…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/dynamic-programming-01.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fibonacci Series Using Dynamic Programming in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to fibonacci Series Using Dynamic Programming. Build the Fibonacci sequence from the smallest known answers instead of recursively…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Fibonacci Series Using Dynamic Programming","item":"https://YOUR-SITE-URL/python-programs/dynamic-programming-01.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Fibonacci Series Using Dynamic Programming in Python","description":"Python program to fibonacci Series Using Dynamic Programming. Build the Fibonacci sequence from the smallest known answers instead of recursively…","url":"https://YOUR-SITE-URL/python-programs/dynamic-programming-01.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Dynamic Programming","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/dynamic-programming-01.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Dynamic Programming</span></div></div><div class='with-side'><aside class='side' aria-label='Dynamic Programming'><span class='side-title'>Dynamic Programming</span><a href='python-programs/dynamic-programming-01.html' class='active'>Fibonacci Series Using Dynamic Programming</a><a href='python-programs/dynamic-programming-02.html'>Longest Common Subsequence (LCS) Problem</a><a href='python-programs/dynamic-programming-03.html'>0/1 Knapsack Problem</a><a href='python-programs/dynamic-programming-04.html'>Minimum Coin Change Problem</a><a href='python-programs/dynamic-programming-05.html'>Maximum Subarray Sum Problem (Kadane’s Algorithm)</a><a href='python-programs/dynamic-programming-06.html'>Edit Distance Problem (Levenshtein Distance)</a><a href='python-programs/dynamic-programming-07.html'>Longest Increasing Subsequence (LIS) Problem</a><a href='python-programs/dynamic-programming-08.html'>Maximum Product Subarray Problem</a><a href='python-programs/dynamic-programming-09.html'>Minimum Path Sum in Matrix Problem</a><a href='python-programs/dynamic-programming-10.html'>Maximum Sum Path in a Matrix Problem</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-purple'>DYNAMIC PROGRAMMING</span><span class='badge badge-gray'>EASY</span></div><h1>Fibonacci Series Using Dynamic Programming in Python</h1><p class='lead'>Build the Fibonacci sequence from the smallest known answers instead of recursively recomputing the same values.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='dynamic-programming-01' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:dynamic-programming-01' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_01.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Fibonacci Series Using Dynamic Programming :
+
+def fibonacci_dp(n):
+    if n == 0: return []
+    if n == 1: return [0]
+
+    dp = [0] * n
+    dp[0], dp[1] = 0, 1
+
+    for i in range(2, n):
+        dp[i] = dp[i-1] + dp[i-2]
+
+    return dp
+
+n = 10
+fib = fibonacci_dp(n)
+print(&quot;Fibonacci Series:&quot;, fib)
+
+
+# Output :
+
+# Fibonacci Series: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>Fibonacci is the simplest example of overlapping subproblems. It shows how a DP table can turn repeated recursive work into a single forward pass.</p><div class='explain'><div class='explain-tag'>Simple example</div><p></p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Define dp[i] as the ith Fibonacci number.</li><li>Set dp[0] = 0 and dp[1] = 1.</li><li>For every later position, use dp[i] = dp[i-1] + dp[i-2].</li><li>Return the completed sequence.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>dp = [0] * n</code></td><td>Creates storage for every Fibonacci state.</td></tr><tr><td><code data-code>dp[0], dp[1] = 0, 1</code></td><td>Sets the two base cases.</td></tr><tr><td><code data-code>for i in range(2, n)</code></td><td>Builds states from left to right.</td></tr><tr><td><code data-code>dp[i] = dp[i-1] + dp[i-2]</code></td><td>Uses the two previously solved states.</td></tr><tr><td><code data-code>return dp</code></td><td>Returns the sequence stored in the table.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>dp[0], dp[1]</code></td><td>[0, 1]</td></tr><tr><td><code>i = 2</code></td><td>dp[2] = 1</td></tr><tr><td><code>i = 3</code></td><td>dp[3] = 2</td></tr><tr><td><code>i = 4</code></td><td>dp[4] = 3</td></tr><tr><td><code>i = 5</code></td><td>dp[5] = 5</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n)</p><p><strong>Space:</strong> O(n)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>For n = 0, the table should be handled before accessing dp[1].</li><li>Do not confuse the Fibonacci index with the number of terms requested.</li><li>The full table is unnecessary if only the final Fibonacci value is needed.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it when you need the sequence or want the clearest introduction to bottom-up DP.</p><p><strong>Avoid it when:</strong> If only one Fibonacci value is required and memory matters, keep only the previous two values.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>What are the states in this DP?</li><li>Why is this O(n) instead of exponential?</li><li>How can the space be reduced to O(1)?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Rewrite it using only two variables.</li><li>Write a top-down memoized version.</li><li>Compare recursive, memoized, and tabulated Fibonacci.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/stack-queue-adv-04.html'>← Stock Span Problem</a><a class='button button-primary' href='python-programs/dynamic-programming-02.html'>Longest Common Subsequence (LCS) Problem →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

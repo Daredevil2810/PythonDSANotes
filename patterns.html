@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <title>Problem-Solving Patterns for Coding Interviews — Two Pointers, Sliding Window</title>
+  <meta name="description" content="Learn the coding-interview patterns that solve most problems: two pointers, sliding window, prefix sum, binary search, DFS/BFS and more, with Python code.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/patterns.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Problem-Solving Patterns for Coding Interviews — Two Pointers, Sliding Window">
+  <meta property="og:description" content="Learn the coding-interview patterns that solve most problems: two pointers, sliding window, prefix sum, binary search, DFS/BFS and more, with Python code.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/patterns.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Problem-Solving Patterns for Coding Interviews — Two Pointers, Sliding Window">
+  <meta name="twitter:description" content="Learn the coding-interview patterns that solve most problems: two pointers, sliding window, prefix sum, binary search, DFS/BFS and more, with Python code.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Problem-Solving Patterns for Coding Interviews","item":"https://YOUR-SITE-URL/patterns.html"}]}</script>
+  <!--seo:head-end-->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="patterns">
+<div id="site-header"></div>
+<main id="main">
+<div class="page-head"><div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Interview Prep</span><span>/</span><span>Patterns</span></div><h1>Problem-solving <span class="grad">patterns</span></h1><p>Learn to recognise the shape of a problem before you start writing code.</p></div>
+<div id="content"><!--seo:start--><section class='seo-static' id='seo-static'><h2>Two Pointers</h2><p><strong>When to use:</strong> Sorted data, pairs, opposite ends, or two moving positions.</p><p>Use two indices and move them according to an invariant instead of checking every pair.</p><h2>Sliding Window</h2><p><strong>When to use:</strong> Contiguous subarray/substring plus a condition that changes as the range moves.</p><p>Maintain one window and update its state incrementally instead of recomputing every range.</p><h2>Prefix Sum</h2><p><strong>When to use:</strong> Many range-sum queries or a running cumulative quantity.</p><p>Precompute cumulative totals so a range can be answered by subtracting two prefixes.</p><h2>Binary Search on a Monotonic Space</h2><p><strong>When to use:</strong> The answer space or predicate changes from false to true (or true to false) once.</p><p>Instead of searching values only, search an ordered answer space and repeatedly discard half of it.</p><h2>Recursion / Divide the Problem</h2><p><strong>When to use:</strong> A problem naturally becomes the same problem on a smaller input.</p><p>Define a base case and reduce the problem until that base case is reached.</p><h2>Backtracking</h2><p><strong>When to use:</strong> Generate combinations, permutations, paths, or choices while undoing decisions.</p><p>Choose, explore, then undo the choice so the same state can be reused for another branch.</p><h2>Hash Map / Frequency Counting</h2><p><strong>When to use:</strong> Fast membership, frequency, duplicate detection, complements, or grouping.</p><p>Trade extra memory for near-constant expected lookup and update time.</p><h2>Monotonic Stack</h2><p><strong>When to use:</strong> Next greater/smaller element, nearest boundary, or a value that remains useful until a stronger value arrives.</p><p>Keep candidates in monotonic order and remove entries that can no longer be the answer.</p><h2>BFS / DFS Traversal</h2><p><strong>When to use:</strong> Graph/tree traversal, reachability, components, shortest unweighted paths, or exhaustive exploration.</p><p>Visit each reachable state once while choosing either level-order exploration (BFS) or depth-first exploration (DFS).</p></section><!--seo:end--></div>
+</main><div id="site-footer"></div>
+<script src="assets/js/data.js"></script><script src="assets/js/content.js"></script><script src="assets/js/interview-patterns.js"></script><script src="assets/js/app.js"></script><script src="assets/js/sections.js"></script>
+</body></html>

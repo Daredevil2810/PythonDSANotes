@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Inverted Pyramid Pattern in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to inverted Pyramid Pattern. Use the same odd-width pyramid formula while decreasing the row size from rows to 1.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/patterns-06.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Inverted Pyramid Pattern in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to inverted Pyramid Pattern. Use the same odd-width pyramid formula while decreasing the row size from rows to 1.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/patterns-06.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inverted Pyramid Pattern in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to inverted Pyramid Pattern. Use the same odd-width pyramid formula while decreasing the row size from rows to 1.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Inverted Pyramid Pattern","item":"https://YOUR-SITE-URL/python-programs/patterns-06.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Inverted Pyramid Pattern in Python","description":"Python program to inverted Pyramid Pattern. Use the same odd-width pyramid formula while decreasing the row size from rows to 1.","url":"https://YOUR-SITE-URL/python-programs/patterns-06.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Pattern Printing","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/patterns-06.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Pattern Printing</span></div></div><div class='with-side'><aside class='side' aria-label='Pattern Printing'><span class='side-title'>Pattern Printing</span><a href='python-programs/patterns-01.html'>Solid Rectangle Pattern</a><a href='python-programs/patterns-02.html'>Hollow Rectangle Pattern</a><a href='python-programs/patterns-03.html'>Right Triangle Pattern</a><a href='python-programs/patterns-04.html'>Inverted Right Triangle Pattern</a><a href='python-programs/patterns-05.html'>Pyramid Pattern</a><a href='python-programs/patterns-06.html' class='active'>Inverted Pyramid Pattern</a><a href='python-programs/patterns-07.html'>Diamond Pattern</a><a href='python-programs/patterns-08.html'>Hollow Diamond Pattern</a><a href='python-programs/patterns-09.html'>Number Pyramid Pattern</a><a href='python-programs/patterns-10.html'>Floyd’s Triangle Pattern</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-orange'>PATTERN PRINTING</span><span class='badge badge-gray'>EASY</span></div><h1>Inverted Pyramid Pattern in Python</h1><p class='lead'>Use the same odd-width pyramid formula while decreasing the row size from rows to 1.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='patterns-06' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:patterns-06' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_06.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Inverted Pyramid Pattern :
+
+rows = int(input(&quot;Enter number of rows: &quot;))
+
+for i in range(rows, 0, -1):
+    print(&quot; &quot; * (rows - i) + &quot;*&quot; * (2 * i - 1))
+
+
+# Output : 
+
+# Enter number of rows: 5
+# *********
+#  *******
+#   *****
+#    ***
+#     *</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>It combines descending iteration with the spacing formula used by the normal pyramid.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>For 5 rows, star counts are 9, 7, 5, 3, 1 while leading spaces increase from 0 to 4.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Start i at rows and count down to 1.</li><li>Print rows - i spaces.</li><li>Print 2*i - 1 stars.</li><li>Repeat until i reaches 1.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>for i in range(rows, 0, -1):</code></td><td>Visits pyramid widths from largest to smallest.</td></tr><tr><td><code data-code>&quot; &quot; * (rows - i)</code></td><td>Adds more indentation as the shape narrows.</td></tr><tr><td><code data-code>&quot;*&quot; * (2 * i - 1)</code></td><td>Keeps each row an odd width.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>i = 5</code></td><td>0 spaces + 9 stars</td></tr><tr><td><code>i = 4</code></td><td>1 space + 7 stars</td></tr><tr><td><code>i = 3</code></td><td>2 spaces + 5 stars</td></tr><tr><td><code>i = 1</code></td><td>4 spaces + 1 star</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(rows²) characters overall</p><p><strong>Space:</strong> O(rows) for the temporary row string</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Keeping rows-i as the star count.</li><li>Forgetting that the indentation grows while i decreases.</li><li>Using an even-width star formula.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it to practice reversing a centered pattern while keeping its geometry aligned.</p><p><strong>Avoid it when:</strong> Avoid it when a simple left-aligned decreasing triangle is sufficient.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>What changes between the normal and inverted pyramid?</li><li>Why does indentation increase?</li><li>Why does the star count remain odd?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Combine this with the normal pyramid.</li><li>Replace stars with numbers.</li><li>Derive the output for rows = 3 by hand.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/patterns-05.html'>← Pyramid Pattern</a><a class='button button-primary' href='python-programs/patterns-07.html'>Diamond Pattern →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

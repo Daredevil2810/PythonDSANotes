@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Counting sort in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to counting sort. Sort non-negative integers by counting how often each value occurs and using cumulative counts to determine each value&#39;s…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/searching-sorting-10.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Counting sort in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to counting sort. Sort non-negative integers by counting how often each value occurs and using cumulative counts to determine each value&#39;s…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/searching-sorting-10.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Counting sort in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to counting sort. Sort non-negative integers by counting how often each value occurs and using cumulative counts to determine each value&#39;s…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Counting sort","item":"https://YOUR-SITE-URL/python-programs/searching-sorting-10.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Counting sort in Python","description":"Python program to counting sort. Sort non-negative integers by counting how often each value occurs and using cumulative counts to determine each value's…","url":"https://YOUR-SITE-URL/python-programs/searching-sorting-10.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Searching & Sorting","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/searching-sorting-10.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Searching &amp; Sorting</span></div></div><div class='with-side'><aside class='side' aria-label='Searching &amp; Sorting'><span class='side-title'>Searching &amp; Sorting</span><a href='python-programs/searching-sorting-01.html'>Linear Search</a><a href='python-programs/searching-sorting-02.html'>Binary Search</a><a href='python-programs/searching-sorting-03.html'>Binary Search (Recursive Method)</a><a href='python-programs/searching-sorting-04.html'>Bubble sort</a><a href='python-programs/searching-sorting-05.html'>Selection sort</a><a href='python-programs/searching-sorting-06.html'>Insertion sort</a><a href='python-programs/searching-sorting-07.html'>Merge Sort</a><a href='python-programs/searching-sorting-08.html'>Quick Sort</a><a href='python-programs/searching-sorting-09.html'>Heap sort</a><a href='python-programs/searching-sorting-10.html' class='active'>Counting sort</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>SEARCHING &amp; SORTING</span><span class='badge badge-gray'>MEDIUM</span></div><h1>Counting sort in Python</h1><p class='lead'>Sort non-negative integers by counting how often each value occurs and using cumulative counts to determine each value&#39;s final position.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='searching-sorting-10' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:searching-sorting-10' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_10.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Counting sort systematically : 
+
+# Counting Sort counts occurrences of each element and calculates their positions in the sorted array.
+
+def counting_sort(arr):
+    max_val = max(arr)
+    count = [0] * (max_val + 1)
+    output = [0] * len(arr)
+
+    for num in arr:  # Count occurrences
+        count[num] += 1
+
+    for i in range(1, len(count)):  # Cumulative count
+        count[i] += count[i - 1]
+
+    for num in reversed(arr):  # Build output
+        output[count[num] - 1] = num
+        count[num] -= 1
+
+    for i in range(len(arr)):
+        arr[i] = output[i]  # Copy back
+
+arr = [4, 2, 2, 8, 3, 3, 1]
+counting_sort(arr)
+print(&quot;Sorted array:&quot;, arr)
+
+
+# Output :
+
+# Sorted array: [1, 2, 2, 3, 3, 4, 8]</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>Counting sort can beat comparison-based sorting when the range of integer values is small relative to the number of elements.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>For [4,2,2,8,3,3,1], count how many 1s, 2s, 3s, 4s and so on occur, then use cumulative positions to build the sorted output.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Find the maximum value to size the count array.</li><li>Count each input value.</li><li>Convert counts into cumulative positions.</li><li>Traverse the input backward and place each value into its final output position.</li><li>Copy the output back into the input array.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>count = [0] * (max_val + 1)</code></td><td>Create one counter for each possible integer value.</td></tr><tr><td><code data-code>count[num] += 1</code></td><td>Record each occurrence.</td></tr><tr><td><code data-code>count[i] += count[i - 1]</code></td><td>Turn frequencies into cumulative end positions.</td></tr><tr><td><code data-code>for num in reversed(arr)</code></td><td>Process from right to left so equal values retain their relative order.</td></tr><tr><td><code data-code>output[count[num] - 1] = num</code></td><td>Place the current value at its final index.</td></tr><tr><td><code data-code>count[num] -= 1</code></td><td>Move the next available position for that value leftward.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>Input</code></td><td>[4,2,2,8,3,3,1]</td></tr><tr><td><code>Counts</code></td><td>1→1, 2→2, 3→2, 4→1, 8→1</td></tr><tr><td><code>Cumulative</code></td><td>Each count now tells how many values are &lt;= that value</td></tr><tr><td><code>Build output</code></td><td>Place values using cumulative positions</td></tr><tr><td><code>Result</code></td><td>[1,2,2,3,3,4,8]</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n + k), where k is the value range</p><p><strong>Space:</strong> O(n + k)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>This implementation assumes non-negative integer values.</li><li>A huge maximum value can make the count array impractically large.</li><li>Counting sort is not based on element comparisons, so its complexity depends on the value range.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it when values are integers and the range k is reasonably small compared with n.</p><p><strong>Avoid it when:</strong> Avoid it when the value range is enormous, sparse, or the input contains arbitrary objects.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why can Counting Sort be faster than O(n log n)?</li><li>What does k represent?</li><li>Why does processing the input backward help stability?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Modify it to support negative integers using an offset.</li><li>Implement a version that returns a new array instead of modifying the input.</li><li>Compare Counting Sort with Python&#39;s sorted() for different value ranges.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/searching-sorting-09.html'>← Heap sort</a><a class='button button-primary' href='python-programs/linked-list-01.html'>Create a Singly Linked List and Display →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

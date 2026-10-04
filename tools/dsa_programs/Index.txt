@@ -1,0 +1,31 @@
+Trees | tree-01-binary-tree | Build a Binary Tree
+Trees | tree-02-preorder | Preorder Traversal
+Trees | tree-03-inorder | Inorder Traversal
+Trees | tree-04-postorder | Postorder Traversal
+Trees | tree-05-level-order | Level Order Traversal
+Trees | tree-06-height | Maximum Depth / Height
+Trees | tree-07-leaf-count | Count Leaf Nodes
+Trees | tree-08-diameter | Binary Tree Diameter
+Trees | tree-09-balanced | Check Balanced Tree
+Trees | tree-10-bst-search | BST Search
+Trees | tree-11-bst-insert | BST Insertion
+Trees | tree-12-bst-delete | BST Deletion
+Trees | tree-13-avl-rotation | AVL Rotation — LL Case
+Trees | tree-14-serialize | Serialize & Deserialize Tree
+Graphs | graph-01-adjacency-list | Adjacency List
+Graphs | graph-02-adjacency-matrix | Adjacency Matrix
+Graphs | graph-03-bfs | Breadth-First Search
+Graphs | graph-04-dfs | Depth-First Search
+Graphs | graph-05-components | Connected Components
+Graphs | graph-06-cycle-undirected | Cycle Detection — Undirected
+Graphs | graph-07-cycle-directed | Cycle Detection — Directed
+Graphs | graph-08-bipartite | Bipartite Check
+Graphs | graph-09-topological | Topological Sort — Kahn
+Graphs | graph-10-unweighted-shortest | Shortest Path — Unweighted
+Graphs | graph-11-dijkstra | Dijkstra Shortest Path
+Graphs | graph-12-bellman-ford | Bellman-Ford
+Graphs | graph-13-floyd-warshall | Floyd-Warshall
+Graphs | graph-14-dsu | Disjoint Set Union
+Graphs | graph-15-kruskal | Kruskal MST
+Graphs | graph-16-prims | Prim MST
+Graphs | graph-17-scc | Strongly Connected Components — Kosaraju

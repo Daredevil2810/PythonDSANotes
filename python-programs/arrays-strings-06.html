@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Move Zeros to end of array in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to move Zeros to end of array. Keep non-zero values in their original relative order and fill the remaining positions with zeros.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/arrays-strings-06.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Move Zeros to end of array in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to move Zeros to end of array. Keep non-zero values in their original relative order and fill the remaining positions with zeros.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/arrays-strings-06.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Move Zeros to end of array in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to move Zeros to end of array. Keep non-zero values in their original relative order and fill the remaining positions with zeros.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Move Zeros to end of array","item":"https://YOUR-SITE-URL/python-programs/arrays-strings-06.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Move Zeros to end of array in Python","description":"Python program to move Zeros to end of array. Keep non-zero values in their original relative order and fill the remaining positions with zeros.","url":"https://YOUR-SITE-URL/python-programs/arrays-strings-06.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Arrays & Strings","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/arrays-strings-06.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Arrays &amp; Strings</span></div></div><div class='with-side'><aside class='side' aria-label='Arrays &amp; Strings'><span class='side-title'>Arrays &amp; Strings</span><a href='python-programs/arrays-strings-01.html'>Find the Largest Element in an Array</a><a href='python-programs/arrays-strings-02.html'>Reverse an Array</a><a href='python-programs/arrays-strings-03.html'>Check if a String is a Palindrome</a><a href='python-programs/arrays-strings-04.html'>Count Occurrences of an Element in an Array</a><a href='python-programs/arrays-strings-05-1.html'>Two sum problem (Find two numbers with target sum)</a><a href='python-programs/arrays-strings-05-2.html'>Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map)</a><a href='python-programs/arrays-strings-06.html' class='active'>Move Zeros to end of array</a><a href='python-programs/arrays-strings-07.html'>Find second largest element in array</a><a href='python-programs/arrays-strings-08.html'>Reverse a string</a><a href='python-programs/arrays-strings-09.html'>Find factorial of a number</a><a href='python-programs/arrays-strings-10.html'>Check Prime number</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>ARRAYS &amp; STRINGS</span><span class='badge badge-gray'>EASY</span></div><h1>Move Zeros to end of array in Python</h1><p class='lead'>Keep non-zero values in their original relative order and fill the remaining positions with zeros.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='arrays-strings-06' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:arrays-strings-06' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_06.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Move Zeros to end of array :
+
+arr = [0, 1, 0, 3, 12]
+count = 0
+
+for i in range(len(arr)):
+    if arr[i] != 0:
+        arr[count] = arr[i]
+        count += 1
+
+print(count)
+
+while count &lt; len(arr):
+    arr[count] = 0
+    count += 1
+
+print(&quot;Array after moving zeros : &quot;, arr)
+
+
+# Output : 
+
+# 3
+# Array after moving zeros :  [1, 3, 12, 0, 0]</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>The write-pointer pattern lets you rearrange an array in place without repeatedly shifting elements.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>Imagine moving all occupied seats toward the front while keeping their order, then filling the empty seats at the back.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Use count as the next position where a non-zero value should be written.</li><li>Scan every element.</li><li>When a non-zero value appears, write it at count and increment count.</li><li>After the scan, fill all remaining positions with zero.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>count = 0</code></td><td>Tracks the next write position.</td></tr><tr><td><code data-code>if arr[i] != 0</code></td><td>Keep only non-zero values during the first pass.</td></tr><tr><td><code data-code>arr[count] = arr[i]</code></td><td>Compact the non-zero values toward the front.</td></tr><tr><td><code data-code>count += 1</code></td><td>Advance the write position.</td></tr><tr><td><code data-code>while count &lt; len(arr)</code></td><td>Fill every remaining slot with zero.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>[0,1,0,3,12]</code></td><td>count=0</td></tr><tr><td><code>1</code></td><td>write at index 0 → [1,1,0,3,12]</td></tr><tr><td><code>3</code></td><td>write at index 1 → [1,3,0,3,12]</td></tr><tr><td><code>12</code></td><td>write at index 2 → [1,3,12,3,12]</td></tr><tr><td><code>Fill rest</code></td><td>[1,3,12,0,0]</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n)</p><p><strong>Space:</strong> O(1)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>This algorithm relies on preserving the order of non-zero values.</li><li>The final fill loop must begin at the number of non-zero values found.</li><li>Printing count is debugging output, not part of the requested result.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use a write pointer for stable in-place filtering or compaction problems.</p><p><strong>Avoid it when:</strong> If the input should not be modified, create a new result array instead.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>How would you solve it with two pointers?</li><li>Why is the relative order preserved?</li><li>Can you minimize the number of writes?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Move all negative numbers to one side.</li><li>Move even numbers to the front while preserving order.</li><li>Remove a chosen value in place.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/arrays-strings-05-2.html'>← Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map)</a><a class='button button-primary' href='python-programs/arrays-strings-07.html'>Find second largest element in array →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

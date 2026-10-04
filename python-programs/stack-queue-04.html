@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Queue Using Linked List in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to queue Using Linked List. Keep front at the oldest node and rear at the newest node so enqueue and dequeue remain constant time.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/stack-queue-04.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Queue Using Linked List in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to queue Using Linked List. Keep front at the oldest node and rear at the newest node so enqueue and dequeue remain constant time.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/stack-queue-04.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Queue Using Linked List in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to queue Using Linked List. Keep front at the oldest node and rear at the newest node so enqueue and dequeue remain constant time.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Queue Using Linked List","item":"https://YOUR-SITE-URL/python-programs/stack-queue-04.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Queue Using Linked List in Python","description":"Python program to queue Using Linked List. Keep front at the oldest node and rear at the newest node so enqueue and dequeue remain constant time.","url":"https://YOUR-SITE-URL/python-programs/stack-queue-04.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Stack & Queue","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/stack-queue-04.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Stack &amp; Queue</span></div></div><div class='with-side'><aside class='side' aria-label='Stack &amp; Queue'><span class='side-title'>Stack &amp; Queue</span><a href='python-programs/stack-queue-01.html'>Stack Using Array</a><a href='python-programs/stack-queue-02.html'>Stack Using Linked List</a><a href='python-programs/stack-queue-03.html'>Implement Queue Using Array</a><a href='python-programs/stack-queue-04.html' class='active'>Queue Using Linked List</a><a href='python-programs/stack-queue-05.html'>Circular Queue Using Array</a><a href='python-programs/stack-queue-06.html'>Circular Queue Using Linked List</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>STACK &amp; QUEUE</span><span class='badge badge-gray'>EASY</span></div><h1>Queue Using Linked List in Python</h1><p class='lead'>Keep front at the oldest node and rear at the newest node so enqueue and dequeue remain constant time.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='stack-queue-04' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:stack-queue-04' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_04.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Queue Using Linked List :
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    def is_empty(self):
+        return self.front is None
+
+    def enqueue(self, value):
+        new_node = Node(value)
+        if self.rear is None:
+            self.front = self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+
+    def dequeue(self):
+        if self.is_empty():
+            print(&quot;Queue Underflow&quot;)
+            return None
+        value = self.front.data
+        self.front = self.front.next
+        if self.front is None:
+            self.rear = None
+        return value
+
+    def peek(self):
+        if self.is_empty():
+            print(&quot;Queue is empty&quot;)
+            return None
+        return self.front.data
+
+    def display(self):
+        current = self.front
+        while current:
+            print(current.data, end=&quot; -&gt; &quot;)
+            current = current.next
+        print(&quot;None&quot;)
+
+queue = Queue()
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+
+print(&quot;Queue:&quot;)
+queue.display()
+print(&quot;Front element:&quot;, queue.peek())
+print(&quot;Dequeued:&quot;, queue.dequeue())
+print(&quot;Queue after dequeue:&quot;)
+queue.display()
+
+
+# Output :
+
+# Queue:
+# 10 -&gt; 20 -&gt; 30 -&gt; None
+# Front element: 10
+# Dequeued: 10
+# Queue after dequeue:
+# 20 -&gt; 30 -&gt; None</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>Maintaining both ends avoids traversing the list when adding to the rear.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>Enqueue 10, 20, 30 gives front → 10 → 20 → 30 ← rear. Dequeue removes 10.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Create a node for each incoming value.</li><li>If the queue is empty, make both front and rear point to it.</li><li>Otherwise connect rear.next to the new node and move rear.</li><li>Dequeue from front and move front forward.</li><li>When the last node is removed, reset rear to None too.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>if self.rear is None</code></td><td>Detects the empty queue.</td></tr><tr><td><code data-code>self.front = self.rear = new_node</code></td><td>First node is both ends.</td></tr><tr><td><code data-code>self.rear.next = new_node</code></td><td>Appends after the old rear.</td></tr><tr><td><code data-code>self.rear = new_node</code></td><td>Moves the rear reference.</td></tr><tr><td><code data-code>self.front = self.front.next</code></td><td>Removes the oldest node.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>Start</code></td><td>front = rear = None</td></tr><tr><td><code>Enqueue 10</code></td><td>front = rear = 10</td></tr><tr><td><code>Enqueue 20</code></td><td>10 → 20; rear = 20</td></tr><tr><td><code>Enqueue 30</code></td><td>10 → 20 → 30; rear = 30</td></tr><tr><td><code>Dequeue</code></td><td>10 removed; front = 20</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(1) enqueue/dequeue</p><p><strong>Space:</strong> O(n)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Forgetting to reset rear when the last node is dequeued.</li><li>Enqueueing without updating rear.</li><li>Using only front and then traversing to the end.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it when a dynamically sized FIFO queue with constant-time ends is useful.</p><p><strong>Avoid it when:</strong> Avoid it when array-based contiguous storage is preferable for the workload.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why keep both front and rear?</li><li>What happens after removing the last node?</li><li>Why is enqueue O(1)?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Add a size field.</li><li>Implement a peek-rear operation.</li><li>Compare with an array queue.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/stack-queue-03.html'>← Implement Queue Using Array</a><a class='button button-primary' href='python-programs/stack-queue-05.html'>Circular Queue Using Array →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

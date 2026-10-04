@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Reverse an Array in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to reverse an Array. Reverse an array by placing one pointer at the beginning and another at the end, swapping their values, and moving both…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/arrays-strings-02.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Reverse an Array in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to reverse an Array. Reverse an array by placing one pointer at the beginning and another at the end, swapping their values, and moving both…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/arrays-strings-02.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reverse an Array in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to reverse an Array. Reverse an array by placing one pointer at the beginning and another at the end, swapping their values, and moving both…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Reverse an Array","item":"https://YOUR-SITE-URL/python-programs/arrays-strings-02.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Reverse an Array in Python","description":"Python program to reverse an Array. Reverse an array by placing one pointer at the beginning and another at the end, swapping their values, and moving both…","url":"https://YOUR-SITE-URL/python-programs/arrays-strings-02.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Arrays & Strings","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/arrays-strings-02.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Arrays &amp; Strings</span></div></div><div class='with-side'><aside class='side' aria-label='Arrays &amp; Strings'><span class='side-title'>Arrays &amp; Strings</span><a href='python-programs/arrays-strings-01.html'>Find the Largest Element in an Array</a><a href='python-programs/arrays-strings-02.html' class='active'>Reverse an Array</a><a href='python-programs/arrays-strings-03.html'>Check if a String is a Palindrome</a><a href='python-programs/arrays-strings-04.html'>Count Occurrences of an Element in an Array</a><a href='python-programs/arrays-strings-05-1.html'>Two sum problem (Find two numbers with target sum)</a><a href='python-programs/arrays-strings-05-2.html'>Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map)</a><a href='python-programs/arrays-strings-06.html'>Move Zeros to end of array</a><a href='python-programs/arrays-strings-07.html'>Find second largest element in array</a><a href='python-programs/arrays-strings-08.html'>Reverse a string</a><a href='python-programs/arrays-strings-09.html'>Find factorial of a number</a><a href='python-programs/arrays-strings-10.html'>Check Prime number</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>ARRAYS &amp; STRINGS</span><span class='badge badge-gray'>EASY</span></div><h1>Reverse an Array in Python</h1><p class='lead'>Reverse an array by placing one pointer at the beginning and another at the end, swapping their values, and moving both pointers toward the center.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='arrays-strings-02' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:arrays-strings-02' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_02.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Reverse an Array :
+
+arr = [10,20,30,40,50]
+
+start = 0
+end = len(arr) - 1
+
+while start &lt; end:
+
+    temp = arr[start]
+    arr[start] = arr[end]
+    arr[end] = temp
+
+    start += 1
+    end -= 1
+
+print(&quot;Reversed array : &quot;, arr)
+
+
+# Output : 
+
+# Reversed array :  [50, 40, 30, 20, 10]</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>This is a foundational two-pointer pattern. It reverses the array without creating another array.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>Put your left hand on the first book and your right hand on the last book. Swap them, then move both hands inward.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Set start to the first index and end to the last index.</li><li>Swap the values at start and end.</li><li>Move start one step right and end one step left.</li><li>Stop when the pointers meet or cross.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>start = 0</code></td><td>Point to the first element.</td></tr><tr><td><code data-code>end = len(arr) - 1</code></td><td>Point to the last element.</td></tr><tr><td><code data-code>while start &lt; end</code></td><td>Continue while two different positions need processing.</td></tr><tr><td><code data-code>arr[start], arr[end] = arr[end], arr[start]</code></td><td>Swap the two values in place.</td></tr><tr><td><code data-code>start += 1 / end -= 1</code></td><td>Move both pointers toward the center.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>[10,20,30,40,50]</code></td><td>start=0, end=4</td></tr><tr><td><code>Swap</code></td><td>10 ↔ 50 → [50,20,30,40,10]</td></tr><tr><td><code>Move</code></td><td>start=1, end=3</td></tr><tr><td><code>Swap</code></td><td>20 ↔ 40 → [50,40,30,20,10]</td></tr><tr><td><code>Stop</code></td><td>start=2, end=2 → done</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n)</p><p><strong>Space:</strong> O(1)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Using &lt;= is possible but performs an unnecessary middle self-swap.</li><li>Moving only one pointer can cause an incorrect or infinite traversal.</li><li>Creating reversed_arr is simpler but changes the space complexity to O(n).</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use two pointers when work naturally happens from both ends of a sequence.</p><p><strong>Avoid it when:</strong> If the data must remain unchanged, use a new array/string instead of mutating the original.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why is this O(n) even though there is a while loop?</li><li>How would you reverse only a subarray between two indexes?</li><li>Can the same idea reverse a string in place in Python?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Reverse only the first k elements.</li><li>Rotate an array using the reversal technique.</li><li>Check whether an array is a palindrome using two pointers.</li></ul></section><section class='ls'><h2><i>11</i>Same idea, different implementation</h2><div class='tags'><a class='tag done' href='python-programs/arrays-strings-2-02.html'>Reverse an Array →</a></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/arrays-strings-01.html'>← Find the Largest Element in an Array</a><a class='button button-primary' href='python-programs/arrays-strings-03.html'>Check if a String is a Palindrome →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

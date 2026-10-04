@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Kth Largest Element in an Array — Python Solution, Approach &amp; Complexity</title>
+  <meta name="description" content="Kth Largest Element in an Array Python solution (Medium): Return the kth largest value. A min-heap of size k keeps the k largest values seen; its root is…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/coding-problems/kth-largest.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Kth Largest Element in an Array — Python Solution, Approach &amp; Complexity">
+  <meta property="og:description" content="Kth Largest Element in an Array Python solution (Medium): Return the kth largest value. A min-heap of size k keeps the k largest values seen; its root is…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/coding-problems/kth-largest.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kth Largest Element in an Array — Python Solution, Approach &amp; Complexity">
+  <meta name="twitter:description" content="Kth Largest Element in an Array Python solution (Medium): Return the kth largest value. A min-heap of size k keeps the k largest values seen; its root is…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Coding problems","item":"https://YOUR-SITE-URL/coding-problems.html"},{"@type":"ListItem","position":3,"name":"Kth Largest Element in an Array","item":"https://YOUR-SITE-URL/coding-problems/kth-largest.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Kth Largest Element in an Array Python solution","description":"Kth Largest Element in an Array Python solution (Medium): Return the kth largest value. A min-heap of size k keeps the k largest values seen; its root is…","url":"https://YOUR-SITE-URL/coding-problems/kth-largest.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Arrays","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/coding-problems/kth-largest.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="interview">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='interview.html'>Interview prep</a><span>/</span><a href='coding-problems.html'>Coding problems</a><span>/</span><span>Kth Largest Element in an Array</span></div></div><div class='with-side'><aside class='side' aria-label='Coding problems'><span class='side-title'>Problems</span><a href='coding-problems/two-sum.html'>Two Sum</a><a href='coding-problems/valid-parentheses.html'>Valid Parentheses</a><a href='coding-problems/best-time-stock.html'>Best Time to Buy and Sell Stock</a><a href='coding-problems/contains-duplicate.html'>Contains Duplicate</a><a href='coding-problems/valid-anagram.html'>Valid Anagram</a><a href='coding-problems/binary-search.html'>Binary Search</a><a href='coding-problems/merge-sorted-array.html'>Merge Sorted Array</a><a href='coding-problems/reverse-linked-list.html'>Reverse Linked List</a><a href='coding-problems/linked-list-cycle.html'>Linked List Cycle</a><a href='coding-problems/maximum-subarray.html'>Maximum Subarray</a><a href='coding-problems/climbing-stairs.html'>Climbing Stairs</a><a href='coding-problems/valid-palindrome.html'>Valid Palindrome</a><a href='coding-problems/move-zeroes.html'>Move Zeroes</a><a href='coding-problems/longest-substring.html'>Longest Substring Without Repeating Characters</a><a href='coding-problems/3sum.html'>3Sum</a><a href='coding-problems/container-most-water.html'>Container With Most Water</a><a href='coding-problems/product-except-self.html'>Product of Array Except Self</a><a href='coding-problems/group-anagrams.html'>Group Anagrams</a><a href='coding-problems/top-k-frequent.html'>Top K Frequent Elements</a><a href='coding-problems/kth-largest.html' class='active'>Kth Largest Element in an Array</a><a href='coding-problems/merge-intervals.html'>Merge Intervals</a><a href='coding-problems/search-rotated.html'>Search in Rotated Sorted Array</a><a href='coding-problems/number-of-islands.html'>Number of Islands</a><a href='coding-problems/course-schedule.html'>Course Schedule</a><a href='coding-problems/coin-change.html'>Coin Change</a><a href='coding-problems/word-break.html'>Word Break</a><a href='coding-problems/subsets.html'>Subsets</a><a href='coding-problems/permutations.html'>Permutations</a><a href='coding-problems/lru-cache.html'>LRU Cache</a><a href='coding-problems/trapping-rain-water.html'>Trapping Rain Water</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-orange'>ARRAYS</span><span class='badge badge-gray'>MEDIUM</span><span class='badge badge-gray'>HEAP / QUICKSELECT</span></div><h1>Kth Largest Element in an Array — Python Solution</h1><p class='lead'>Return the kth largest value.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='coding-kth-largest' data-done-label='Problem'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='coding:kth-largest' data-bm-label='Bookmark problem'>☆ Bookmark problem</button></div><section class='ls'><h2><i>1</i>How to recognise it</h2><p>Need an order statistic without fully sorting everything.</p></section><section class='ls'><h2><i>2</i>Key idea</h2><p>A min-heap of size k keeps the k largest values seen; its root is the kth largest.</p></section><section class='ls'><h2><i>3</i>Approach, step by step</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Push each value into a min-heap.</li><li>If heap size exceeds k, pop the smallest.</li><li>After the scan, the heap root is the kth largest.</li></ol></section><section class='ls'><h2><i>4</i>Python solution</h2><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import heapq
+
+def find_kth_largest(nums, k):
+    heap = []
+    for x in nums:
+        heapq.heappush(heap, x)
+        if len(heap) &gt; k:
+            heapq.heappop(heap)
+    return heap[0]</code></pre></div></section><section class='ls'><h2><i>5</i>Dry run</h2><p>[3,2,1,5,6,4], k=2 → heap keeps the two largest values → root is 5.</p></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p>O(n log k) time, O(k) space.</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Using a max-heap of all elements when a size-k min-heap is enough.</li><li>Off-by-one errors in heap size.</li></ul></section><section class='ls'><h2><i>8</i>Interview follow-ups</h2><p>Why does the smallest item in a size-k min-heap represent the kth largest overall?</p></section><section class='ls'><h2><i>9</i>Practice</h2><p>Explain how Quickselect can achieve expected O(n) time.</p></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='coding-problems/top-k-frequent.html'>← Top K Frequent Elements</a><a class='button button-primary' href='coding-problems/merge-intervals.html'>Merge Intervals →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

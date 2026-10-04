@@ -1,0 +1,10 @@
+Program 01 : Check if a Number is Even or Odd using Bitwise Problem 
+Program 02 : Check if the ith Bit is Set
+Program 03 : Set the ith Bit
+Program 04 : Clear the ith Bit of a Number 
+Program 05 : Toggle the ith Bit of a Number
+Program 06 : Count Set Bits in a Number
+Program 07 : Find XOR of Two Numbers
+Program 08 : Swap Two Numbers without Temporary Variable (using XOR) 
+Program 09 : Find the Only Non-Repeating Element (when others appear twice)
+Program 10 : Find the Two Non-Repeating Elements (when others appear twice)

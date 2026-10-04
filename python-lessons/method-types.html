@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Instance, class &amp; static methods — Python Tutorial for Beginners</title>
+  <meta name="description" content="Three kinds of methods, and when each one fits. An instance method works with one object (self). A class method works with the class itself (cls). A static…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-lessons/method-types.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Instance, class &amp; static methods — Python Tutorial for Beginners">
+  <meta property="og:description" content="Three kinds of methods, and when each one fits. An instance method works with one object (self). A class method works with the class itself (cls). A static…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-lessons/method-types.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Instance, class &amp; static methods — Python Tutorial for Beginners">
+  <meta name="twitter:description" content="Three kinds of methods, and when each one fits. An instance method works with one object (self). A class method works with the class itself (cls). A static…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://YOUR-SITE-URL/python.html"},{"@type":"ListItem","position":3,"name":"Instance, class & static methods","item":"https://YOUR-SITE-URL/python-lessons/method-types.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Instance, class & static methods — Python tutorial","description":"Three kinds of methods, and when each one fits. An instance method works with one object (self). A class method works with the class itself (cls). A static…","url":"https://YOUR-SITE-URL/python-lessons/method-types.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Python programming","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-lessons/method-types.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="python">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='python.html'>Python</a><span>/</span><span>Object-Oriented Programming</span></div></div><div class='with-side'><aside class='side' aria-label='Python lessons'><span class='side-title'>01 · Python Basics</span><a href='python-lessons/what-is-python.html'>What is Python &amp; how it runs</a><a href='python-lessons/variables-data-types.html'>Variables &amp; data types</a><span class='side-title' style='margin-top:14px'>02 · Control Flow</span><a href='python-lessons/if-elif-else.html'>Decisions: if, elif, else</a><a href='python-lessons/loops-range.html'>Loops: for, while &amp; range()</a><a href='python-lessons/loop-control.html'>break, continue, pass, for…else &amp; nested loops</a><span class='side-title' style='margin-top:14px'>03 · Functions</span><a href='python-lessons/functions-basics.html'>Functions: def, parameters &amp; return</a><a href='python-lessons/args-kwargs.html'>*args and **kwargs</a><a href='python-lessons/scope-legb.html'>Scope &amp; the LEGB rule</a><a href='python-lessons/lambda-higher-order.html'>lambda, map, filter &amp; reduce</a><span class='side-title' style='margin-top:14px'>04 · Object-Oriented Programming</span><a href='python-lessons/classes-objects.html'>Classes &amp; objects</a><a href='python-lessons/method-types.html' class='active'>Instance, class &amp; static methods</a><a href='python-lessons/inheritance.html'>Inheritance, super() &amp; overriding</a><a href='python-lessons/encapsulation.html'>Encapsulation &amp; private attributes</a><a href='python-lessons/polymorphism-abstraction.html'>Polymorphism &amp; abstraction</a><span class='side-title' style='margin-top:14px'>05 · Files, Exceptions</span><a href='python-lessons/file-handling.html'>File handling</a><a href='python-lessons/exceptions.html'>Exception handling</a><a href='python-lessons/modules-packages.html'>Modules &amp; packages</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PYTHON</span><span class='badge badge-gray'>SECTION 04</span><span class='badge badge-gray'>8 MIN</span></div><h1>Instance, class &amp; static methods</h1><p class='lead'>Three kinds of methods, and when each one fits.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-method-types' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:method-types' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>An <strong>instance method</strong> works with one object (<code>self</code>). A <strong>class method</strong> works with the class itself (<code>cls</code>). A <strong>static method</strong> needs neither; it&#39;s just a function that lives inside the class for organisation.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>This is a classic interview question, and it shows you understand where data belongs: with one object, with all objects, or with neither.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>In a school: an <strong>instance method</strong> is <em>&quot;this student&#39;s marks&quot;</em>. A <strong>class method</strong> is <em>&quot;the school&#39;s total number of students&quot;</em>. A <strong>static method</strong> is <em>&quot;a calculator on the principal&#39;s desk&quot;</em>: useful, but it doesn&#39;t care about any particular student or the school.</p><div class='explain-tag'>Precise definition</div><p><code>@classmethod</code> receives the class as its first argument (<code>cls</code>), so it can read or change class-level data and create instances. <code>@staticmethod</code> receives no automatic first argument.</p></div></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>All three together</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>class Demo:
+    def instance_method(self):
+        print(&quot;Called using object&quot;)
+
+    @classmethod
+    def class_method(cls):
+        print(&quot;Called using class&quot;)
+
+    @staticmethod
+    def static_method():
+        print(&quot;Called without object or class reference&quot;)
+
+d = Demo()
+d.instance_method()
+Demo.class_method()
+Demo.static_method()</code></pre></div><div class='out'><span>OUTPUT</span><pre>Called using object
+Called using class
+Called without object or class reference</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>def instance_method(self):</code></td><td>Gets the object as <code>self</code>. Can use the object&#39;s own data.</td></tr><tr><td><code data-code>@classmethod</code></td><td>A <strong>decorator</strong>: it changes how the method below it behaves.</td></tr><tr><td><code data-code>def class_method(cls):</code></td><td>Gets the class itself as <code>cls</code>.</td></tr><tr><td><code data-code>@staticmethod</code></td><td>Marks a method that gets neither <code>self</code> nor <code>cls</code>.</td></tr><tr><td><code data-code>d.instance_method()</code></td><td>Needs an object, <code>d</code>.</td></tr><tr><td><code data-code>Demo.class_method()</code></td><td>Can be called on the class directly; no object needed.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Using a static method when you actually need to read class data (you need a class method).</li><li>Forgetting the decorator line, then wondering why <code>cls</code> behaves like <code>self</code>.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Instance method by default. Class method for alternative constructors or class-wide data. Static method for helper functions related to the class but independent of it.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>Difference between @classmethod and @staticmethod?</summary><p><code>@classmethod</code> accesses class data through <code>cls</code>. <code>@staticmethod</code> has no <code>self</code> or <code>cls</code> and behaves like a normal function inside the class.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Add a class variable <code>count = 0</code> to a <code>Student</code> class. Every time a student is created, increase it. Create 3 students and print <code>Student.count</code>.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Inside <code>__init__</code>, write <code>Student.count += 1</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>class Student:
+    count = 0
+
+    def __init__(self, name):
+        self.name = name
+        Student.count += 1
+
+Student(&quot;A&quot;); Student(&quot;B&quot;); Student(&quot;C&quot;)
+print(Student.count)</code></pre></div><div class='out'><span>OUTPUT</span><pre>3</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-lessons/classes-objects.html'>← Classes &amp; objects</a><a class='button button-primary' href='python-lessons/inheritance.html'>Inheritance, super() &amp; overriding →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

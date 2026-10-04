@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Loops: for, while &amp; range() — Python Tutorial for Beginners</title>
+  <meta name="description" content="Repeat work without repeating code. A loop runs the same block of code many times. for walks through a collection (list, string, range). while keeps going…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-lessons/loops-range.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Loops: for, while &amp; range() — Python Tutorial for Beginners">
+  <meta property="og:description" content="Repeat work without repeating code. A loop runs the same block of code many times. for walks through a collection (list, string, range). while keeps going…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-lessons/loops-range.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Loops: for, while &amp; range() — Python Tutorial for Beginners">
+  <meta name="twitter:description" content="Repeat work without repeating code. A loop runs the same block of code many times. for walks through a collection (list, string, range). while keeps going…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://YOUR-SITE-URL/python.html"},{"@type":"ListItem","position":3,"name":"Loops: for, while & range()","item":"https://YOUR-SITE-URL/python-lessons/loops-range.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Loops: for, while & range() — Python tutorial","description":"Repeat work without repeating code. A loop runs the same block of code many times. for walks through a collection (list, string, range). while keeps going…","url":"https://YOUR-SITE-URL/python-lessons/loops-range.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Python programming","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-lessons/loops-range.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="python">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='python.html'>Python</a><span>/</span><span>Control Flow &amp; Loops</span></div></div><div class='with-side'><aside class='side' aria-label='Python lessons'><span class='side-title'>01 · Python Basics</span><a href='python-lessons/what-is-python.html'>What is Python &amp; how it runs</a><a href='python-lessons/variables-data-types.html'>Variables &amp; data types</a><span class='side-title' style='margin-top:14px'>02 · Control Flow</span><a href='python-lessons/if-elif-else.html'>Decisions: if, elif, else</a><a href='python-lessons/loops-range.html' class='active'>Loops: for, while &amp; range()</a><a href='python-lessons/loop-control.html'>break, continue, pass, for…else &amp; nested loops</a><span class='side-title' style='margin-top:14px'>03 · Functions</span><a href='python-lessons/functions-basics.html'>Functions: def, parameters &amp; return</a><a href='python-lessons/args-kwargs.html'>*args and **kwargs</a><a href='python-lessons/scope-legb.html'>Scope &amp; the LEGB rule</a><a href='python-lessons/lambda-higher-order.html'>lambda, map, filter &amp; reduce</a><span class='side-title' style='margin-top:14px'>04 · Object-Oriented Programming</span><a href='python-lessons/classes-objects.html'>Classes &amp; objects</a><a href='python-lessons/method-types.html'>Instance, class &amp; static methods</a><a href='python-lessons/inheritance.html'>Inheritance, super() &amp; overriding</a><a href='python-lessons/encapsulation.html'>Encapsulation &amp; private attributes</a><a href='python-lessons/polymorphism-abstraction.html'>Polymorphism &amp; abstraction</a><span class='side-title' style='margin-top:14px'>05 · Files, Exceptions</span><a href='python-lessons/file-handling.html'>File handling</a><a href='python-lessons/exceptions.html'>Exception handling</a><a href='python-lessons/modules-packages.html'>Modules &amp; packages</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PYTHON</span><span class='badge badge-gray'>SECTION 02</span><span class='badge badge-gray'>12 MIN</span></div><h1>Loops: for, while &amp; range()</h1><p class='lead'>Repeat work without repeating code.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-loops-range' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:loops-range' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A <strong>loop</strong> runs the same block of code many times. <code>for</code> walks through a collection (list, string, range). <code>while</code> keeps going as long as a condition stays true.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Computers are good at repetition. Summing numbers, searching a list, printing a pattern and sorting all depend on loops, which is why most DSA programs start with one.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p><code>for</code> is like a teacher calling every student on the attendance list, one by one, until the list ends. <code>while</code> is like filling a bucket: keep pouring <em>while</em> it isn&#39;t full. You may not know in advance how many pours it takes.</p><div class='explain-tag'>Precise definition</div><p><code>for x in iterable</code> pulls items one at a time until the iterable is exhausted. <code>while cond</code> re-checks the condition before each pass, so you must change something inside the loop or it never ends. <code>range(start, stop, step)</code> produces numbers from <code>start</code> up to, but not including, <code>stop</code>.</p></div></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>for loop over a list</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>skills = [&quot;Python&quot;, &quot;Django&quot;, &quot;HTML&quot;]
+for skill in skills:
+    print(&quot;I know&quot;, skill)</code></pre></div><div class='out'><span>OUTPUT</span><pre>I know Python
+I know Django
+I know HTML</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>for skill in skills:</code></td><td>Take the items of <code>skills</code> one at a time and call the current one <code>skill</code>.</td></tr><tr><td><code data-code>    print(&quot;I know&quot;, skill)</code></td><td>Runs once per item: three items, three lines.</td></tr></tbody></table></div><div class='block'><h3>while loop</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>count = 1
+while count &lt;= 5:
+    print(&quot;Count:&quot;, count)
+    count += 1</code></pre></div><div class='out'><span>OUTPUT</span><pre>Count: 1
+Count: 2
+Count: 3
+Count: 4
+Count: 5</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>count = 1</code></td><td>Starting value.</td></tr><tr><td><code data-code>while count &lt;= 5:</code></td><td>Before every pass, Python checks this. When it becomes false, the loop stops.</td></tr><tr><td><code data-code>count += 1</code></td><td>Shorthand for <code>count = count + 1</code>. Without this line, the condition would never become false and the loop would run forever.</td></tr></tbody></table></div><div class='block'><h3>range() in three flavours</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>for i in range(1, 6):
+    print(i, end=&quot; &quot;)
+print()
+print(list(range(0, 10, 2)))
+print(list(range(5, 0, -1)))</code></pre></div><div class='out'><span>OUTPUT</span><pre>1 2 3 4 5 
+[0, 2, 4, 6, 8]
+[5, 4, 3, 2, 1]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>range(1, 6)</code></td><td>Starts at 1 and stops <strong>before</strong> 6, giving 1, 2, 3, 4, 5.</td></tr><tr><td><code data-code>print(i, end=&quot; &quot;)</code></td><td><code>end=&quot; &quot;</code> keeps the output on one line instead of starting a new line each time.</td></tr><tr><td><code data-code>range(0, 10, 2)</code></td><td>The third number is the <strong>step</strong>: 0, 2, 4, 6, 8.</td></tr><tr><td><code data-code>range(5, 0, -1)</code></td><td>A negative step counts down.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Expecting <code>range(1, 6)</code> to include 6. The end is always excluded.</li><li>Forgetting to update the variable in a <code>while</code> loop, which creates an infinite loop (press Ctrl+C to stop it).</li><li>Changing a list while looping over it. Loop over a copy instead.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use <code>for</code> when you know what you are looping over. Use <code>while</code> when you loop until something happens (a condition becomes false).</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>When would you use while instead of for?</summary><p>When you don&#39;t know in advance how many times to repeat and the loop depends on a condition.</p></details><details><summary>What does range(0, 10, 2) produce?</summary><p>0, 2, 4, 6, 8. The step is 2 and the end value 10 is excluded.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Print the multiplication table of 5 from 5 × 1 to 5 × 10, in the form <code>5 x 3 = 15</code>.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Loop <code>i</code> over <code>range(1, 11)</code> and print an f-string.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>for i in range(1, 11):
+    print(f&quot;5 x {i} = {5 * i}&quot;)</code></pre></div><div class='out'><span>OUTPUT</span><pre>5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50</pre></div></details></div></section><section class='ls'><h2><i>9</i>Practise with real programs</h2><div class='tags'><a class='tag done' href='python-programs/patterns-01.html'>Solid Rectangle Pattern →</a><a class='tag done' href='python-programs/arrays-strings-01.html'>Find the Largest Element in an Array →</a></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-lessons/if-elif-else.html'>← Decisions: if, elif, else</a><a class='button button-primary' href='python-lessons/loop-control.html'>break, continue, pass, for…else &amp; nested loops →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

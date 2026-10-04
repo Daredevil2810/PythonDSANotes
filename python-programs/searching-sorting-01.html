@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Linear Search in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to linear Search. Find a target value by checking array elements from left to right until the target is found or the array ends.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/searching-sorting-01.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Linear Search in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to linear Search. Find a target value by checking array elements from left to right until the target is found or the array ends.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/searching-sorting-01.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Linear Search in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to linear Search. Find a target value by checking array elements from left to right until the target is found or the array ends.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Linear Search","item":"https://YOUR-SITE-URL/python-programs/searching-sorting-01.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Linear Search in Python","description":"Python program to linear Search. Find a target value by checking array elements from left to right until the target is found or the array ends.","url":"https://YOUR-SITE-URL/python-programs/searching-sorting-01.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Searching & Sorting","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/searching-sorting-01.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Searching &amp; Sorting</span></div></div><div class='with-side'><aside class='side' aria-label='Searching &amp; Sorting'><span class='side-title'>Searching &amp; Sorting</span><a href='python-programs/searching-sorting-01.html' class='active'>Linear Search</a><a href='python-programs/searching-sorting-02.html'>Binary Search</a><a href='python-programs/searching-sorting-03.html'>Binary Search (Recursive Method)</a><a href='python-programs/searching-sorting-04.html'>Bubble sort</a><a href='python-programs/searching-sorting-05.html'>Selection sort</a><a href='python-programs/searching-sorting-06.html'>Insertion sort</a><a href='python-programs/searching-sorting-07.html'>Merge Sort</a><a href='python-programs/searching-sorting-08.html'>Quick Sort</a><a href='python-programs/searching-sorting-09.html'>Heap sort</a><a href='python-programs/searching-sorting-10.html'>Counting sort</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>SEARCHING &amp; SORTING</span><span class='badge badge-gray'>EASY</span></div><h1>Linear Search in Python</h1><p class='lead'>Find a target value by checking array elements from left to right until the target is found or the array ends.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='searching-sorting-01' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:searching-sorting-01' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_01.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Linear Search :
+
+arr = [5, 10, 15, 20, 25]
+target = 15
+found_index = -1
+
+for i in range(len(arr)):
+    if arr[i] == target:
+        found_index = i
+        break
+
+if found_index != -1:
+    print(f&quot;Element {target} found at index {found_index}&quot;)
+else:
+    print(f&quot;Element {target} not found&quot;)
+
+
+# Output :
+
+# Element 15 found at index 2</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>Linear search works even when data is unsorted, so it is the simplest general-purpose search strategy.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>Looking for a name in an unsorted contact list means checking entries one by one until the name appears.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Start at index 0.</li><li>Compare the current value with the target.</li><li>If they match, return or record the index.</li><li>If the scan reaches the end, report that the target was not found.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>for i in range(len(arr))</code></td><td>Visit every valid array index from left to right.</td></tr><tr><td><code data-code>if arr[i] == target</code></td><td>Compare the current element with the value we want.</td></tr><tr><td><code data-code>found_index = i</code></td><td>Remember where the target was found.</td></tr><tr><td><code data-code>break</code></td><td>Stop because this version only needs the first match.</td></tr><tr><td><code data-code>found_index != -1</code></td><td>Check whether a match was found.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>5</code></td><td>5 != 15 → continue</td></tr><tr><td><code>10</code></td><td>10 != 15 → continue</td></tr><tr><td><code>15</code></td><td>15 == 15 → found at index 2</td></tr><tr><td><code>Result</code></td><td>Stop immediately after finding the target</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n) worst case</p><p><strong>Space:</strong> O(1)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Forgetting that indexes start at 0.</li><li>Continuing unnecessarily after finding the first required match.</li><li>Assuming the input must already be sorted; linear search does not require sorting.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it for unsorted data, small collections, or when a simple scan is sufficient.</p><p><strong>Avoid it when:</strong> For large sorted arrays with many searches, binary search or another indexed structure may be better.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>What is the best-case time complexity?</li><li>Why is the worst case O(n)?</li><li>How would you return all matching indexes instead of the first one?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Return -1 directly when the target is absent.</li><li>Return every index containing the target.</li><li>Count comparisons made before finding the target.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/recursion-math-10.html'>← Factorial of a number using Recursion</a><a class='button button-primary' href='python-programs/searching-sorting-02.html'>Binary Search →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Program 01 : Find the Largest Element in an Array
+Program 02 : Reverse an Array
+Program 03 : Check if a string is a palindrome
+Program 04 : Count Occurrences of an Element in an Array
+Program 05.1 : Two sum problem (Find two numbers with target sum)
+Program 05.2 : Two sum problem (Find two numbers with target sum) using Dictionary (Hash Map)
+Program 06 : Move Zeros to end of array
+Program 07 : Find second largest element in array
+Program 08 : Reverse a string
+Program 09 : Find factorial of a number
+Program 10 : Check Prime number

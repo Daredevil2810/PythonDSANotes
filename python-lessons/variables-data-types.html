@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Variables &amp; data types — Python Tutorial for Beginners</title>
+  <meta name="description" content="Store values in named boxes, and meet the eight types you will use every single day. A variable is a name that points to a value. A data type says what kind…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-lessons/variables-data-types.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Variables &amp; data types — Python Tutorial for Beginners">
+  <meta property="og:description" content="Store values in named boxes, and meet the eight types you will use every single day. A variable is a name that points to a value. A data type says what kind…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-lessons/variables-data-types.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Variables &amp; data types — Python Tutorial for Beginners">
+  <meta name="twitter:description" content="Store values in named boxes, and meet the eight types you will use every single day. A variable is a name that points to a value. A data type says what kind…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://YOUR-SITE-URL/python.html"},{"@type":"ListItem","position":3,"name":"Variables & data types","item":"https://YOUR-SITE-URL/python-lessons/variables-data-types.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Variables & data types — Python tutorial","description":"Store values in named boxes, and meet the eight types you will use every single day. A variable is a name that points to a value. A data type says what kind…","url":"https://YOUR-SITE-URL/python-lessons/variables-data-types.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Python programming","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-lessons/variables-data-types.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="python">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='python.html'>Python</a><span>/</span><span>Python Basics &amp; Data Types</span></div></div><div class='with-side'><aside class='side' aria-label='Python lessons'><span class='side-title'>01 · Python Basics</span><a href='python-lessons/what-is-python.html'>What is Python &amp; how it runs</a><a href='python-lessons/variables-data-types.html' class='active'>Variables &amp; data types</a><span class='side-title' style='margin-top:14px'>02 · Control Flow</span><a href='python-lessons/if-elif-else.html'>Decisions: if, elif, else</a><a href='python-lessons/loops-range.html'>Loops: for, while &amp; range()</a><a href='python-lessons/loop-control.html'>break, continue, pass, for…else &amp; nested loops</a><span class='side-title' style='margin-top:14px'>03 · Functions</span><a href='python-lessons/functions-basics.html'>Functions: def, parameters &amp; return</a><a href='python-lessons/args-kwargs.html'>*args and **kwargs</a><a href='python-lessons/scope-legb.html'>Scope &amp; the LEGB rule</a><a href='python-lessons/lambda-higher-order.html'>lambda, map, filter &amp; reduce</a><span class='side-title' style='margin-top:14px'>04 · Object-Oriented Programming</span><a href='python-lessons/classes-objects.html'>Classes &amp; objects</a><a href='python-lessons/method-types.html'>Instance, class &amp; static methods</a><a href='python-lessons/inheritance.html'>Inheritance, super() &amp; overriding</a><a href='python-lessons/encapsulation.html'>Encapsulation &amp; private attributes</a><a href='python-lessons/polymorphism-abstraction.html'>Polymorphism &amp; abstraction</a><span class='side-title' style='margin-top:14px'>05 · Files, Exceptions</span><a href='python-lessons/file-handling.html'>File handling</a><a href='python-lessons/exceptions.html'>Exception handling</a><a href='python-lessons/modules-packages.html'>Modules &amp; packages</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PYTHON</span><span class='badge badge-gray'>SECTION 01</span><span class='badge badge-gray'>12 MIN</span></div><h1>Variables &amp; data types</h1><p class='lead'>Store values in named boxes, and meet the eight types you will use every single day.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-variables-data-types' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:variables-data-types' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A <strong>variable</strong> is a name that points to a value. A <strong>data type</strong> says what kind of value it is: a whole number, text, a list, and so on.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Every program stores and moves data around. Choosing the right type decides what you can do with the data: you can sort a list, look up a dictionary by key, and a set removes duplicates for you.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Imagine a kitchen with labelled jars. The label is the <strong>variable name</strong> (<code>sugar</code>), what is inside is the <strong>value</strong>. A <em>list</em> is a shelf of jars in order, a <em>set</em> is a bowl where duplicates are not allowed, and a <em>dictionary</em> is a recipe book: look up the name, get the details.</p><div class='explain-tag'>Precise definition</div><p>Variables are references (names) bound to objects in memory. Types: <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>list</code>, <code>tuple</code>, <code>set</code>, <code>dict</code>. <code>list</code>, <code>set</code> and <code>dict</code> are <strong>mutable</strong>; <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code> and <code>tuple</code> are <strong>immutable</strong>.</p></div><div class='table-wrap'><table class='ltable'><thead><tr><th>Type</th><th>Example</th><th>Mutable?</th><th>What it is</th></tr></thead><tbody><tr><td><code>int</code></td><td>10</td><td>No</td><td>Whole numbers</td></tr><tr><td><code>float</code></td><td>3.14</td><td>No</td><td>Decimal numbers</td></tr><tr><td><code>str</code></td><td>&quot;Hello&quot;</td><td>No</td><td>Text</td></tr><tr><td><code>bool</code></td><td>True / False</td><td>No</td><td>Yes/no values</td></tr><tr><td><code>list</code></td><td><code>[1, 2, 3]</code></td><td>Yes</td><td>Ordered, can change</td></tr><tr><td><code>tuple</code></td><td><code>(1, 2, 3)</code></td><td>No</td><td>Ordered, cannot change</td></tr><tr><td><code>set</code></td><td><code>{1, 2, 3}</code></td><td>Yes</td><td>No duplicates, no order</td></tr><tr><td><code>dict</code></td><td><code>{&quot;a&quot;: 1}</code></td><td>Yes</td><td>Key → value pairs</td></tr></tbody></table></div></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>A profile using several types</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>name = &quot;Devanshu&quot;
+age = 22
+skills = [&quot;Python&quot;, &quot;Django&quot;, &quot;HTML&quot;]
+profile = {&quot;name&quot;: name, &quot;age&quot;: age, &quot;skills&quot;: skills}
+print(profile)
+
+print(type(skills))
+print(len(skills))</code></pre></div><div class='out'><span>OUTPUT</span><pre>{&#39;name&#39;: &#39;Devanshu&#39;, &#39;age&#39;: 22, &#39;skills&#39;: [&#39;Python&#39;, &#39;Django&#39;, &#39;HTML&#39;]}
+&lt;class &#39;list&#39;&gt;
+3</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>name = &quot;Devanshu&quot;</code></td><td>A <code>str</code> (text) stored in the variable <code>name</code>.</td></tr><tr><td><code data-code>age = 22</code></td><td>An <code>int</code>. No quotes, so it is a number.</td></tr><tr><td><code data-code>skills = [&quot;Python&quot;, &quot;Django&quot;, &quot;HTML&quot;]</code></td><td>A <code>list</code>: ordered items inside square brackets.</td></tr><tr><td><code data-code>profile = {&quot;name&quot;: name, ...}</code></td><td>A <code>dict</code> that groups the three values under keys, like a form with labelled fields.</td></tr><tr><td><code data-code>print(type(skills))</code></td><td><code>type()</code> tells you what kind of value something is.</td></tr><tr><td><code data-code>print(len(skills))</code></td><td><code>len()</code> counts the items. The list has 3.</td></tr></tbody></table></div><div class='block'><h3>Mutable vs immutable</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>skills = [&quot;Python&quot;, &quot;Django&quot;]
+skills.append(&quot;HTML&quot;)      # lists can change
+print(skills)
+
+point = (3, 4)
+try:
+    point[0] = 10          # tuples cannot
+except TypeError:
+    print(&quot;Tuples are immutable&quot;)</code></pre></div><div class='out'><span>OUTPUT</span><pre>[&#39;Python&#39;, &#39;Django&#39;, &#39;HTML&#39;]
+Tuples are immutable</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>skills.append(&quot;HTML&quot;)</code></td><td>Adds a new item to the end of the same list. Lists are mutable, so this is allowed.</td></tr><tr><td><code data-code>point = (3, 4)</code></td><td>A tuple: like a list that is locked after creation.</td></tr><tr><td><code data-code>point[0] = 10</code></td><td>Python refuses, and raises a <code>TypeError</code>.</td></tr><tr><td><code data-code>except TypeError:</code></td><td>We catch that error so the program continues and prints a message.</td></tr></tbody></table></div><div class='block'><h3>== vs is, and shared lists</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>a = [1, 2, 3]
+b = [1, 2, 3]
+print(a == b)    # same values?
+print(a is b)    # same object?
+
+c = a            # c points to the SAME list
+c.append(4)
+print(a)</code></pre></div><div class='out'><span>OUTPUT</span><pre>True
+False
+[1, 2, 3, 4]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>print(a == b)</code></td><td><code>==</code> compares <strong>values</strong>. Both lists contain 1, 2, 3, so <code>True</code>.</td></tr><tr><td><code data-code>print(a is b)</code></td><td><code>is</code> compares <strong>identity</strong>: are they the very same object in memory? No, they are two separate lists, so <code>False</code>.</td></tr><tr><td><code data-code>c = a</code></td><td>This does <strong>not</strong> copy the list. It gives the same list a second name.</td></tr><tr><td><code data-code>c.append(4)</code></td><td>Changing the list through <code>c</code>...</td></tr><tr><td><code data-code>print(a)</code></td><td>...also shows up through <code>a</code>, because there is only one list.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Using <code>is</code> to compare values. Use <code>==</code> for values and <code>is</code> only for checks like <code>x is None</code>.</li><li>Thinking <code>c = a</code> makes a copy. For a real copy use <code>a.copy()</code> or <code>a[:]</code>.</li><li>Using a list when you need to look things up by name. A dictionary is the right tool.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>List for ordered, changeable collections. Tuple for fixed groups (like coordinates). Set to remove duplicates or test membership fast. Dict to look values up by key.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>Difference between list and tuple?</summary><p>A list is mutable (can be changed), a tuple is immutable.</p></details><details><summary>How are Python variables typed?</summary><p>Dynamically: the type is assigned at runtime from the value.</p></details><details><summary>What&#39;s the difference between <code>is</code> and <code>==</code>?</summary><p><code>==</code> compares values. <code>is</code> compares identity (the memory location).</p></details><details><summary>What happens when you do <code>a = b = [1,2,3]</code>?</summary><p>Both names point to the same list in memory, so changing one changes the other.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Create a <code>profile</code> dictionary with <code>name</code>, <code>role</code> and a <code>skills</code> list. Add one more skill with <code>append</code>, then print every skill on its own line.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Use <code>profile[&quot;skills&quot;].append(...)</code>, then loop with <code>for skill in profile[&quot;skills&quot;]:</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>profile = {
+    &quot;name&quot;: &quot;Your Name&quot;,
+    &quot;role&quot;: &quot;Python Developer&quot;,
+    &quot;skills&quot;: [&quot;Python&quot;, &quot;Django&quot;, &quot;HTML&quot;, &quot;CSS&quot;]
+}
+profile[&quot;skills&quot;].append(&quot;AJAX&quot;)
+for skill in profile[&quot;skills&quot;]:
+    print(skill)</code></pre></div><div class='out'><span>OUTPUT</span><pre>Python
+Django
+HTML
+CSS
+AJAX</pre></div></details></div></section><section class='ls'><h2><i>9</i>Practise with real programs</h2><div class='tags'><a class='tag done' href='python-programs/arrays-strings-01.html'>Find the Largest Element in an Array →</a><a class='tag done' href='python-programs/arrays-strings-02.html'>Reverse an Array →</a></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-lessons/what-is-python.html'>← What is Python &amp; how it runs</a><a class='button button-primary' href='python-lessons/if-elif-else.html'>Decisions: if, elif, else →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

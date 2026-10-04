@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Find the Only Non-Repeating Element (when others appear twice) in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to find the Only Non-Repeating Element (when others appear twice). XOR every element in an array where exactly one value appears once and…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/bit-manipulation-09.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Find the Only Non-Repeating Element (when others appear twice) in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to find the Only Non-Repeating Element (when others appear twice). XOR every element in an array where exactly one value appears once and…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/bit-manipulation-09.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Find the Only Non-Repeating Element (when others appear twice) in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to find the Only Non-Repeating Element (when others appear twice). XOR every element in an array where exactly one value appears once and…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Find the Only Non-Repeating Element (when others appear twice)","item":"https://YOUR-SITE-URL/python-programs/bit-manipulation-09.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Find the Only Non-Repeating Element (when others appear twice) in Python","description":"Python program to find the Only Non-Repeating Element (when others appear twice). XOR every element in an array where exactly one value appears once and…","url":"https://YOUR-SITE-URL/python-programs/bit-manipulation-09.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Bit Manipulation","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/bit-manipulation-09.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Bit Manipulation</span></div></div><div class='with-side'><aside class='side' aria-label='Bit Manipulation'><span class='side-title'>Bit Manipulation</span><a href='python-programs/bit-manipulation-01.html'>Check if a Number is Even or Odd using Bitwise Problem</a><a href='python-programs/bit-manipulation-02.html'>Check if the ith Bit is Set</a><a href='python-programs/bit-manipulation-03.html'>Set the ith Bit</a><a href='python-programs/bit-manipulation-04.html'>Clear the ith Bit of a Number</a><a href='python-programs/bit-manipulation-05.html'>Toggle the ith Bit of a Number</a><a href='python-programs/bit-manipulation-06.html'>Count Set Bits in a Number</a><a href='python-programs/bit-manipulation-07.html'>Find XOR of Two Numbers</a><a href='python-programs/bit-manipulation-08.html'>Swap Two Numbers without Temporary Variable (using XOR)</a><a href='python-programs/bit-manipulation-09.html' class='active'>Find the Only Non-Repeating Element (when others appear twice)</a><a href='python-programs/bit-manipulation-10.html'>Find the Two Non-Repeating Elements (when others appear twice)</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-purple'>BIT MANIPULATION</span><span class='badge badge-gray'>MEDIUM</span></div><h1>Find the Only Non-Repeating Element (when others appear twice) in Python</h1><p class='lead'>XOR every element in an array where exactly one value appears once and every other value appears twice.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='bit-manipulation-09' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:bit-manipulation-09' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_09.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Find the Only Non-Repeating Element (when others appear twice) :
+
+def find_unique(arr):
+    result = 0
+    for num in arr:
+        result ^= num  # XOR all elements
+    return result
+
+arr = [2, 3, 5, 4, 5, 3, 2]
+print(&quot;The unique element is:&quot;, find_unique(arr))
+
+
+# Output :
+
+# The unique element is: 4</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>Pairs cancel because x ^ x = 0, leaving the single unpaired value without sorting or extra frequency storage.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>[2, 3, 5, 4, 5, 3, 2] XORs to 4 because every repeated value cancels with itself.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Start result at 0.</li><li>XOR result with every array element.</li><li>Repeated values eventually contribute x ^ x = 0.</li><li>The unique value is the only value left in the XOR result.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>result = 0</code></td><td>Uses XOR’s identity value.</td></tr><tr><td><code data-code>for num in arr</code></td><td>Visits every element once.</td></tr><tr><td><code data-code>result ^= num</code></td><td>Accumulates XOR while duplicate values cancel.</td></tr><tr><td><code data-code>return result</code></td><td>Returns the only value without a pair.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>Start</code></td><td>result = 0</td></tr><tr><td><code>2, 3</code></td><td>0 ^ 2 ^ 3</td></tr><tr><td><code>5, 4, 5</code></td><td>The two 5s cancel</td></tr><tr><td><code>3, 2</code></td><td>The two 3s and two 2s cancel</td></tr><tr><td><code>Final</code></td><td>result = 4</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(n)</p><p><strong>Space:</strong> O(1) auxiliary</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Applying the method when a value occurs three times or the problem has multiple unique values.</li><li>Forgetting the required condition that every other element appears exactly twice.</li><li>Sorting unnecessarily when the XOR property solves the constrained problem directly.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use it when exactly one element is unique and all others occur exactly twice.</p><p><strong>Avoid it when:</strong> Do not use it when occurrence counts do not match the required XOR cancellation pattern.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why do duplicate values disappear under XOR?</li><li>Why does the initial result start at 0?</li><li>What changes if two values are non-repeating?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Solve the same problem with a frequency dictionary.</li><li>Compare time and space with the XOR method.</li><li>Modify the input so the uniqueness condition is violated and explain the result.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/bit-manipulation-08.html'>← Swap Two Numbers without Temporary Variable (using XOR)</a><a class='button button-primary' href='python-programs/bit-manipulation-10.html'>Find the Two Non-Repeating Elements (when others appear twice) →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>break, continue, pass, for…else &amp; nested loops — Python Tutorial for Beginners</title>
+  <meta name="description" content="Control exactly how a loop runs, and write the classic prime-number check. break leaves the loop immediately. continue skips the rest of the current pass…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-lessons/loop-control.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="break, continue, pass, for…else &amp; nested loops — Python Tutorial for Beginners">
+  <meta property="og:description" content="Control exactly how a loop runs, and write the classic prime-number check. break leaves the loop immediately. continue skips the rest of the current pass…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-lessons/loop-control.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="break, continue, pass, for…else &amp; nested loops — Python Tutorial for Beginners">
+  <meta name="twitter:description" content="Control exactly how a loop runs, and write the classic prime-number check. break leaves the loop immediately. continue skips the rest of the current pass…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://YOUR-SITE-URL/python.html"},{"@type":"ListItem","position":3,"name":"break, continue, pass, for…else & nested loops","item":"https://YOUR-SITE-URL/python-lessons/loop-control.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"break, continue, pass, for…else & nested loops — Python tutorial","description":"Control exactly how a loop runs, and write the classic prime-number check. break leaves the loop immediately. continue skips the rest of the current pass…","url":"https://YOUR-SITE-URL/python-lessons/loop-control.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Python programming","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-lessons/loop-control.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="python">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='python.html'>Python</a><span>/</span><span>Control Flow &amp; Loops</span></div></div><div class='with-side'><aside class='side' aria-label='Python lessons'><span class='side-title'>01 · Python Basics</span><a href='python-lessons/what-is-python.html'>What is Python &amp; how it runs</a><a href='python-lessons/variables-data-types.html'>Variables &amp; data types</a><span class='side-title' style='margin-top:14px'>02 · Control Flow</span><a href='python-lessons/if-elif-else.html'>Decisions: if, elif, else</a><a href='python-lessons/loops-range.html'>Loops: for, while &amp; range()</a><a href='python-lessons/loop-control.html' class='active'>break, continue, pass, for…else &amp; nested loops</a><span class='side-title' style='margin-top:14px'>03 · Functions</span><a href='python-lessons/functions-basics.html'>Functions: def, parameters &amp; return</a><a href='python-lessons/args-kwargs.html'>*args and **kwargs</a><a href='python-lessons/scope-legb.html'>Scope &amp; the LEGB rule</a><a href='python-lessons/lambda-higher-order.html'>lambda, map, filter &amp; reduce</a><span class='side-title' style='margin-top:14px'>04 · Object-Oriented Programming</span><a href='python-lessons/classes-objects.html'>Classes &amp; objects</a><a href='python-lessons/method-types.html'>Instance, class &amp; static methods</a><a href='python-lessons/inheritance.html'>Inheritance, super() &amp; overriding</a><a href='python-lessons/encapsulation.html'>Encapsulation &amp; private attributes</a><a href='python-lessons/polymorphism-abstraction.html'>Polymorphism &amp; abstraction</a><span class='side-title' style='margin-top:14px'>05 · Files, Exceptions</span><a href='python-lessons/file-handling.html'>File handling</a><a href='python-lessons/exceptions.html'>Exception handling</a><a href='python-lessons/modules-packages.html'>Modules &amp; packages</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PYTHON</span><span class='badge badge-gray'>SECTION 02</span><span class='badge badge-gray'>14 MIN</span></div><h1>break, continue, pass, for…else &amp; nested loops</h1><p class='lead'>Control exactly how a loop runs, and write the classic prime-number check.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-loop-control' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:loop-control' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p><code>break</code> leaves the loop immediately. <code>continue</code> skips the rest of the current pass. <code>pass</code> does nothing (a placeholder). A loop can also have an <code>else</code> that runs only if it was <strong>not</strong> stopped by <code>break</code>. A loop inside a loop is a <strong>nested loop</strong>.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Real searches stop as soon as they find the answer (<code>break</code>). Real filters skip unwanted items (<code>continue</code>). Nested loops are the engine behind patterns, matrices and many sorting algorithms.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>You are looking for your keys in a row of drawers. <strong>break</strong>: you find them in drawer 3, you stop searching. <strong>continue</strong>: drawer 2 is locked, skip it and go on. <strong>for…else</strong>: after opening <em>every</em> drawer without finding them, you say <em>&quot;not here&quot;</em>. That is the <code>else</code>.</p><div class='explain-tag'>Precise definition</div><p><code>for … else</code>: the <code>else</code> block runs when the loop finishes normally, meaning it was never exited via <code>break</code>. For nested loops the inner loop completes fully for every single pass of the outer loop, so 3 × 2 passes means 6 inner iterations.</p></div></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>continue and break</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>for i in range(5):
+    if i == 2:
+        continue      # skip 2
+    elif i == 4:
+        break         # stop at 4
+    print(i)</code></pre></div><div class='out'><span>OUTPUT</span><pre>0
+1
+3</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>if i == 2:</code></td><td>When <code>i</code> is 2...</td></tr><tr><td><code data-code>continue</code></td><td>...jump straight to the next pass, so 2 is never printed.</td></tr><tr><td><code data-code>elif i == 4:</code></td><td>When <code>i</code> reaches 4...</td></tr><tr><td><code data-code>break</code></td><td>...leave the loop completely. 4 is never printed either.</td></tr></tbody></table></div><div class='block'><h3>for…else and the prime check</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>num = 7
+for i in range(2, num):
+    if num % i == 0:
+        print(&quot;Not Prime&quot;)
+        break
+else:
+    print(&quot;Prime&quot;)</code></pre></div><div class='out'><span>OUTPUT</span><pre>Prime</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>for i in range(2, num):</code></td><td>Try every possible divisor from 2 up to 6.</td></tr><tr><td><code data-code>if num % i == 0:</code></td><td>If <code>i</code> divides <code>num</code> with no remainder, <code>num</code> has a factor other than 1 and itself.</td></tr><tr><td><code data-code>break</code></td><td>Found a divisor, so no need to keep checking.</td></tr><tr><td><code data-code>else:</code></td><td>Attached to the <code>for</code>, not to the <code>if</code>. It runs only when the loop ends without <code>break</code>, meaning no divisor was found, so the number is prime.</td></tr></tbody></table></div><div class='block'><h3>Nested loops</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>for i in range(1, 4):
+    for j in range(1, 3):
+        print(f&quot;i={i}, j={j}&quot;)</code></pre></div><div class='out'><span>OUTPUT</span><pre>i=1, j=1
+i=1, j=2
+i=2, j=1
+i=2, j=2
+i=3, j=1
+i=3, j=2</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>for i in range(1, 4):</code></td><td>Outer loop: runs for i = 1, 2, 3.</td></tr><tr><td><code data-code>for j in range(1, 3):</code></td><td>Inner loop: restarts and runs fully (j = 1, 2) for <strong>each</strong> value of <code>i</code>.</td></tr><tr><td><code data-code>print(f&quot;i={i}, j={j}&quot;)</code></td><td>3 outer × 2 inner = 6 lines. The same idea draws every pattern in the Pattern Printing programs.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Putting the <code>else</code> under the <code>if</code> instead of lined up with the <code>for</code> when you mean for…else.</li><li>Using <code>break</code> inside the inner loop and expecting it to end the outer loop too. It only leaves the inner one.</li><li>Using <code>pass</code> and thinking it skips an iteration. That is <code>continue</code>; <code>pass</code> does nothing at all.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use <code>break</code> for early exit once you&#39;ve found what you need, <code>continue</code> to ignore unwanted items, <code>for…else</code> for &quot;search finished without finding it&quot;, and nested loops for 2-D structures and patterns.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>Difference between break and continue?</summary><p><code>break</code> exits the loop immediately. <code>continue</code> skips the current iteration and moves to the next.</p></details><details><summary>How does for…else work?</summary><p>The <code>else</code> runs only if the loop completed normally, that is, without hitting <code>break</code>.</p></details><details><summary>Write code to check if a number is prime.</summary><p>Loop <code>i</code> from 2 to <code>num-1</code>; if <code>num % i == 0</code> print &quot;Not Prime&quot; and <code>break</code>; use <code>else</code> on the loop to print &quot;Prime&quot; (see the lesson).</p></details><details><summary>What does pass do?</summary><p>Nothing. It&#39;s a placeholder where Python needs a statement but you have nothing to write yet.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Print all even numbers from 1 to 20 on one line. Count how many are divisible by 4. Then print how many there were, or <code>No match found</code> if none.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Use <code>i % 2 == 0</code> for even and <code>i % 4 == 0</code> for divisible by 4. Keep a <code>count</code> variable that goes up by 1.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>count = 0
+for i in range(1, 21):
+    if i % 2 == 0:
+        print(i, end=&quot; &quot;)
+        if i % 4 == 0:
+            count += 1
+if count == 0:
+    print(&quot;\nNo match found&quot;)
+else:
+    print(f&quot;\n{count} numbers divisible by 4&quot;)</code></pre></div><div class='out'><span>OUTPUT</span><pre>2 4 6 8 10 12 14 16 18 20 
+5 numbers divisible by 4</pre></div></details></div></section><section class='ls'><h2><i>9</i>Practise with real programs</h2><div class='tags'><a class='tag done' href='python-programs/arrays-strings-10.html'>Check Prime number →</a><a class='tag done' href='python-programs/patterns-01.html'>Solid Rectangle Pattern →</a><a class='tag done' href='python-programs/patterns-05.html'>Pyramid Pattern →</a></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-lessons/loops-range.html'>← Loops: for, while &amp; range()</a><a class='button button-primary' href='python-lessons/functions-basics.html'>Functions: def, parameters &amp; return →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

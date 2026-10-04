@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Prim MST in Python — Code, Output &amp; Complexity | Python DSA Notes</title>
+  <meta name="description" content="Prim MST in Python: Prim grows an MST by repeatedly taking the cheapest frontier edge. It is the other major MST technique and pairs naturally with…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/dsa-implementations/graph-16-prims.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Prim MST in Python — Code, Output &amp; Complexity | Python DSA Notes">
+  <meta property="og:description" content="Prim MST in Python: Prim grows an MST by repeatedly taking the cheapest frontier edge. It is the other major MST technique and pairs naturally with…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/dsa-implementations/graph-16-prims.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prim MST in Python — Code, Output &amp; Complexity | Python DSA Notes">
+  <meta name="twitter:description" content="Prim MST in Python: Prim grows an MST by repeatedly taking the cheapest frontier edge. It is the other major MST technique and pairs naturally with…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"DSA roadmap","item":"https://YOUR-SITE-URL/dsa.html"},{"@type":"ListItem","position":3,"name":"Tree & graph programs","item":"https://YOUR-SITE-URL/dsa-programs.html"},{"@type":"ListItem","position":4,"name":"Prim MST","item":"https://YOUR-SITE-URL/dsa-implementations/graph-16-prims.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Prim MST in Python","description":"Prim MST in Python: Prim grows an MST by repeatedly taking the cheapest frontier edge. It is the other major MST technique and pairs naturally with…","url":"https://YOUR-SITE-URL/dsa-implementations/graph-16-prims.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Graphs","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/dsa-implementations/graph-16-prims.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="dsa">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='dsa.html'>DSA roadmap</a><span>/</span><a href='dsa-programs.html'>Tree &amp; graph programs</a><span>/</span><span>Graphs</span></div></div><div class='with-side'><aside class='side' aria-label='Graphs'><span class='side-title'>Graphs</span><a href='dsa-implementations/graph-01-adjacency-list.html'>Adjacency List</a><a href='dsa-implementations/graph-02-adjacency-matrix.html'>Adjacency Matrix</a><a href='dsa-implementations/graph-03-bfs.html'>Breadth-First Search</a><a href='dsa-implementations/graph-04-dfs.html'>Depth-First Search</a><a href='dsa-implementations/graph-05-components.html'>Connected Components</a><a href='dsa-implementations/graph-06-cycle-undirected.html'>Cycle Detection — Undirected</a><a href='dsa-implementations/graph-07-cycle-directed.html'>Cycle Detection — Directed</a><a href='dsa-implementations/graph-08-bipartite.html'>Bipartite Check</a><a href='dsa-implementations/graph-09-topological.html'>Topological Sort — Kahn</a><a href='dsa-implementations/graph-10-unweighted-shortest.html'>Shortest Path — Unweighted</a><a href='dsa-implementations/graph-11-dijkstra.html'>Dijkstra Shortest Path</a><a href='dsa-implementations/graph-12-bellman-ford.html'>Bellman-Ford</a><a href='dsa-implementations/graph-13-floyd-warshall.html'>Floyd-Warshall</a><a href='dsa-implementations/graph-14-dsu.html'>Disjoint Set Union</a><a href='dsa-implementations/graph-15-kruskal.html'>Kruskal MST</a><a href='dsa-implementations/graph-16-prims.html' class='active'>Prim MST</a><a href='dsa-implementations/graph-17-scc.html'>Strongly Connected Components — Kosaraju</a><a href='dsa-implementations/graph-18-directed-vs-undirected.html'>Model Directed vs Undirected Graphs</a><a href='dsa-implementations/graph-19-weighted-vs-unweighted.html'>Model Weighted vs Unweighted Graphs</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>GRAPHS</span><span class='badge badge-gray'>HARD</span></div><h1>Prim MST in Python</h1><p class='lead'>Prim grows an MST by repeatedly taking the cheapest frontier edge.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='dsa-structure-program-graph-16-prims' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='dsa-structure-program:graph-16-prims' data-bm-label='Bookmark program'>☆ Bookmark program</button></div><section class='ls'><h2><i>1</i>Why this matters</h2><p>It is the other major MST technique and pairs naturally with adjacency lists and a heap.</p><div class='explain'><div class='explain-tag'>Approach</div><p>Same heap idea, different optimization goal.</p></div></section><section class='ls'><h2><i>2</i>Python implementation</h2><div class='code-box'><div class='code-header'><span>Python</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import heapq
+g={&quot;A&quot;:[(&quot;B&quot;,1),(&quot;C&quot;,2)],&quot;B&quot;:[(&quot;A&quot;,1),(&quot;C&quot;,3)],&quot;C&quot;:[(&quot;A&quot;,2),(&quot;B&quot;,3),(&quot;D&quot;,4)],&quot;D&quot;:[(&quot;C&quot;,4)]}; seen={&quot;A&quot;}; h=[(w,&quot;A&quot;,v) for v,w in g[&quot;A&quot;]]; heapq.heapify(h); total=0
+while h:
+ w,u,v=heapq.heappop(h)
+ if v in seen: continue
+ seen.add(v); total+=w
+ for x,nw in g[v]:
+  if x not in seen: heapq.heappush(h,(nw,v,x))
+print(total)</code></pre></div></section><section class='ls'><h2><i>3</i>Expected output</h2><div class='out'><span>OUTPUT / RESULT</span><pre>7</pre></div></section><section class='ls'><h2><i>4</i>Line by line</h2><table class='lines'><thead><tr><th>Code</th><th>Meaning</th></tr></thead><tbody><tr><td><code data-code>heapq.heappop(h)</code></td><td>Chooses the cheapest frontier edge.</td></tr><tr><td><code data-code>if v in seen: continue</code></td><td>Rejects edges into the existing tree.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><div class='explain'><p>Take A-B=1, A-C=2, C-D=4 for total 7.</p></div></section><section class='ls'><h2><i>6</i>Complexity</h2><p>O(E log V).</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Confusing Prim with Dijkstra.</li></ul></section><section class='ls'><h2><i>8</i>When to use it</h2><p>Use for MST construction.</p></section><section class='ls'><h2><i>9</i>Interview questions</h2><div class='qa'><details><summary>Prim vs Dijkstra?</summary><p>Prim minimizes total tree connection cost; Dijkstra minimizes source-to-node distances.</p></details></div></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><div class='try-card'><p>Return the selected edges.</p></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='dsa-implementations/graph-15-kruskal.html'>← Kruskal MST</a><a class='button button-primary' href='dsa-implementations/graph-17-scc.html'>Strongly Connected Components — Kosaraju →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

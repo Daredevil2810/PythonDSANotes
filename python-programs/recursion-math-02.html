@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Fibonacci series using Recursion in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to fibonacci series using Recursion. Generate the Fibonacci sequence by defining each number as the sum of the two previous numbers.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/recursion-math-02.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Fibonacci series using Recursion in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to fibonacci series using Recursion. Generate the Fibonacci sequence by defining each number as the sum of the two previous numbers.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/recursion-math-02.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fibonacci series using Recursion in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to fibonacci series using Recursion. Generate the Fibonacci sequence by defining each number as the sum of the two previous numbers.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Fibonacci series using Recursion","item":"https://YOUR-SITE-URL/python-programs/recursion-math-02.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Fibonacci series using Recursion in Python","description":"Python program to fibonacci series using Recursion. Generate the Fibonacci sequence by defining each number as the sum of the two previous numbers.","url":"https://YOUR-SITE-URL/python-programs/recursion-math-02.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Recursion & Math","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/recursion-math-02.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Recursion &amp; Math</span></div></div><div class='with-side'><aside class='side' aria-label='Recursion &amp; Math'><span class='side-title'>Recursion &amp; Math</span><a href='python-programs/recursion-math-01.html'>Factorial using Recursion</a><a href='python-programs/recursion-math-02.html' class='active'>Fibonacci series using Recursion</a><a href='python-programs/recursion-math-03.html'>GCD (Greatest Common Divisor) using Recursion</a><a href='python-programs/recursion-math-04.html'>LCM (Least Common Multiple) using GCD</a><a href='python-programs/recursion-math-05.html'>Power of a number using Recursion</a><a href='python-programs/recursion-math-06.html'>Sum of digits using Recursion</a><a href='python-programs/recursion-math-07.html'>Reverse a number using Recursion</a><a href='python-programs/recursion-math-08.html'>Check Palindrome number using Recursion</a><a href='python-programs/recursion-math-09.html'>Count Number of Digits using Recursion</a><a href='python-programs/recursion-math-10.html'>Factorial of a number using Recursion</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-purple'>RECURSION &amp; MATH</span><span class='badge badge-gray'>EASY</span></div><h1>Fibonacci series using Recursion in Python</h1><p class='lead'>Generate the Fibonacci sequence by defining each number as the sum of the two previous numbers.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='recursion-math-02' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:recursion-math-02' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_02.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Fibonacci series using Recursion : 
+
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+    
+n = 10
+print(&quot;Fibonacci series : &quot;)
+for i in range(n):
+    print(fibonacci(i), end=&quot; &quot;)
+
+
+# Output :
+
+# Fibonacci series : 
+# 0 1 1 2 3 5 8 13 21 34 </code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>It demonstrates recursive branching and also reveals why naive recursion can be inefficient when the same subproblems are solved repeatedly.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>fib(5) = fib(4) + fib(3). Each branch keeps splitting until fib(0) and fib(1) provide base values.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Return 0 for n = 0.</li><li>Return 1 for n = 1.</li><li>Otherwise calculate fibonacci(n - 1) + fibonacci(n - 2).</li><li>Call the function for each index needed by the sequence.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>if n == 0</code></td><td>First base case.</td></tr><tr><td><code data-code>elif n == 1</code></td><td>Second base case.</td></tr><tr><td><code data-code>fibonacci(n-1) + fibonacci(n-2)</code></td><td>Branch into the two smaller Fibonacci problems.</td></tr><tr><td><code data-code>for i in range(n)</code></td><td>Generate the requested number of terms.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>fib(0)</code></td><td>0</td></tr><tr><td><code>fib(1)</code></td><td>1</td></tr><tr><td><code>fib(2)</code></td><td>fib(1)+fib(0)=1</td></tr><tr><td><code>fib(3)</code></td><td>fib(2)+fib(1)=2</td></tr><tr><td><code>fib(4)</code></td><td>fib(3)+fib(2)=3</td></tr><tr><td><code>fib(5)</code></td><td>fib(4)+fib(3)=5</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(2^n) approximately for naive recursion</p><p><strong>Space:</strong> O(n) call stack</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Naive recursion repeats the same Fibonacci calculations many times.</li><li>The number of terms and the highest index are different questions.</li><li>Missing either base case causes incorrect or endless recursion.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use naive recursive Fibonacci mainly for learning recursion; use memoization or iteration for practical computation.</p><p><strong>Avoid it when:</strong> Do not use naive recursion for large n because its repeated work grows exponentially.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why is naive recursive Fibonacci slow?</li><li>How does memoization improve it?</li><li>How can Fibonacci be calculated in O(n) time and O(1) extra space?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Add memoization with a dictionary.</li><li>Rewrite Fibonacci iteratively.</li><li>Build a bottom-up DP table.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/recursion-math-01.html'>← Factorial using Recursion</a><a class='button button-primary' href='python-programs/recursion-math-03.html'>GCD (Greatest Common Divisor) using Recursion →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

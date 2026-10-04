@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Sliding Window in Python — DSA Tutorial with Code | Python DSA Notes</title>
+  <meta name="description" content="Maintain a changing contiguous range instead of recomputing every subarray. A sliding window keeps a left and right boundary and updates only what enters or…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/dsa-lessons/sliding-window.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Sliding Window in Python — DSA Tutorial with Code | Python DSA Notes">
+  <meta property="og:description" content="Maintain a changing contiguous range instead of recomputing every subarray. A sliding window keeps a left and right boundary and updates only what enters or…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/dsa-lessons/sliding-window.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sliding Window in Python — DSA Tutorial with Code | Python DSA Notes">
+  <meta name="twitter:description" content="Maintain a changing contiguous range instead of recomputing every subarray. A sliding window keeps a left and right boundary and updates only what enters or…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"DSA roadmap","item":"https://YOUR-SITE-URL/dsa.html"},{"@type":"ListItem","position":3,"name":"Sliding Window","item":"https://YOUR-SITE-URL/dsa-lessons/sliding-window.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Sliding Window in Python — DSA tutorial","description":"Maintain a changing contiguous range instead of recomputing every subarray. A sliding window keeps a left and right boundary and updates only what enters or…","url":"https://YOUR-SITE-URL/dsa-lessons/sliding-window.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Data structures and algorithms","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/dsa-lessons/sliding-window.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="dsa">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='dsa.html'>DSA roadmap</a><span>/</span><span>Level 3</span></div></div><div class='with-side'><aside class='side' aria-label='DSA lessons'><span class='side-title'>LEVEL 0</span><a href='dsa-lessons/programming-logic-loops.html'>Loops &amp; Conditions</a><a href='dsa-lessons/programming-logic-functions.html'>Functions</a><a href='dsa-lessons/programming-logic-patterns.html'>Pattern Printing</a><span class='side-title' style='margin-top:14px'>LEVEL 1</span><a href='dsa-lessons/complexity-big-o.html'>Complexity &amp; Big O</a><a href='dsa-lessons/arrays.html'>Arrays</a><a href='dsa-lessons/strings.html'>Strings</a><a href='dsa-lessons/searching.html'>Searching</a><a href='dsa-lessons/sorting.html'>Sorting</a><a href='dsa-lessons/hashing.html'>Hashing</a><span class='side-title' style='margin-top:14px'>LEVEL 2</span><a href='dsa-lessons/linked-list.html'>Linked List</a><a href='dsa-lessons/stack.html'>Stack</a><a href='dsa-lessons/queue.html'>Queue</a><a href='dsa-lessons/deque.html'>Deque</a><span class='side-title' style='margin-top:14px'>LEVEL 3</span><a href='dsa-lessons/two-pointers.html'>Two Pointers</a><a href='dsa-lessons/sliding-window.html' class='active'>Sliding Window</a><a href='dsa-lessons/prefix-sum.html'>Prefix Sum</a><a href='dsa-lessons/binary-search-patterns.html'>Binary Search Patterns</a><a href='dsa-lessons/recursion.html'>Recursion</a><a href='dsa-lessons/backtracking.html'>Backtracking</a><span class='side-title' style='margin-top:14px'>LEVEL 4</span><a href='dsa-lessons/trees.html'>Trees</a><a href='dsa-lessons/binary-search-tree.html'>Binary Search Tree</a><a href='dsa-lessons/heap-priority-queue.html'>Heap / Priority Queue</a><a href='dsa-lessons/graphs.html'>Graphs</a><a href='dsa-lessons/trie.html'>Trie</a><span class='side-title' style='margin-top:14px'>LEVEL 5</span><a href='dsa-lessons/greedy.html'>Greedy Algorithms</a><a href='dsa-lessons/divide-and-conquer.html'>Divide &amp; Conquer</a><a href='dsa-lessons/dynamic-programming.html'>Dynamic Programming</a><a href='dsa-lessons/bit-manipulation.html'>Bit Manipulation</a><a href='dsa-lessons/graph-algorithms.html'>Graph Algorithms</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>DSA</span><span class='badge badge-gray'>LEVEL 3</span><span class='badge badge-gray'>MEDIUM</span></div><h1>Sliding Window in Python</h1><p class='lead'>Maintain a changing contiguous range instead of recomputing every subarray.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='dsa-lesson-sliding-window' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='dsa-lesson:sliding-window' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A sliding window keeps a left and right boundary and updates only what enters or leaves the range.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>It turns many O(n²) contiguous-subarray problems into O(n).</p></section><section class='ls'><h2><i>3</i>How it works</h2><div class='explain'><div class='explain-tag'>Everyday idea</div><p>Imagine looking through a moving train window: when it moves right, one item leaves and another enters.</p><div class='explain-tag'>Technical view</div><p>The technique maintains an invariant over a contiguous interval, expanding or shrinking boundaries while updating aggregate state.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Define what makes a window valid.</li><li>Expand the right side to include new data.</li><li>Shrink from the left whenever the window becomes invalid or too large.</li><li>Record the best valid window.</li></ol></section><section class='ls'><h2><i>4</i>Python code, step by step</h2><div class='code-box'><div class='code-header'><span>example.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>def longest_unique(text):
+    seen = set()
+    left = 0
+    best = 0
+    for right, ch in enumerate(text):
+        while ch in seen:
+            seen.remove(text[left])
+            left += 1
+        seen.add(ch)
+        best = max(best, right - left + 1)
+    return best
+
+print(longest_unique(&quot;abcabcbb&quot;))</code></pre></div><div class='out'><span>OUTPUT / RESULT</span><pre>3</pre></div><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>while ch in seen</code></td><td>Shrinks the window until the invariant is restored.</td></tr><tr><td><code data-code>best = max(...)</code></td><td>Records the largest valid window.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Not removing outgoing state when moving left.</li><li>Using a fixed window when the problem needs a variable window.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use for contiguous arrays/strings involving longest, shortest, count, sum, or frequency constraints.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>When is sliding window inappropriate?</summary><p>When the problem is not about a contiguous range or when the state cannot be updated efficiently as the window moves.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Find the maximum sum of any window of size k.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Add the new right value and subtract the outgoing left value.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>window = sum(values[:k])
+best = window
+for right in range(k, len(values)):
+    window += values[right] - values[right-k]
+    best = max(best, window)</code></pre></div></details></div></section><section class='ls'><h2><i>9</i>Practise with real programs</h2><div class='tags'><a class='tag done' href='python-programs/arrays-strings-2-05.html'>Search element in Array (Linear Search) →</a></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='dsa-lessons/two-pointers.html'>← Two Pointers</a><a class='button button-primary' href='dsa-lessons/prefix-sum.html'>Prefix Sum →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

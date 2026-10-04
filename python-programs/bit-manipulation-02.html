@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Check if the ith Bit is Set in Python — Program, Explanation &amp; Dry Run</title>
+  <meta name="description" content="Python program to check if the ith Bit is Set. Create a mask with 1 &lt;&lt; i and use AND to isolate the bit at position i.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-programs/bit-manipulation-02.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Check if the ith Bit is Set in Python — Program, Explanation &amp; Dry Run">
+  <meta property="og:description" content="Python program to check if the ith Bit is Set. Create a mask with 1 &lt;&lt; i and use AND to isolate the bit at position i.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-programs/bit-manipulation-02.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Check if the ith Bit is Set in Python — Program, Explanation &amp; Dry Run">
+  <meta name="twitter:description" content="Python program to check if the ith Bit is Set. Create a mask with 1 &lt;&lt; i and use AND to isolate the bit at position i.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Programs","item":"https://YOUR-SITE-URL/programs.html"},{"@type":"ListItem","position":3,"name":"Check if the ith Bit is Set","item":"https://YOUR-SITE-URL/python-programs/bit-manipulation-02.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Check if the ith Bit is Set in Python","description":"Python program to check if the ith Bit is Set. Create a mask with 1 \u003c\u003c i and use AND to isolate the bit at position i.","url":"https://YOUR-SITE-URL/python-programs/bit-manipulation-02.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Bit Manipulation","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-programs/bit-manipulation-02.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="programs">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='programs.html'>Programs</a><span>/</span><span>Bit Manipulation</span></div></div><div class='with-side'><aside class='side' aria-label='Bit Manipulation'><span class='side-title'>Bit Manipulation</span><a href='python-programs/bit-manipulation-01.html'>Check if a Number is Even or Odd using Bitwise Problem</a><a href='python-programs/bit-manipulation-02.html' class='active'>Check if the ith Bit is Set</a><a href='python-programs/bit-manipulation-03.html'>Set the ith Bit</a><a href='python-programs/bit-manipulation-04.html'>Clear the ith Bit of a Number</a><a href='python-programs/bit-manipulation-05.html'>Toggle the ith Bit of a Number</a><a href='python-programs/bit-manipulation-06.html'>Count Set Bits in a Number</a><a href='python-programs/bit-manipulation-07.html'>Find XOR of Two Numbers</a><a href='python-programs/bit-manipulation-08.html'>Swap Two Numbers without Temporary Variable (using XOR)</a><a href='python-programs/bit-manipulation-09.html'>Find the Only Non-Repeating Element (when others appear twice)</a><a href='python-programs/bit-manipulation-10.html'>Find the Two Non-Repeating Elements (when others appear twice)</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-purple'>BIT MANIPULATION</span><span class='badge badge-gray'>EASY</span></div><h1>Check if the ith Bit is Set in Python</h1><p class='lead'>Create a mask with 1 &lt;&lt; i and use AND to isolate the bit at position i.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='bit-manipulation-02' data-done-label='Program'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='program:bit-manipulation-02' data-bm-label='Bookmark'>☆ Bookmark</button></div><section class='ls'><h2><i>1</i>Python program</h2><div class='code-box'><div class='code-header'><span>program_02.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code># Check if the ith Bit is Set :
+
+# Given a number num and a position i, check if the ith bit in the binary representation of num is set (1) or not (0).
+
+num = 13  # 1101
+i = 2
+
+mask = 1 &lt;&lt; i
+
+if (num &amp; mask) != 0:
+    print(f&quot;Bit at position {i} is SET&quot;)
+else:
+    print(f&quot;Bit at position {i} is NOT SET&quot;)
+
+
+# Output :
+
+# Bit at position 2 is SET</code></pre></div></section><section class='ls'><h2><i>2</i>Why it matters</h2><p>Bit masks are the foundation of many low-level and algorithmic bit-manipulation techniques.</p><div class='explain'><div class='explain-tag'>Simple example</div><p>For 13 (1101) and i = 2, the mask is 0100. 1101 &amp; 0100 is 0100, so bit 2 is set.</p></div></section><section class='ls'><h2><i>3</i>How it works</h2><ol class='steps-list' style='grid-template-columns:1fr;margin-top:6px'><li>Choose the zero-based bit position i.</li><li>Create a mask by shifting 1 left by i positions.</li><li>AND the number with the mask.</li><li>A non-zero result means that bit is 1; zero means it is 0.</li></ol></section><section class='ls'><h2><i>4</i>Line-by-line meaning</h2><table class='lines'><thead><tr><th>Code</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>mask = 1 &lt;&lt; i</code></td><td>Moves a single 1 into the requested bit position.</td></tr><tr><td><code data-code>if (num &amp; mask) != 0</code></td><td>Checks whether the selected bit overlaps a 1 in num.</td></tr><tr><td><code data-code>print(... SET)</code></td><td>Reports that the bit is 1.</td></tr><tr><td><code data-code>else</code></td><td>Runs when the selected bit is 0.</td></tr></tbody></table></section><section class='ls'><h2><i>5</i>Dry run</h2><table class='lines'><thead><tr><th>Step</th><th>What happens</th></tr></thead><tbody><tr><td><code>num = 13</code></td><td>Binary: 1101</td></tr><tr><td><code>i = 2</code></td><td>Target the third bit from the right.</td></tr><tr><td><code>1 &lt;&lt; 2</code></td><td>Mask = 0100</td></tr><tr><td><code>13 &amp; 0100</code></td><td>1101 &amp; 0100 = 0100</td></tr><tr><td><code>Result</code></td><td>Non-zero → bit 2 is SET</td></tr></tbody></table></section><section class='ls'><h2><i>6</i>Time and space complexity</h2><p><strong>Time:</strong> O(1)</p><p><strong>Space:</strong> O(1)</p></section><section class='ls'><h2><i>7</i>Common mistakes</h2><ul class='mist'><li>Using 1 &lt;&lt; i incorrectly as the answer instead of as a mask.</li><li>Counting bit positions from 1 instead of 0.</li><li>Using OR when the goal is only to test a bit.</li></ul></section><section class='ls'><h2><i>8</i>When to use it (and when not to)</h2><p><strong>Use it when:</strong> Use masks to inspect flags, permissions, binary representations, and individual bits.</p><p><strong>Avoid it when:</strong> Avoid bit masks when a straightforward numeric condition communicates the intent much more clearly.</p></section><section class='ls'><h2><i>9</i>Interview questions to expect</h2><ul class='mist'><li>Why is 1 &lt;&lt; i used as the mask?</li><li>What does a zero result from num &amp; mask mean?</li><li>How would you check the most significant set bit?</li></ul></section><section class='ls try'><h2><i>10</i>Try it yourself</h2><ul class='mist'><li>Test set and unset positions.</li><li>Write a function returning True or False instead of printing.</li><li>Modify it to check several bit positions in a loop.</li></ul></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-programs/bit-manipulation-01.html'>← Check if a Number is Even or Odd using Bitwise Problem</a><a class='button button-primary' href='python-programs/bit-manipulation-03.html'>Set the ith Bit →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

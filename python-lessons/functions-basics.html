@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Functions: def, parameters &amp; return — Python Tutorial for Beginners</title>
+  <meta name="description" content="Write a piece of logic once and reuse it anywhere. A function is a named block of reusable code. You define it with def, give it inputs called parameters…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://YOUR-SITE-URL/python-lessons/functions-basics.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Functions: def, parameters &amp; return — Python Tutorial for Beginners">
+  <meta property="og:description" content="Write a piece of logic once and reuse it anywhere. A function is a named block of reusable code. You define it with def, give it inputs called parameters…">
+  <meta property="og:url" content="https://YOUR-SITE-URL/python-lessons/functions-basics.html">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Functions: def, parameters &amp; return — Python Tutorial for Beginners">
+  <meta name="twitter:description" content="Write a piece of logic once and reuse it anywhere. A function is a named block of reusable code. You define it with def, give it inputs called parameters…">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://YOUR-SITE-URL/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://YOUR-SITE-URL/python.html"},{"@type":"ListItem","position":3,"name":"Functions: def, parameters & return","item":"https://YOUR-SITE-URL/python-lessons/functions-basics.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Functions: def, parameters & return — Python tutorial","description":"Write a piece of logic once and reuse it anywhere. A function is a named block of reusable code. You define it with def, give it inputs called parameters…","url":"https://YOUR-SITE-URL/python-lessons/functions-basics.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://YOUR-SITE-URL/assets/img/og-image.png","dateModified":"2026-10-04","about":"Python programming","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://YOUR-SITE-URL/"},"mainEntityOfPage":"https://YOUR-SITE-URL/python-lessons/functions-basics.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="python">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='python.html'>Python</a><span>/</span><span>Functions &amp; Lambda</span></div></div><div class='with-side'><aside class='side' aria-label='Python lessons'><span class='side-title'>01 · Python Basics</span><a href='python-lessons/what-is-python.html'>What is Python &amp; how it runs</a><a href='python-lessons/variables-data-types.html'>Variables &amp; data types</a><span class='side-title' style='margin-top:14px'>02 · Control Flow</span><a href='python-lessons/if-elif-else.html'>Decisions: if, elif, else</a><a href='python-lessons/loops-range.html'>Loops: for, while &amp; range()</a><a href='python-lessons/loop-control.html'>break, continue, pass, for…else &amp; nested loops</a><span class='side-title' style='margin-top:14px'>03 · Functions</span><a href='python-lessons/functions-basics.html' class='active'>Functions: def, parameters &amp; return</a><a href='python-lessons/args-kwargs.html'>*args and **kwargs</a><a href='python-lessons/scope-legb.html'>Scope &amp; the LEGB rule</a><a href='python-lessons/lambda-higher-order.html'>lambda, map, filter &amp; reduce</a><span class='side-title' style='margin-top:14px'>04 · Object-Oriented Programming</span><a href='python-lessons/classes-objects.html'>Classes &amp; objects</a><a href='python-lessons/method-types.html'>Instance, class &amp; static methods</a><a href='python-lessons/inheritance.html'>Inheritance, super() &amp; overriding</a><a href='python-lessons/encapsulation.html'>Encapsulation &amp; private attributes</a><a href='python-lessons/polymorphism-abstraction.html'>Polymorphism &amp; abstraction</a><span class='side-title' style='margin-top:14px'>05 · Files, Exceptions</span><a href='python-lessons/file-handling.html'>File handling</a><a href='python-lessons/exceptions.html'>Exception handling</a><a href='python-lessons/modules-packages.html'>Modules &amp; packages</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PYTHON</span><span class='badge badge-gray'>SECTION 03</span><span class='badge badge-gray'>10 MIN</span></div><h1>Functions: def, parameters &amp; return</h1><p class='lead'>Write a piece of logic once and reuse it anywhere.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-functions-basics' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:functions-basics' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A <strong>function</strong> is a named block of reusable code. You define it with <code>def</code>, give it inputs called <strong>parameters</strong>, and it can hand back a result with <code>return</code>.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Without functions you would copy-paste the same code again and again. Functions keep programs short, testable and readable. Every DSA solution you will write is a function.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>A function is a <strong>coffee machine</strong>. You press a button (call it), put in beans and water (parameters), and it gives you coffee (the return value). You don&#39;t rebuild the machine every time you want coffee.</p><div class='explain-tag'>Precise definition</div><p><code>def name(params):</code> creates a function object. <code>return</code> ends the function and sends a value to the caller. If there is no <code>return</code>, the function returns <code>None</code>. Arguments can be positional, keyword or default.</p></div><div class='table-wrap'><table class='ltable'><thead><tr><th>Kind</th><th>Example</th><th>Meaning</th></tr></thead><tbody><tr><td><code>Positional</code></td><td><code>add(5, 3)</code></td><td>Matched by position</td></tr><tr><td><code>Keyword</code></td><td><code>add(b=3, a=5)</code></td><td>Matched by name</td></tr><tr><td><code>Default</code></td><td><code>def greet(name=&quot;Devanshu&quot;)</code></td><td>Used if nothing is passed</td></tr></tbody></table></div></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Define, call, return</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>def greet():
+    print(&quot;Hello Developer!&quot;)
+
+greet()                      # call it
+
+def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(&quot;Sum:&quot;, result)</code></pre></div><div class='out'><span>OUTPUT</span><pre>Hello Developer!
+Sum: 8</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>def greet():</code></td><td>Creates a function called <code>greet</code> that takes no inputs. Nothing runs yet.</td></tr><tr><td><code data-code>greet()</code></td><td>The parentheses <strong>call</strong> it, and now the body runs.</td></tr><tr><td><code data-code>def add(a, b):</code></td><td>Two parameters, <code>a</code> and <code>b</code>, act like blank slots.</td></tr><tr><td><code data-code>return a + b</code></td><td>Sends the sum back to whoever called the function.</td></tr><tr><td><code data-code>result = add(5, 3)</code></td><td>5 goes into <code>a</code>, 3 into <code>b</code>. The returned 8 is stored in <code>result</code>.</td></tr></tbody></table></div><div class='block'><h3>Three ways to pass arguments, and a default</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>def add(a, b):
+    return a + b
+
+print(add(5, 3))          # positional
+print(add(b=3, a=5))      # keyword
+
+def welcome(name=&quot;Devanshu&quot;):
+    print(&quot;Welcome,&quot;, name)
+
+welcome()
+welcome(&quot;Ravi&quot;)
+
+def no_return():
+    x = 1
+
+print(no_return())</code></pre></div><div class='out'><span>OUTPUT</span><pre>8
+8
+Welcome, Devanshu
+Welcome, Ravi
+None</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>add(5, 3)</code></td><td>By position: first value to <code>a</code>, second to <code>b</code>.</td></tr><tr><td><code data-code>add(b=3, a=5)</code></td><td>By name, so the order doesn&#39;t matter.</td></tr><tr><td><code data-code>def welcome(name=&quot;Devanshu&quot;):</code></td><td>If the caller passes nothing, <code>name</code> falls back to this default.</td></tr><tr><td><code data-code>welcome()</code></td><td>Uses the default.</td></tr><tr><td><code data-code>welcome(&quot;Ravi&quot;)</code></td><td>Overrides the default.</td></tr><tr><td><code data-code>print(no_return())</code></td><td>No <code>return</code> line, so the function gives back <code>None</code>.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Printing inside a function when you meant to <code>return</code>. A printed value can&#39;t be reused by other code.</li><li>Using a mutable default like <code>def f(x=[])</code>. The same list is reused across calls.</li><li>Forgetting the parentheses when calling: <code>greet</code> is the function, <code>greet()</code> runs it.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Whenever you notice the same steps twice, or when a piece of logic deserves a name. In interviews, write the solution as a function so it&#39;s easy to test.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>What is the default return type of a function?</summary><p><code>None</code>, if you don&#39;t explicitly return something.</p></details><details><summary>Difference between parameter and argument?</summary><p>A parameter is the name in the definition (<code>a</code>). An argument is the actual value you pass in the call (<code>5</code>).</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Write a function <code>square(n)</code> that returns the square of <code>n</code>. Print <code>square(6)</code>.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> <code>n <em> n</code> or <code>n </em>* 2</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>def square(n):
+    return n * n
+
+print(square(6))</code></pre></div><div class='out'><span>OUTPUT</span><pre>36</pre></div></details></div></section><section class='ls'><h2><i>9</i>Practise with real programs</h2><div class='tags'><a class='tag done' href='python-programs/recursion-math-01.html'>Factorial using Recursion →</a><a class='tag done' href='python-programs/arrays-strings-09.html'>Find factorial of a number →</a></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='python-lessons/loop-control.html'>← break, continue, pass, for…else &amp; nested loops</a><a class='button button-primary' href='python-lessons/args-kwargs.html'>*args and **kwargs →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>
