@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Scatter plots: find relationships — Matplotlib Tutorial</title>
+  <meta name="description" content="Plot pairs of values as dots to see whether two things move together, and add colour and size to show more. A scatter plot draws one dot for every pair of…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/matplotlib-scatter.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Scatter plots: find relationships — Matplotlib Tutorial">
+  <meta property="og:description" content="Plot pairs of values as dots to see whether two things move together, and add colour and size to show more. A scatter plot draws one dot for every pair of…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/matplotlib-scatter.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scatter plots: find relationships — Matplotlib Tutorial">
+  <meta name="twitter:description" content="Plot pairs of values as dots to see whether two things move together, and add colour and size to show more. A scatter plot draws one dot for every pair of…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Scatter plots: find relationships","item":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-scatter.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Scatter plots: find relationships — Matplotlib tutorial","description":"Plot pairs of values as dots to see whether two things move together, and add colour and size to show more. A scatter plot draws one dot for every pair of…","url":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-scatter.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"Matplotlib library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-scatter.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>Matplotlib for Charts</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html' class='active'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-orange'>MATPLOTLIB</span><span class='badge badge-gray'>LIBRARY 03</span><span class='badge badge-gray'>10 MIN</span></div><h1>Scatter plots: find relationships</h1><p class='lead'>Plot pairs of values as dots to see whether two things move together, and add colour and size to show more.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-matplotlib-scatter' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:matplotlib-scatter' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A <strong>scatter plot</strong> draws one dot for every pair of values: one value sets the dot&#39;s position across, the other sets its height. The shape of the dots shows how the two values relate.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Does more study time mean higher marks? Do expensive items sell less? A scatter plot answers questions like these by eye, and it is often the first chart you draw when exploring data. It is the picture behind the correlation number you may have met in Pandas.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Imagine a teacher sticking a dot on a wall chart for each student: how many hours they studied across the bottom and their mark up the side. If the dots form a rising band, studying and marks go together.</p><div class='explain-tag'>Precise definition</div><p><code>plt.scatter(x, y)</code> draws unconnected dots. Extra arguments change them: <code>s</code> for size, <code>c</code> for colour (a single colour, or a list of numbers mapped through a <strong>colormap</strong> <code>cmap</code>), and <code>alpha</code> for transparency between 0 and 1. <code>plt.colorbar()</code> adds a key for the colour scale.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Prepare two lists of equal length: x values and y values.</li><li>Call <code>plt.scatter(x, y)</code>.</li><li>Use <code>alpha</code> when dots overlap.</li><li>Use <code>s</code> and <code>c</code> to show a third or fourth value.</li><li>Add <code>plt.colorbar()</code> if colour carries meaning.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Hours studied against marks</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+hours = [1, 2, 2.5, 3, 4, 4.5, 5, 6, 7, 8]
+marks = [35, 42, 48, 50, 58, 62, 65, 72, 80, 88]
+
+plt.scatter(hours, marks)
+plt.title(&#39;Study time and marks&#39;)
+plt.xlabel(&#39;Hours studied&#39;)
+plt.ylabel(&#39;Marks&#39;)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-scatter-1.png' alt='Scatter plot of study hours against marks with dots rising steadily from lower left to upper right.' width='562' height='455' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>plt.scatter(hours, marks)</code></td><td>One dot per student. Each dot sits at (hours, marks).</td></tr><tr><td><code data-code>plt.title(...) and the two labels</code></td><td>Always say what the two axes measure, with units where possible.</td></tr><tr><td><code data-code>What the picture shows</code></td><td>The dots climb from bottom left to top right: more hours go with higher marks.</td></tr></tbody></table></div><div class='block'><h3>Colour and size</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+hours = [1, 2, 2.5, 3, 4, 4.5, 5, 6, 7, 8]
+marks = [35, 42, 48, 50, 58, 62, 65, 72, 80, 88]
+
+plt.scatter(hours, marks, s=120, color=&#39;#7c3aed&#39;, alpha=0.6)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-scatter-2.png' alt='Scatter plot with larger purple dots, semi-transparent, for study hours against marks.' width='543' height='414' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>s=120</code></td><td>Dot size. Bigger numbers make bigger dots.</td></tr><tr><td><code data-code>color=&#39;#7c3aed&#39;</code></td><td>A single colour for all dots.</td></tr><tr><td><code data-code>alpha=0.6</code></td><td>Transparency from 0 (invisible) to 1 (solid). Overlapping dots show up as darker areas.</td></tr></tbody></table></div><div class='block'><h3>Let colour show a third value</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+hours = [1, 2, 2.5, 3, 4, 4.5, 5, 6, 7, 8]
+marks = [35, 42, 48, 50, 58, 62, 65, 72, 80, 88]
+sleep = [5, 6, 5, 7, 6, 8, 7, 8, 7, 8]
+
+plt.scatter(hours, marks, c=sleep, cmap=&#39;viridis&#39;, s=100)
+plt.colorbar(label=&#39;Hours of sleep&#39;)
+plt.xlabel(&#39;Hours studied&#39;)
+plt.ylabel(&#39;Marks&#39;)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-scatter-3.png' alt='Scatter plot where each dot is coloured by sleep hours, with a colour bar on the right labelled Hours of sleep.' width='558' height='438' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>c=sleep</code></td><td>Passing numbers to <code>c</code> colours each dot according to its value.</td></tr><tr><td><code data-code>cmap=&#39;viridis&#39;</code></td><td>The colormap decides which colours the numbers map to. <code>viridis</code> stays readable for most colour-blind readers.</td></tr><tr><td><code data-code>plt.colorbar(label=&#39;Hours of sleep&#39;)</code></td><td>Adds the scale bar so people can decode the colours.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Joining scatter points with a line. If the order of the points does not matter, use <code>scatter</code>, not <code>plot</code>.</li><li>Reading a pattern as proof of cause. Dots that rise together show a relationship, not that one thing causes the other.</li><li>Forgetting <code>alpha</code> when many dots overlap, so you cannot see where they are dense.</li><li>Passing x and y of different lengths, which raises a <code>ValueError</code>.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use scatter plots to explore the relationship between two numeric columns, to spot clusters, and to spot outliers: dots far away from all the others.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>What is a scatter plot used for?</summary><p>To see the relationship between two numeric variables, spot clusters and find outliers.</p></details><details><summary>What does the <code>alpha</code> argument do?</summary><p>It sets transparency from 0 to 1, so overlapping dots are easier to see.</p></details><details><summary>How do you colour dots by a third variable?</summary><p>Pass the values to <code>c</code>, choose a <code>cmap</code>, and add <code>plt.colorbar()</code>.</p></details><details><summary>Is a rising scatter pattern proof that one variable causes the other?</summary><p>No. It only shows that they move together.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Plot these points as a scatter: x = <code>[1, 2, 3, 4, 5]</code>, y = <code>[10, 8, 6, 4, 2]</code>. Make the dots red, size 80, and label the axes <code>x</code> and <code>y</code>.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Use <code>plt.scatter(x, y, s=80, color=&#39;red&#39;)</code>, then <code>plt.xlabel</code> and <code>plt.ylabel</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [10, 8, 6, 4, 2]
+plt.scatter(x, y, s=80, color=&#39;red&#39;)
+plt.xlabel(&#39;x&#39;)
+plt.ylabel(&#39;y&#39;)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-scatter-try.png' alt='Five red dots falling in a straight line from upper left to lower right, with axes labelled x and y.' width='562' height='432' loading='lazy'><figcaption>The chart this code draws</figcaption></figure></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/matplotlib-bar-charts.html'>← Bar charts: compare categories</a><a class='button button-primary' href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

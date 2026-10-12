@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Random numbers and simulations — NumPy Tutorial | Python DSA Notes</title>
+  <meta name="description" content="Generate random numbers the modern way, make them repeatable with a seed, and run a small dice simulation. NumPy can generate random numbers in bulk. You…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/numpy-random.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Random numbers and simulations — NumPy Tutorial | Python DSA Notes">
+  <meta property="og:description" content="Generate random numbers the modern way, make them repeatable with a seed, and run a small dice simulation. NumPy can generate random numbers in bulk. You…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/numpy-random.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random numbers and simulations — NumPy Tutorial | Python DSA Notes">
+  <meta name="twitter:description" content="Generate random numbers the modern way, make them repeatable with a seed, and run a small dice simulation. NumPy can generate random numbers in bulk. You…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Random numbers and simulations","item":"https://pythondsanotes.onrender.com/library-lessons/numpy-random.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Random numbers and simulations — NumPy tutorial","description":"Generate random numbers the modern way, make them repeatable with a seed, and run a small dice simulation. NumPy can generate random numbers in bulk. You…","url":"https://pythondsanotes.onrender.com/library-lessons/numpy-random.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"NumPy library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/numpy-random.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>NumPy for Numerical Work</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html' class='active'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>NUMPY</span><span class='badge badge-gray'>LIBRARY 02</span><span class='badge badge-gray'>9 MIN</span></div><h1>Random numbers and simulations</h1><p class='lead'>Generate random numbers the modern way, make them repeatable with a seed, and run a small dice simulation.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-numpy-random' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:numpy-random' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>NumPy can generate <strong>random numbers</strong> in bulk. You create a random <strong>generator</strong> with <code>np.random.default_rng()</code>, then ask it for integers, decimals, or random picks from a list.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Random numbers are used to test ideas without real data, to shuffle data, to split data into training and test sets, and to simulate things like dice or coin tosses to see what usually happens.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Think of a dice-rolling machine. You tell it how many dice to roll and it hands you all the results at once. A <strong>seed</strong> is like setting the machine to the same starting position every time, so it rolls the same sequence and your experiment can be repeated.</p><div class='explain-tag'>Precise definition</div><p><code>rng = np.random.default_rng(seed)</code> creates a generator. <code>rng.integers(low, high, size)</code> gives integers from <code>low</code> up to <strong>but not including</strong> <code>high</code>. <code>rng.random(size)</code> gives decimals from 0 up to 1. <code>rng.choice(items, size)</code> picks from a list. The same seed gives the same numbers, but the exact values can differ between NumPy versions, so rely on shapes and ranges, not specific numbers.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Create a generator: <code>rng = np.random.default_rng(42)</code>.</li><li>Ask for numbers with <code>rng.integers</code>, <code>rng.random</code> or <code>rng.choice</code>.</li><li>Pass <code>size</code> to get many values at once.</li><li>Use the same seed whenever you need a repeatable result.</li><li>Check the shape, min and max of the result to confirm it looks right.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>A generator with a seed</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+rng = np.random.default_rng(42)
+print(rng.integers(1, 7, size=5))
+print(rng.random(3))
+
+rng2 = np.random.default_rng(42)
+print(rng2.integers(1, 7, size=5))</code></pre></div><div class='out'><span>OUTPUT</span><pre>[1 5 4 3 3]
+[0.69736803 0.09417735 0.97562235]
+[1 5 4 3 3]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>np.random.default_rng(42)</code></td><td>Creates a random generator. <code>42</code> is the seed, any number will do.</td></tr><tr><td><code data-code>rng.integers(1, 7, size=5)</code></td><td>Five dice rolls. The top value 7 is excluded, so you get 1 to 6.</td></tr><tr><td><code data-code>rng.random(3)</code></td><td>Three random decimals between 0 and 1.</td></tr><tr><td><code data-code>np.random.default_rng(42) again</code></td><td>A new generator with the same seed starts from the same point, so it gives the same dice rolls as the first one. The exact numbers can differ on another NumPy version.</td></tr></tbody></table></div><div class='block'><h3>Random picks and shuffling</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+rng = np.random.default_rng(7)
+names = np.array([&#39;Asha&#39;, &#39;Ravi&#39;, &#39;Meena&#39;, &#39;Kabir&#39;, &#39;Isha&#39;])
+
+print(len(rng.choice(names, size=2, replace=False)))
+shuffled = rng.permutation(names)
+print(len(shuffled), sorted(shuffled) == sorted(names))</code></pre></div><div class='out'><span>OUTPUT</span><pre>2
+5 True</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>rng.choice(names, size=2, replace=False)</code></td><td>Picks 2 different names. <code>replace=False</code> means a name cannot be picked twice.</td></tr><tr><td><code data-code>rng.permutation(names)</code></td><td>Returns a shuffled copy and leaves the original alone.</td></tr><tr><td><code data-code>sorted(shuffled) == sorted(names)</code></td><td>Shuffling only reorders: the same names are still there, so this prints True.</td></tr></tbody></table></div><div class='block'><h3>Simulate 1,000 dice rolls</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+rng = np.random.default_rng(1)
+rolls = rng.integers(1, 7, size=1000)
+
+print(rolls.shape)
+print(rolls.min(), rolls.max())
+print(3.3 &lt; rolls.mean() &lt; 3.7)
+print(np.bincount(rolls)[1:].sum())</code></pre></div><div class='out'><span>OUTPUT</span><pre>(1000,)
+1 6
+True
+1000</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>rng.integers(1, 7, size=1000)</code></td><td>A thousand rolls of one die in a single line.</td></tr><tr><td><code data-code>rolls.min(), rolls.max()</code></td><td>Always 1 and 6 here, a good sanity check on the range.</td></tr><tr><td><code data-code>3.3 &lt; rolls.mean() &lt; 3.7</code></td><td>A fair die averages 3.5, and 1,000 rolls land close to that, so this is True.</td></tr><tr><td><code data-code>np.bincount(rolls)[1:].sum()</code></td><td><code>bincount</code> counts how many times each number appears. Slicing from 1 drops the unused zero slot, and the counts add back up to 1000.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Writing <code>rng.integers(1, 6)</code> and expecting a 6 to appear. The upper limit is excluded; use 7 for a six-sided die.</li><li>Expecting a different answer on each run while using a fixed seed. A seed makes results repeat on purpose.</li><li>Leaving out the seed in tests or tutorials, so nobody can reproduce your numbers.</li><li>Printing results and comparing exact numbers across machines. Check shapes, ranges and averages instead.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use random numbers to create practice data, shuffle or sample a list, split data into train and test parts, and simulate games or experiments.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>What is a random seed?</summary><p>A starting value for the generator. The same seed always produces the same sequence, which makes experiments repeatable.</p></details><details><summary>What range does <code>rng.integers(1, 7)</code> return?</summary><p>Whole numbers from 1 to 6. The upper limit is exclusive.</p></details><details><summary>How do you pick items without repeats?</summary><p><code>rng.choice(items, size=n, replace=False)</code>.</p></details><details><summary>Why is <code>default_rng</code> preferred over <code>np.random.seed</code>?</summary><p><code>default_rng</code> gives each generator its own state, which is cleaner, safer and the approach NumPy recommends for new code.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Using <code>np.random.default_rng(5)</code>, simulate 100 coin tosses where 0 is tails and 1 is heads. Print the shape of the result and whether every value is either 0 or 1.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Use <code>rng.integers(0, 2, size=100)</code>. Check with <code>np.isin(tosses, [0, 1]).all()</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+rng = np.random.default_rng(5)
+tosses = rng.integers(0, 2, size=100)
+print(tosses.shape)
+print(np.isin(tosses, [0, 1]).all())</code></pre></div><div class='out'><span>OUTPUT</span><pre>(100,)
+True</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/numpy-filter-where.html'>← Filter arrays with conditions and np.where</a><a class='button button-primary' href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

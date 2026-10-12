@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Array maths and summaries: sum, mean, max, axis — NumPy Tutorial</title>
+  <meta name="description" content="Do maths on a whole array at once, then summarise it by overall, by column and by row. NumPy lets you do arithmetic on entire arrays (vectorised maths) and…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/numpy-math-aggregates.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Array maths and summaries: sum, mean, max, axis — NumPy Tutorial">
+  <meta property="og:description" content="Do maths on a whole array at once, then summarise it by overall, by column and by row. NumPy lets you do arithmetic on entire arrays (vectorised maths) and…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/numpy-math-aggregates.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Array maths and summaries: sum, mean, max, axis — NumPy Tutorial">
+  <meta name="twitter:description" content="Do maths on a whole array at once, then summarise it by overall, by column and by row. NumPy lets you do arithmetic on entire arrays (vectorised maths) and…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Array maths and summaries: sum, mean, max, axis","item":"https://pythondsanotes.onrender.com/library-lessons/numpy-math-aggregates.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Array maths and summaries: sum, mean, max, axis — NumPy tutorial","description":"Do maths on a whole array at once, then summarise it by overall, by column and by row. NumPy lets you do arithmetic on entire arrays (vectorised maths) and…","url":"https://pythondsanotes.onrender.com/library-lessons/numpy-math-aggregates.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"NumPy library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/numpy-math-aggregates.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>NumPy for Numerical Work</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html' class='active'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>NUMPY</span><span class='badge badge-gray'>LIBRARY 02</span><span class='badge badge-gray'>11 MIN</span></div><h1>Array maths and summaries: sum, mean, max, axis</h1><p class='lead'>Do maths on a whole array at once, then summarise it by overall, by column and by row.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-numpy-math-aggregates' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:numpy-math-aggregates' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>NumPy lets you do arithmetic on entire arrays (<strong>vectorised maths</strong>) and summarise them with functions like <code>sum()</code>, <code>mean()</code>, <code>max()</code> and <code>std()</code>. A summary can cover the whole array or run along one <strong>axis</strong>.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Questions like <em>what is the class average?</em> or <em>which test was hardest?</em> are everyday data work. NumPy answers them without a single loop, and the axis idea carries straight over to Pandas.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>You have a marks sheet: one row per student, one column per test. The average of a column tells you how hard that test was. The average of a row tells you how one student did overall. The axis just says <em>down the columns</em> or <em>across the rows</em>.</p><div class='explain-tag'>Precise definition</div><p>Operators work element by element. Aggregation methods collapse an array: with no <code>axis</code> they return one number; <code>axis=0</code> collapses the <strong>rows</strong> (one result per column); <code>axis=1</code> collapses the <strong>columns</strong> (one result per row). <code>argmax</code> and <code>argmin</code> return the <strong>position</strong> of the largest and smallest values.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Use operators and functions like <code>+</code>, <code>**2</code> and <code>np.sqrt</code> on whole arrays.</li><li>Call <code>sum</code>, <code>mean</code>, <code>min</code>, <code>max</code>, <code>std</code> for a quick summary.</li><li>Add <code>axis=0</code> for results per column.</li><li>Add <code>axis=1</code> for results per row.</li><li>Use <code>argmax</code> to find where the biggest value sits.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Maths on whole arrays</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+prices = np.array([100, 250, 80])
+qty = np.array([2, 1, 5])
+
+print(prices * qty)
+print(prices * 1.18)
+print(prices ** 2)
+print(np.sqrt(np.array([4, 9, 16])))</code></pre></div><div class='out'><span>OUTPUT</span><pre>[200 250 400]
+[118.  295.   94.4]
+[10000 62500  6400]
+[2. 3. 4.]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>prices * qty</code></td><td>Multiplies position by position: 100<em>2, 250</em>1, 80*5. This is the line total of each item.</td></tr><tr><td><code data-code>prices * 1.18</code></td><td>A single number is applied to every element, for example adding 18% tax.</td></tr><tr><td><code data-code>prices ** 2</code></td><td>Squares every price.</td></tr><tr><td><code data-code>np.sqrt(...)</code></td><td>NumPy functions such as <code>sqrt</code> also work on each element.</td></tr></tbody></table></div><div class='block'><h3>Summaries of one array</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+marks = np.array([72, 85, 90, 64, 78])
+
+print(marks.sum())
+print(marks.mean())
+print(marks.max(), marks.min())
+print(round(marks.std(), 2))
+print(np.median(marks))
+print(marks.argmax())</code></pre></div><div class='out'><span>OUTPUT</span><pre>389
+77.8
+90 64
+9.22
+78.0
+2</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>marks.sum()</code></td><td>Total of all values.</td></tr><tr><td><code data-code>marks.mean()</code></td><td>The average.</td></tr><tr><td><code data-code>marks.max(), marks.min()</code></td><td>Highest and lowest values.</td></tr><tr><td><code data-code>round(marks.std(), 2)</code></td><td>Standard deviation: how spread out the marks are. Rounded to two decimals to keep it tidy.</td></tr><tr><td><code data-code>np.median(marks)</code></td><td>The middle value after sorting.</td></tr><tr><td><code data-code>marks.argmax()</code></td><td>The <strong>position</strong> of the highest mark, not the mark itself. Position 2 holds 90.</td></tr></tbody></table></div><div class='block'><h3>Rows, columns and axis</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+# rows = students, columns = tests
+scores = np.array([[70, 80, 90],
+                   [60, 75, 65],
+                   [88, 92, 79]])
+
+print(scores.mean())
+print(scores.mean(axis=0))
+print(scores.mean(axis=1))
+print(scores.max(axis=0))
+print(scores.cumsum(axis=1))</code></pre></div><div class='out'><span>OUTPUT</span><pre>77.66666666666667
+[72.66666667 82.33333333 78.        ]
+[80.         66.66666667 86.33333333]
+[88 92 90]
+[[ 70 150 240]
+ [ 60 135 200]
+ [ 88 180 259]]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>scores.mean()</code></td><td>No axis: the average of all nine numbers.</td></tr><tr><td><code data-code>scores.mean(axis=0)</code></td><td><code>axis=0</code> runs down the rows, giving one average <strong>per column</strong> (per test).</td></tr><tr><td><code data-code>scores.mean(axis=1)</code></td><td><code>axis=1</code> runs across the columns, giving one average <strong>per row</strong> (per student).</td></tr><tr><td><code data-code>scores.max(axis=0)</code></td><td>The best score in each test.</td></tr><tr><td><code data-code>scores.cumsum(axis=1)</code></td><td>Running total along each row, so you see each student&#39;s marks adding up.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Mixing up the axes. Remember: <code>axis=0</code> gives one answer per column, <code>axis=1</code> gives one answer per row.</li><li>Reading <code>argmax()</code> as the biggest value. It returns the index of the biggest value.</li><li>Using Python&#39;s built-in <code>sum()</code> on a 2-D array. It adds the rows together and returns an array of column totals, not one number. Use <code>arr.sum()</code> or <code>np.sum(arr)</code> instead.</li><li>Combining arrays of different lengths, for example 3 prices with 4 quantities, which raises a <code>ValueError</code>.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use array maths and aggregates for totals, averages, spread and best/worst values on any numeric data, and <code>axis</code> whenever your data is a table.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>What does <code>axis=0</code> mean in <code>arr.sum(axis=0)</code>?</summary><p>The sum runs down the rows, so you get one result for each column.</p></details><details><summary>What is the difference between <code>max()</code> and <code>argmax()</code>?</summary><p><code>max()</code> returns the largest value. <code>argmax()</code> returns the position of that value.</p></details><details><summary>What does vectorised mean?</summary><p>An operation is applied to every element of the array at once, without writing a Python loop.</p></details><details><summary>How do you get the average of each row in a 2-D array?</summary><p><code>arr.mean(axis=1)</code>.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>For <code>s = np.array([[10, 20], [30, 40], [50, 60]])</code> print the sum of each column and then the mean of each row.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Columns use <code>axis=0</code> and rows use <code>axis=1</code>: <code>s.sum(axis=0)</code> and <code>s.mean(axis=1)</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+s = np.array([[10, 20], [30, 40], [50, 60]])
+print(s.sum(axis=0))
+print(s.mean(axis=1))</code></pre></div><div class='out'><span>OUTPUT</span><pre>[ 90 120]
+[15. 35. 55.]</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/numpy-shape-reshape.html'>← Shape, reshape and transpose</a><a class='button button-primary' href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

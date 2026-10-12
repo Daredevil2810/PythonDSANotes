@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Fix wrong formats, wrong values and duplicates — Pandas Tutorial</title>
+  <meta name="description" content="Convert messy dates, spot and repair impossible values, and remove duplicate rows. Besides empty cells, bad data comes in three more forms: values in the…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/pandas-clean-data.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Fix wrong formats, wrong values and duplicates — Pandas Tutorial">
+  <meta property="og:description" content="Convert messy dates, spot and repair impossible values, and remove duplicate rows. Besides empty cells, bad data comes in three more forms: values in the…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/pandas-clean-data.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fix wrong formats, wrong values and duplicates — Pandas Tutorial">
+  <meta name="twitter:description" content="Convert messy dates, spot and repair impossible values, and remove duplicate rows. Besides empty cells, bad data comes in three more forms: values in the…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Fix wrong formats, wrong values and duplicates","item":"https://pythondsanotes.onrender.com/library-lessons/pandas-clean-data.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Fix wrong formats, wrong values and duplicates — Pandas tutorial","description":"Convert messy dates, spot and repair impossible values, and remove duplicate rows. Besides empty cells, bad data comes in three more forms: values in the…","url":"https://pythondsanotes.onrender.com/library-lessons/pandas-clean-data.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"Pandas library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/pandas-clean-data.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>Pandas for Data Analysis</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html' class='active'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PANDAS</span><span class='badge badge-gray'>LIBRARY 01</span><span class='badge badge-gray'>11 MIN</span></div><h1>Fix wrong formats, wrong values and duplicates</h1><p class='lead'>Convert messy dates, spot and repair impossible values, and remove duplicate rows.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-pandas-clean-data' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:pandas-clean-data' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>Besides empty cells, bad data comes in three more forms: values in the <strong>wrong format</strong> (like dates written three different ways), <strong>wrong values</strong> (like a typo that makes a price 4500 instead of 450) and <strong>duplicate rows</strong> (the same record entered twice).</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Mixed formats stop you from sorting or calculating with dates. A single impossible value can wreck an average. Duplicates make totals too big. Fixing these makes every later result trustworthy.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Think of tidying a shop&#39;s order book: rewrite every date the same way, correct the price someone wrote with an extra zero, and cross out the order that was written down twice.</p><div class='explain-tag'>Precise definition</div><p><code>pd.to_datetime(col, format=&quot;mixed&quot;, errors=&quot;coerce&quot;)</code> parses dates written in different styles and turns unreadable ones into <code>NaT</code>. You fix values with a rule such as <code>df.loc[condition, col] = new_value</code> or by filtering rows out. <code>duplicated()</code> marks repeats and <code>drop_duplicates()</code> removes them.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Convert date columns with <code>to_datetime()</code>.</li><li>Drop or fill any <code>NaT</code> that conversion creates.</li><li>Decide what values are possible, then correct or remove the ones outside that range.</li><li>Check for repeats with <code>duplicated()</code>.</li><li>Remove repeats with <code>drop_duplicates()</code>.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Wrong format: dates</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;day&quot;: [&quot;2025-01-05&quot;, &quot;2025/01/06&quot;, &quot;07 Jan 2025&quot;, &quot;not a date&quot;],
+    &quot;sales&quot;: [120, 90, 150, 60],
+})
+df[&quot;day&quot;] = pd.to_datetime(df[&quot;day&quot;], format=&quot;mixed&quot;, errors=&quot;coerce&quot;)
+print(df)
+
+df = df.dropna(subset=[&quot;day&quot;])
+print(df)</code></pre></div><div class='out'><span>OUTPUT</span><pre>         day  sales
+0 2025-01-05    120
+1 2025-01-06     90
+2 2025-01-07    150
+3        NaT     60
+         day  sales
+0 2025-01-05    120
+1 2025-01-06     90
+2 2025-01-07    150</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>format=&quot;mixed&quot;</code></td><td>Lets each value use its own date style. Without it, Pandas guesses one style from the first value and may fail on the rest.</td></tr><tr><td><code data-code>errors=&quot;coerce&quot;</code></td><td>Instead of crashing on something that isn&#39;t a date, put <code>NaT</code> (Not a Time) there.</td></tr><tr><td><code data-code>df.dropna(subset=[&quot;day&quot;])</code></td><td>Removes the row whose date could not be read.</td></tr></tbody></table></div><div class='block'><h3>Wrong values: fix or remove</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+# 4500 is a typo for 450
+df = pd.DataFrame({&quot;item&quot;: [&quot;pen&quot;, &quot;book&quot;, &quot;bag&quot;, &quot;ruler&quot;], &quot;price&quot;: [10, 120, 4500, 15]})
+
+fixed = df.copy()
+fixed.loc[fixed[&quot;price&quot;] &gt; 1000, &quot;price&quot;] = 450
+print(fixed)
+
+removed = df[df[&quot;price&quot;] &lt;= 1000]
+print(removed)</code></pre></div><div class='out'><span>OUTPUT</span><pre>    item  price
+0    pen     10
+1   book    120
+2    bag    450
+3  ruler     15
+    item  price
+0    pen     10
+1   book    120
+3  ruler     15</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>fixed = df.copy()</code></td><td>Makes an independent copy so we can try two fixes on the same data.</td></tr><tr><td><code data-code>fixed.loc[fixed[&quot;price&quot;] &gt; 1000, &quot;price&quot;] = 450</code></td><td><code>loc[rows, column] = value</code> changes only the rows that match the condition.</td></tr><tr><td><code data-code>df[df[&quot;price&quot;] &lt;= 1000]</code></td><td>The other option: keep only rows with a believable price.</td></tr></tbody></table></div><div class='block'><h3>Duplicates</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;order&quot;: [101, 102, 102, 103, 103],
+    &quot;item&quot;: [&quot;pen&quot;, &quot;book&quot;, &quot;book&quot;, &quot;bag&quot;, &quot;bag&quot;],
+    &quot;qty&quot;: [2, 1, 1, 1, 3],
+})
+print(df.duplicated())
+print(df.drop_duplicates())
+print(df.drop_duplicates(subset=&quot;order&quot;).reset_index(drop=True))</code></pre></div><div class='out'><span>OUTPUT</span><pre>0    False
+1    False
+2     True
+3    False
+4    False
+dtype: bool
+   order  item  qty
+0    101   pen    2
+1    102  book    1
+3    103   bag    1
+4    103   bag    3
+   order  item  qty
+0    101   pen    2
+1    102  book    1
+2    103   bag    1</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df.duplicated()</code></td><td>True for a row that exactly repeats an earlier row. The first copy is False.</td></tr><tr><td><code data-code>df.drop_duplicates()</code></td><td>Removes rows that are identical in every column. Order 103 stays twice because its quantities differ (1 and 3).</td></tr><tr><td><code data-code>subset=&quot;order&quot;</code></td><td>Compares only the <code>order</code> column, so each order number is kept once.</td></tr><tr><td><code data-code>reset_index(drop=True)</code></td><td>Renumbers the rows 0, 1, 2 after rows were removed, and drops the old numbers.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Treating a large value as wrong just because it looks big. First ask whether it is genuinely possible.</li><li>Forgetting <code>errors=&quot;coerce&quot;</code>, so one bad date makes the whole conversion crash.</li><li>Removing duplicates across every column when the real key is just one column (like an order number), or the opposite.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Run these checks right after loading a new dataset and before any analysis. Fix values you are sure about; remove rows when you can&#39;t be sure.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>How do you find duplicate rows?</summary><p><code>df.duplicated()</code> returns True for each repeat. <code>df.duplicated().sum()</code> counts them.</p></details><details><summary>What is NaT?</summary><p>&quot;Not a Time&quot;: the missing-value marker for dates, like <code>NaN</code> for numbers.</p></details><details><summary>How do you handle wrong values in a big dataset?</summary><p>Define a rule for valid values (a range, for example) and either replace or remove everything outside it, rather than editing rows one by one.</p></details><details><summary>What does the subset argument do in drop_duplicates()?</summary><p>It limits the comparison to the listed columns, so rows count as duplicates when those columns match.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>A DataFrame has columns <code>name</code> and <code>score</code> with rows (Asha, 80), (Ravi, 70) and (Asha, 80). Remove the duplicate row and print the result.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Call <code>drop_duplicates()</code> and print what it returns.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({&quot;name&quot;: [&quot;Asha&quot;, &quot;Ravi&quot;, &quot;Asha&quot;], &quot;score&quot;: [80, 70, 80]})
+print(df.drop_duplicates())</code></pre></div><div class='out'><span>OUTPUT</span><pre>   name  score
+0  Asha     80
+1  Ravi     70</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/pandas-missing-values.html'>← Handle missing values</a><a class='button button-primary' href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

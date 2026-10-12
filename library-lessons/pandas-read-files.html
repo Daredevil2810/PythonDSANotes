@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Read and save CSV and JSON files — Pandas Tutorial | Python DSA Notes</title>
+  <meta name="description" content="Load data from files into a DataFrame, pick only the columns you need and save your results back to disk. Pandas can load a file into a DataFrame with a…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/pandas-read-files.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Read and save CSV and JSON files — Pandas Tutorial | Python DSA Notes">
+  <meta property="og:description" content="Load data from files into a DataFrame, pick only the columns you need and save your results back to disk. Pandas can load a file into a DataFrame with a…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/pandas-read-files.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Read and save CSV and JSON files — Pandas Tutorial | Python DSA Notes">
+  <meta name="twitter:description" content="Load data from files into a DataFrame, pick only the columns you need and save your results back to disk. Pandas can load a file into a DataFrame with a…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Read and save CSV and JSON files","item":"https://pythondsanotes.onrender.com/library-lessons/pandas-read-files.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Read and save CSV and JSON files — Pandas tutorial","description":"Load data from files into a DataFrame, pick only the columns you need and save your results back to disk. Pandas can load a file into a DataFrame with a…","url":"https://pythondsanotes.onrender.com/library-lessons/pandas-read-files.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"Pandas library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/pandas-read-files.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>Pandas for Data Analysis</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html' class='active'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PANDAS</span><span class='badge badge-gray'>LIBRARY 01</span><span class='badge badge-gray'>9 MIN</span></div><h1>Read and save CSV and JSON files</h1><p class='lead'>Load data from files into a DataFrame, pick only the columns you need and save your results back to disk.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-pandas-read-files' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:pandas-read-files' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>Pandas can load a file into a DataFrame with a single function call: <code>read_csv()</code> for comma-separated text files and <code>read_json()</code> for JSON. <code>to_csv()</code> goes the other way and saves a DataFrame to a file.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Your data almost always lives in a file or an export, not in your code. Loading and saving is the first and last step of nearly every data task.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>A CSV file is a notebook where each line is one row and commas separate the columns. <code>read_csv()</code> is a helper that reads the whole notebook and hands you a neat table.</p><div class='explain-tag'>Precise definition</div><p><code>read_csv(path)</code> parses delimited text into a DataFrame, inferring dtypes from the values. <code>read_json(path)</code> expects JSON that looks like a list of records or a dictionary of columns. <code>to_csv(path, index=False)</code> writes the table out without the row labels.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Have the file in the folder you run your script from (or give the full path).</li><li>Call <code>pd.read_csv(&quot;file.csv&quot;)</code> or <code>pd.read_json(&quot;file.json&quot;)</code>.</li><li>Check the result with <code>print(df)</code> or <code>df.head()</code>.</li><li>Clean or add columns as needed.</li><li>Save with <code>df.to_csv(&quot;out.csv&quot;, index=False)</code>.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Create a small CSV to practise with</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>csv_text = &quot;&quot;&quot;item,price,qty
+pen,10,5
+notebook,45,3
+bag,450,1
+marker,30,4
+&quot;&quot;&quot;
+
+with open(&quot;shop.csv&quot;, &quot;w&quot;) as f:
+    f.write(csv_text)
+
+print(&quot;shop.csv created&quot;)</code></pre></div><div class='out'><span>OUTPUT</span><pre>shop.csv created</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>csv_text = &quot;&quot;&quot;...&quot;&quot;&quot;</code></td><td>A multi-line string. The first line holds the column names; every other line is one row.</td></tr><tr><td><code data-code>with open(&quot;shop.csv&quot;, &quot;w&quot;) as f:</code></td><td>Opens (and creates) the file for writing, then closes it automatically.</td></tr><tr><td><code data-code>f.write(csv_text)</code></td><td>Saves the text into the file. The next blocks read this file.</td></tr></tbody></table></div><div class='block'><h3>Read the CSV</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.read_csv(&quot;shop.csv&quot;)
+print(df)
+print(df.head(2))</code></pre></div><div class='out'><span>OUTPUT</span><pre>       item  price  qty
+0       pen     10    5
+1  notebook     45    3
+2       bag    450    1
+3    marker     30    4
+       item  price  qty
+0       pen     10    5
+1  notebook     45    3</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>pd.read_csv(&quot;shop.csv&quot;)</code></td><td>Reads the file. The first line becomes the column names and Pandas works out each column&#39;s type.</td></tr><tr><td><code data-code>df.head(2)</code></td><td>Shows only the first 2 rows. Handy for peeking at big files.</td></tr></tbody></table></div><div class='block'><h3>Choose columns and an index</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+small = pd.read_csv(&quot;shop.csv&quot;, usecols=[&quot;item&quot;, &quot;price&quot;])
+print(small)
+
+by_item = pd.read_csv(&quot;shop.csv&quot;, index_col=&quot;item&quot;)
+print(by_item.loc[&quot;bag&quot;])</code></pre></div><div class='out'><span>OUTPUT</span><pre>       item  price
+0       pen     10
+1  notebook     45
+2       bag    450
+3    marker     30
+price    450
+qty        1
+Name: bag, dtype: int64</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>usecols=[&quot;item&quot;, &quot;price&quot;]</code></td><td>Loads only the listed columns, which is quicker and tidier for wide files.</td></tr><tr><td><code data-code>index_col=&quot;item&quot;</code></td><td>Uses that column as the row labels instead of 0, 1, 2.</td></tr><tr><td><code data-code>by_item.loc[&quot;bag&quot;]</code></td><td>Because <code>item</code> is the index, we can find a row by its item name.</td></tr></tbody></table></div><div class='block'><h3>Read a JSON file</h3><div class='code-box'><div class='code-header'><span>lesson_4.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+json_text = &#39;[{&quot;item&quot;: &quot;pen&quot;, &quot;price&quot;: 10}, {&quot;item&quot;: &quot;bag&quot;, &quot;price&quot;: 450}]&#39;
+with open(&quot;shop.json&quot;, &quot;w&quot;) as f:
+    f.write(json_text)
+
+df = pd.read_json(&quot;shop.json&quot;)
+print(df)</code></pre></div><div class='out'><span>OUTPUT</span><pre>  item  price
+0  pen     10
+1  bag    450</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>json_text = &#39;[{...}, {...}]&#39;</code></td><td>JSON as a list of objects. Each object becomes one row, and its keys become the column names.</td></tr><tr><td><code data-code>pd.read_json(&quot;shop.json&quot;)</code></td><td>Loads that file into a DataFrame. Because JSON objects look like Python dictionaries, this feels like <code>pd.DataFrame(list_of_dicts)</code>.</td></tr></tbody></table></div><div class='block'><h3>Save a result with to_csv</h3><div class='code-box'><div class='code-header'><span>lesson_5.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.read_csv(&quot;shop.csv&quot;)
+df[&quot;total&quot;] = df[&quot;price&quot;] * df[&quot;qty&quot;]
+df.to_csv(&quot;shop_totals.csv&quot;, index=False)
+
+print(open(&quot;shop_totals.csv&quot;).read())</code></pre></div><div class='out'><span>OUTPUT</span><pre>item,price,qty,total
+pen,10,5,50
+notebook,45,3,135
+bag,450,1,450
+marker,30,4,120</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df[&quot;total&quot;] = df[&quot;price&quot;] * df[&quot;qty&quot;]</code></td><td>Calculates a new column for every row.</td></tr><tr><td><code data-code>df.to_csv(&quot;shop_totals.csv&quot;, index=False)</code></td><td>Writes the table to a new file. <code>index=False</code> leaves out the 0, 1, 2 row labels.</td></tr><tr><td><code data-code>print(open(...).read())</code></td><td>Reads the saved file back as plain text so you can see exactly what was written.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Getting <code>FileNotFoundError</code>. Python looks in the folder you <em>run</em> the script from, not the folder where you saved it. Check the path.</li><li>Forgetting <code>index=False</code> in <code>to_csv()</code>. The saved file then gets an extra unnamed column of row numbers.</li><li>Assuming a printed big DataFrame shows everything. Pandas hides the middle rows with <code>...</code>; use <code>df.to_string()</code> to print them all.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use <code>read_csv()</code> for spreadsheets exported as CSV and <code>read_json()</code> for data from web APIs. Use <code>to_csv()</code> to share cleaned data or feed it into another tool.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>What does read_csv() return?</summary><p>A DataFrame built from the file. The first row is used as the column names by default.</p></details><details><summary>How do you read only some columns?</summary><p>Pass <code>usecols=[&quot;col1&quot;, &quot;col2&quot;]</code> to <code>read_csv()</code>.</p></details><details><summary>Why use index=False when saving?</summary><p>Otherwise Pandas writes the row labels as an extra first column, and reading the file back creates an unwanted <code>Unnamed: 0</code> column.</p></details><details><summary>What if the file uses semicolons instead of commas?</summary><p>Tell Pandas with <code>sep=&quot;;&quot;</code>, for example <code>pd.read_csv(&quot;file.csv&quot;, sep=&quot;;&quot;)</code>.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Write a CSV with the text <code>name,marks</code>, then <code>Asha,78</code>, <code>Ravi,90</code>, <code>Meena,66</code> (one per line) into a file called <code>marks.csv</code>. Read it with Pandas and print the average of the <code>marks</code> column.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Write the text with <code>open(..., &quot;w&quot;)</code>, then <code>pd.read_csv(&quot;marks.csv&quot;)</code> and <code>df[&quot;marks&quot;].mean()</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+with open(&quot;marks.csv&quot;, &quot;w&quot;) as f:
+    f.write(&quot;name,marks\nAsha,78\nRavi,90\nMeena,66\n&quot;)
+
+df = pd.read_csv(&quot;marks.csv&quot;)
+print(df[&quot;marks&quot;].mean())</code></pre></div><div class='out'><span>OUTPUT</span><pre>78.0</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/pandas-dataframe.html'>← Pandas DataFrame: tables in Python</a><a class='button button-primary' href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Subplots and saving charts — Matplotlib Tutorial | Python DSA Notes</title>
+  <meta name="description" content="Put several charts in one figure, meet the figure/axes way of working, and save your chart as an image file. A subplot is one small chart inside a bigger…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/matplotlib-subplots-save.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Subplots and saving charts — Matplotlib Tutorial | Python DSA Notes">
+  <meta property="og:description" content="Put several charts in one figure, meet the figure/axes way of working, and save your chart as an image file. A subplot is one small chart inside a bigger…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/matplotlib-subplots-save.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Subplots and saving charts — Matplotlib Tutorial | Python DSA Notes">
+  <meta name="twitter:description" content="Put several charts in one figure, meet the figure/axes way of working, and save your chart as an image file. A subplot is one small chart inside a bigger…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Subplots and saving charts","item":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-subplots-save.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Subplots and saving charts — Matplotlib tutorial","description":"Put several charts in one figure, meet the figure/axes way of working, and save your chart as an image file. A subplot is one small chart inside a bigger…","url":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-subplots-save.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"Matplotlib library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-subplots-save.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>Matplotlib for Charts</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html' class='active'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-orange'>MATPLOTLIB</span><span class='badge badge-gray'>LIBRARY 03</span><span class='badge badge-gray'>11 MIN</span></div><h1>Subplots and saving charts</h1><p class='lead'>Put several charts in one figure, meet the figure/axes way of working, and save your chart as an image file.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-matplotlib-subplots-save' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:matplotlib-subplots-save' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A <strong>subplot</strong> is one small chart inside a bigger picture. <code>plt.subplots()</code> creates the whole picture (the <strong>figure</strong>) and the chart areas inside it (the <strong>axes</strong>), so you can place several charts side by side. <code>savefig</code> writes the result to an image file.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Dashboards, reports and LinkedIn posts rarely use one chart alone. Putting related charts next to each other lets people compare them. Saving as a file lets you drop the chart into a document, a website or a post.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Think of a photo frame with four windows. The frame is the <strong>figure</strong> and each window is an <strong>axes</strong> where you put one picture. You decorate each window separately, then hang the whole frame on the wall.</p><div class='explain-tag'>Precise definition</div><p><code>fig, axs = plt.subplots(rows, cols, figsize=(w, h))</code> returns a figure and an array of axes. You draw with methods on an axes (<code>ax.plot</code>, <code>ax.bar</code>) and style it with <code>ax.set_title</code>, <code>ax.set_xlabel</code>, <code>ax.set_ylabel</code>. <code>fig.tight_layout()</code> prevents overlaps. <code>plt.savefig(&#39;name.png&#39;, dpi=200)</code> writes the figure to a file; call it <strong>before</strong> <code>plt.show()</code>.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Create the grid with <code>fig, axs = plt.subplots(1, 2, figsize=(9, 3.5))</code>.</li><li>Draw on each axes, for example <code>axs[0].plot(...)</code>.</li><li>Style each axes with <code>set_title</code> and the label methods.</li><li>Call <code>fig.tight_layout()</code> so nothing overlaps.</li><li>Save with <code>plt.savefig(...)</code> and then show.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Two charts side by side</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+fig, axs = plt.subplots(1, 2, figsize=(9, 3.5))
+
+axs[0].plot([1, 2, 3, 4, 5], [4, 6, 5, 8, 7])
+axs[0].set_title(&#39;Steps&#39;)
+
+axs[1].bar([&#39;Pune&#39;, &#39;Delhi&#39;, &#39;Mumbai&#39;], [1350, 850, 300])
+axs[1].set_title(&#39;Sales&#39;)
+
+fig.tight_layout()
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-subplots-save-1.png' alt='Two charts side by side: a line chart of weekly steps on the left and a bar chart of sales by city on the right.' width='889' height='340' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>plt.subplots(1, 2, figsize=(9, 3.5))</code></td><td>Creates one figure with 1 row and 2 columns of charts. <code>figsize</code> is the width and height in inches.</td></tr><tr><td><code data-code>axs[0].plot(...)</code></td><td>Draws on the left chart. With a single row, <code>axs</code> is a simple list of two axes.</td></tr><tr><td><code data-code>axs[0].set_title(&#39;Steps&#39;)</code></td><td>On an axes object the method is <code>set_title</code>, not <code>title</code>.</td></tr><tr><td><code data-code>axs[1].bar(...)</code></td><td>A completely different type of chart on the right.</td></tr><tr><td><code data-code>fig.tight_layout()</code></td><td>Adjusts the spacing so titles and labels do not overlap.</td></tr></tbody></table></div><div class='block'><h3>A 2 by 2 grid</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+fig, axs = plt.subplots(2, 2, figsize=(8, 6))
+fig.suptitle(&#39;Four ways to look at data&#39;)
+
+axs[0, 0].plot([1, 2, 3, 4], [2, 4, 3, 6])
+axs[0, 0].set_title(&#39;Line&#39;)
+
+axs[0, 1].bar([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], [5, 9, 3])
+axs[0, 1].set_title(&#39;Bar&#39;)
+
+axs[1, 0].scatter([1, 2, 3, 4, 5], [2, 3, 5, 4, 6])
+axs[1, 0].set_title(&#39;Scatter&#39;)
+
+axs[1, 1].hist([1, 2, 2, 3, 3, 3, 4, 4, 5], bins=5)
+axs[1, 1].set_title(&#39;Histogram&#39;)
+
+fig.tight_layout()
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-subplots-save-2.png' alt='A 2 by 2 grid of four small charts: a line chart, a bar chart, a scatter plot and a histogram, under the overall title Four ways to look at data.' width='790' height='593' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>plt.subplots(2, 2, ...)</code></td><td>A grid with 2 rows and 2 columns. Now <code>axs</code> is two-dimensional, so you pick a chart with <code>axs[row, col]</code>.</td></tr><tr><td><code data-code>fig.suptitle(...)</code></td><td>A title for the whole figure, above all the charts.</td></tr><tr><td><code data-code>axs[0, 0] ... axs[1, 1]</code></td><td>The four windows: top left, top right, bottom left and bottom right.</td></tr><tr><td><code data-code>fig.tight_layout()</code></td><td>Keeps the four titles and labels from running into each other.</td></tr></tbody></table></div><div class='block'><h3>Save the chart to a file</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import os
+import matplotlib
+matplotlib.use(&#39;Agg&#39;)
+import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3], [2, 4, 3])
+plt.title(&#39;Saved chart&#39;)
+plt.savefig(&#39;chart.png&#39;, dpi=150, bbox_inches=&#39;tight&#39;)
+
+print(os.path.exists(&#39;chart.png&#39;))
+print(os.path.getsize(&#39;chart.png&#39;) &gt; 0)</code></pre></div><div class='out'><span>OUTPUT</span><pre>True
+True</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>matplotlib.use(&#39;Agg&#39;)</code></td><td>Switches to a backend that draws to files and opens no window. This is useful on servers and for scripts that only save images. On your own computer you can leave it out.</td></tr><tr><td><code data-code>plt.savefig(&#39;chart.png&#39;, dpi=150, bbox_inches=&#39;tight&#39;)</code></td><td>Writes the chart to <code>chart.png</code>. <code>dpi</code> sets the sharpness and <code>bbox_inches=&#39;tight&#39;</code> trims extra white space.</td></tr><tr><td><code data-code>os.path.exists(&#39;chart.png&#39;)</code></td><td>Confirms the file now exists.</td></tr><tr><td><code data-code>os.path.getsize(&#39;chart.png&#39;) &gt; 0</code></td><td>And that it is not empty.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Calling <code>plt.savefig</code> <em>after</em> <code>plt.show()</code>. Once the window is closed the figure is cleared and you save a blank image.</li><li>Using <code>axs[0]</code> on a 2-D grid, or <code>axs[0, 0]</code> on a single row. Check the shape you asked for.</li><li>Mixing <code>plt.title</code> with axes objects. On an axes it is <code>ax.set_title</code>, <code>ax.set_xlabel</code> and <code>ax.set_ylabel</code>.</li><li>Forgetting <code>tight_layout()</code> and ending up with overlapping labels.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use subplots to compare related charts in one picture, and <code>savefig</code> whenever the chart has to leave your script: a report, a slide, a website or a post.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>What is the difference between a figure and an axes?</summary><p>The figure is the whole canvas. An axes is one chart area on it, with its own x and y axis.</p></details><details><summary>How do you create a 2 by 3 grid of charts?</summary><p><code>fig, axs = plt.subplots(2, 3)</code>.</p></details><details><summary>How do you save a chart as an image?</summary><p><code>plt.savefig(&#39;name.png&#39;)</code>, called before <code>plt.show()</code>.</p></details><details><summary>What does <code>tight_layout</code> do?</summary><p>It adjusts the spacing between subplots so labels and titles do not overlap.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Create a figure with two charts side by side: on the left a line plot of <code>[1, 2, 3]</code> against <code>[1, 4, 9]</code>, on the right a bar chart of <code>[&#39;A&#39;, &#39;B&#39;]</code> with values <code>[3, 5]</code>. Give each chart a title.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Use <code>fig, axs = plt.subplots(1, 2)</code>, draw on <code>axs[0]</code> and <code>axs[1]</code>, and use <code>set_title</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+fig, axs = plt.subplots(1, 2)
+axs[0].plot([1, 2, 3], [1, 4, 9])
+axs[0].set_title(&#39;Line&#39;)
+axs[1].bar([&#39;A&#39;, &#39;B&#39;], [3, 5])
+axs[1].set_title(&#39;Bars&#39;)
+fig.tight_layout()
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-subplots-save-try.png' alt='Two small charts side by side: a rising line chart on the left titled Line and a two-bar chart on the right titled Bars.' width='629' height='470' loading='lazy'><figcaption>The chart this code draws</figcaption></figure></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/matplotlib-pie-charts.html'>← Pie charts: parts of a whole</a><a class='button button-primary' href='libraries.html'>All library lessons →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

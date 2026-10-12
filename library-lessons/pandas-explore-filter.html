@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Explore, sort and filter data — Pandas Tutorial | Python DSA Notes</title>
+  <meta name="description" content="Get a quick overview of a DataFrame, then sort it and pull out only the rows that match a rule. Before analysing anything, you look at the data: its size…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/pandas-explore-filter.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Explore, sort and filter data — Pandas Tutorial | Python DSA Notes">
+  <meta property="og:description" content="Get a quick overview of a DataFrame, then sort it and pull out only the rows that match a rule. Before analysing anything, you look at the data: its size…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/pandas-explore-filter.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Explore, sort and filter data — Pandas Tutorial | Python DSA Notes">
+  <meta name="twitter:description" content="Get a quick overview of a DataFrame, then sort it and pull out only the rows that match a rule. Before analysing anything, you look at the data: its size…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Explore, sort and filter data","item":"https://pythondsanotes.onrender.com/library-lessons/pandas-explore-filter.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Explore, sort and filter data — Pandas tutorial","description":"Get a quick overview of a DataFrame, then sort it and pull out only the rows that match a rule. Before analysing anything, you look at the data: its size…","url":"https://pythondsanotes.onrender.com/library-lessons/pandas-explore-filter.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"Pandas library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/pandas-explore-filter.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>Pandas for Data Analysis</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html' class='active'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PANDAS</span><span class='badge badge-gray'>LIBRARY 01</span><span class='badge badge-gray'>10 MIN</span></div><h1>Explore, sort and filter data</h1><p class='lead'>Get a quick overview of a DataFrame, then sort it and pull out only the rows that match a rule.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-pandas-explore-filter' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:pandas-explore-filter' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>Before analysing anything, you look at the data: its size, columns, types and basic statistics. After that you <strong>sort</strong> rows and <strong>filter</strong> them, which means keeping only the rows where a condition is true.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Real files are messy and large. A fast overview shows you what you are dealing with, and filtering lets you answer questions like <em>who scored above 80?</em> without writing a loop.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>When someone hands you a thick register, you flip to the first and last pages, check how many columns it has, then underline the rows that matter. <code>head()</code>, <code>info()</code> and filtering are those three moves.</p><div class='explain-tag'>Precise definition</div><p><code>head()</code>/<code>tail()</code> show the first or last rows. <code>info()</code> lists columns, non-null counts and dtypes. <code>describe()</code> summarises numeric columns. A condition like <code>df[&quot;marks&quot;] &gt;= 80</code> produces a Boolean Series, and passing it to <code>df[...]</code> keeps only the True rows (Boolean masking).</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Peek with <code>head()</code> and <code>tail()</code>, and check <code>shape</code>.</li><li>Check types and gaps with <code>info()</code>.</li><li>Get statistics with <code>describe()</code>.</li><li>Sort with <code>sort_values()</code>.</li><li>Filter with a condition inside <code>df[...]</code>, joining conditions with <code>&amp;</code> or <code>|</code>.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Peek at the data</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;name&quot;: [&quot;Asha&quot;, &quot;Ravi&quot;, &quot;Meena&quot;, &quot;Kabir&quot;, &quot;Isha&quot;, &quot;Dev&quot;, &quot;Nina&quot;, &quot;Omar&quot;],
+    &quot;section&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;],
+    &quot;marks&quot;: [78, 90, 66, 84, 91, 55, 73, 84],
+})
+print(df.head(3))
+print(df.tail(2))
+print(df.shape)
+print(list(df.columns))</code></pre></div><div class='out'><span>OUTPUT</span><pre>    name section  marks
+0   Asha       A     78
+1   Ravi       B     90
+2  Meena       A     66
+   name section  marks
+6  Nina       A     73
+7  Omar       B     84
+(8, 3)
+[&#39;name&#39;, &#39;section&#39;, &#39;marks&#39;]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df.head(3)</code></td><td>First 3 rows. With no number, <code>head()</code> shows 5.</td></tr><tr><td><code data-code>df.tail(2)</code></td><td>Last 2 rows.</td></tr><tr><td><code data-code>df.shape</code></td><td>(rows, columns).</td></tr><tr><td><code data-code>list(df.columns)</code></td><td>The column names as a normal Python list.</td></tr></tbody></table></div><div class='block'><h3>Types and statistics</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;name&quot;: [&quot;Asha&quot;, &quot;Ravi&quot;, &quot;Meena&quot;, &quot;Kabir&quot;, &quot;Isha&quot;, &quot;Dev&quot;, &quot;Nina&quot;, &quot;Omar&quot;],
+    &quot;section&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;],
+    &quot;marks&quot;: [78, 90, 66, 84, 91, 55, 73, 84],
+})
+df.info(memory_usage=False)
+print(df.describe())</code></pre></div><div class='out'><span>OUTPUT</span><pre>&lt;class &#39;pandas.DataFrame&#39;&gt;
+RangeIndex: 8 entries, 0 to 7
+Data columns (total 3 columns):
+ #   Column   Non-Null Count  Dtype
+---  ------   --------------  -----
+ 0   name     8 non-null      str  
+ 1   section  8 non-null      str  
+ 2   marks    8 non-null      int64
+dtypes: int64(1), str(2)           marks
+count   8.000000
+mean   77.625000
+std    12.431958
+min    55.000000
+25%    71.250000
+50%    81.000000
+75%    85.500000
+max    91.000000</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df.info(memory_usage=False)</code></td><td>Prints the number of rows, each column&#39;s name, how many values are not missing and its dtype. (Text columns show as <code>str</code> in Pandas 3 and <code>object</code> in older versions.) <code>memory_usage=False</code> just hides the memory line.</td></tr><tr><td><code data-code>df.describe()</code></td><td>Count, mean, standard deviation, minimum, quartiles and maximum for every numeric column.</td></tr></tbody></table></div><div class='block'><h3>Sort and filter</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;name&quot;: [&quot;Asha&quot;, &quot;Ravi&quot;, &quot;Meena&quot;, &quot;Kabir&quot;, &quot;Isha&quot;, &quot;Dev&quot;, &quot;Nina&quot;, &quot;Omar&quot;],
+    &quot;section&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;],
+    &quot;marks&quot;: [78, 90, 66, 84, 91, 55, 73, 84],
+})
+print(df.sort_values(&quot;marks&quot;, ascending=False).head(3))
+print(df[df[&quot;marks&quot;] &gt;= 80])
+print(df[(df[&quot;section&quot;] == &quot;A&quot;) &amp; (df[&quot;marks&quot;] &gt; 70)])</code></pre></div><div class='out'><span>OUTPUT</span><pre>   name section  marks
+4  Isha       A     91
+1  Ravi       B     90
+7  Omar       B     84
+    name section  marks
+1   Ravi       B     90
+3  Kabir       B     84
+4   Isha       A     91
+7   Omar       B     84
+   name section  marks
+0  Asha       A     78
+4  Isha       A     91
+6  Nina       A     73</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df.sort_values(&quot;marks&quot;, ascending=False)</code></td><td>Sorts by marks from high to low. It returns a new DataFrame and leaves <code>df</code> as it was.</td></tr><tr><td><code data-code>.head(3)</code></td><td>Keeps the top 3 of the sorted result.</td></tr><tr><td><code data-code>df[df[&quot;marks&quot;] &gt;= 80]</code></td><td>The inner part is a True/False column; the outer <code>df[...]</code> keeps rows where it is True.</td></tr><tr><td><code data-code>(df[&quot;section&quot;] == &quot;A&quot;) &amp; (df[&quot;marks&quot;] &gt; 70)</code></td><td>Both conditions must be true. Use <code>&amp;</code> for <em>and</em>, <code>|</code> for <em>or</em>, and wrap each condition in parentheses.</td></tr></tbody></table></div><div class='block'><h3>Count and list values</h3><div class='code-box'><div class='code-header'><span>lesson_4.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;section&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;],
+    &quot;marks&quot;: [78, 90, 66, 84, 91, 55, 73, 84],
+})
+print(df[&quot;section&quot;].value_counts())
+print(df[&quot;marks&quot;].nunique())
+print(df[&quot;marks&quot;].unique())</code></pre></div><div class='out'><span>OUTPUT</span><pre>section
+A    4
+B    4
+Name: count, dtype: int64
+7
+[78 90 66 84 91 55 73]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df[&quot;section&quot;].value_counts()</code></td><td>How many times each value appears.</td></tr><tr><td><code data-code>df[&quot;marks&quot;].nunique()</code></td><td>How many different values there are.</td></tr><tr><td><code data-code>df[&quot;marks&quot;].unique()</code></td><td>The distinct values themselves, in order of first appearance.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Writing <code>and</code> / <code>or</code> instead of <code>&amp;</code> / <code>|</code> in a filter. Python&#39;s keywords don&#39;t work on whole columns.</li><li>Forgetting parentheses: <code>df[&quot;a&quot;] &gt; 1 &amp; df[&quot;b&quot;] &lt; 5</code> is evaluated in the wrong order. Write <code>(df[&quot;a&quot;] &gt; 1) &amp; (df[&quot;b&quot;] &lt; 5)</code>.</li><li>Expecting <code>sort_values()</code> to change the DataFrame. It returns a sorted copy, so assign it back (<code>df = df.sort_values(...)</code>) if you want to keep it.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use these steps at the start of any analysis: peek, check types, summarise, then sort and filter to answer specific questions.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>What does df.info() tell you?</summary><p>The number of rows, each column&#39;s dtype and how many non-null values it has, which is the quickest way to spot missing data.</p></details><details><summary>How do you filter rows by two conditions?</summary><p>Wrap each condition in parentheses and join them with <code>&amp;</code> (and) or <code>|</code> (or): <code>df[(df[&quot;a&quot;] &gt; 1) &amp; (df[&quot;b&quot;] &lt; 5)]</code>.</p></details><details><summary>What does describe() show?</summary><p>Count, mean, standard deviation, min, quartiles and max for numeric columns.</p></details><details><summary>How do you sort in descending order?</summary><p><code>df.sort_values(&quot;col&quot;, ascending=False)</code>.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Using a DataFrame with <code>name</code> = Asha, Ravi, Meena, Dev and <code>marks</code> = 78, 90, 66, 55, print a list of the names of students who scored below 70.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Filter with <code>df[&quot;marks&quot;] &lt; 70</code>, select the <code>name</code> column, then call <code>.tolist()</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;name&quot;: [&quot;Asha&quot;, &quot;Ravi&quot;, &quot;Meena&quot;, &quot;Dev&quot;],
+    &quot;marks&quot;: [78, 90, 66, 55],
+})
+print(df[df[&quot;marks&quot;] &lt; 70][&quot;name&quot;].tolist())</code></pre></div><div class='out'><span>OUTPUT</span><pre>[&#39;Meena&#39;, &#39;Dev&#39;]</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/pandas-read-files.html'>← Read and save CSV and JSON files</a><a class='button button-primary' href='library-lessons/pandas-missing-values.html'>Handle missing values →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

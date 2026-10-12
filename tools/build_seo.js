@@ -27,7 +27,7 @@ const JS = ["data", "content", "lessons-python", "dsa-lessons", "dsa-structure-p
   "coding-problems", "interview-patterns", "interview-python", "interview-dsa", "interview-django", "interview-hr"];
 JS.forEach(f => vm.runInContext(fs.readFileSync(path.join(ROOT, "assets/js", f + ".js"), "utf8"), sb, { filename: f }));
 const W = sb.window;
-const LESSONS = W.PYDSA_LESSONS, PY = W.PYDSA_PYTHON, DSAL = W.PYDSA_DSA_LESSONS, DSP = W.PYDSA_DSA_STRUCTURE_PROGRAMS;
+const LESSONS = W.PYDSA_LESSONS, PY = W.PYDSA_PYTHON, LIBS = W.PYDSA_LIBRARIES, DSAL = W.PYDSA_DSA_LESSONS, DSP = W.PYDSA_DSA_STRUCTURE_PROGRAMS;
 const PROGS = W.PYDSA_PROGRAMS, GROUPS = W.PYDSA_GROUPS, PL = W.PYDSA_PROGRAM_LESSONS, ALIAS = W.PYDSA_PROGRAM_LESSON_ALIASES || {};
 const CODING = W.PYDSA_CODING_PROBLEMS, PATTERNS = W.PYDSA_PATTERNS;
 const IQ = { "python-interview": W.PYDSA_PYTHON_INTERVIEW, "dsa-interview": W.PYDSA_DSA_INTERVIEW, "django-interview": W.PYDSA_DJANGO_INTERVIEW, "hr-interview": W.PYDSA_HR_INTERVIEW };
@@ -42,12 +42,14 @@ const titleCase = s => s;
 const pageTitle = t => (t.length > 52 ? t : t + " | " + SITE_NAME);
 const abs = rel => SITE_URL + "/" + rel;
 const sitemap = [];
-const dirs = { py: "python-lessons", dsa: "dsa-lessons", prog: "python-programs", impl: "dsa-implementations", code: "coding-problems" };
-const urlPy = id => dirs.py + "/" + id + ".html", urlDsa = id => dirs.dsa + "/" + id + ".html", urlProg = id => dirs.prog + "/" + id + ".html",
+const dirs = { py: "python-lessons", lib: "library-lessons", dsa: "dsa-lessons", prog: "python-programs", impl: "dsa-implementations", code: "coding-problems" };
+const urlPy = id => dirs.py + "/" + id + ".html", urlLib = id => dirs.lib + "/" + id + ".html", urlDsa = id => dirs.dsa + "/" + id + ".html", urlProg = id => dirs.prog + "/" + id + ".html",
   urlImpl = id => dirs.impl + "/" + id + ".html", urlCode = id => dirs.code + "/" + id + ".html";
+Object.keys(dirs).forEach(k => fs.rmSync(path.join(ROOT, dirs[k]), { recursive: true, force: true }));  // generated folders are rebuilt from scratch, so removed or moved pages never linger
 
 const codeBox = (name, src, noHl) => "<div class='code-box'><div class='code-header'><span>" + esc(name) + "</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code" + (noHl ? " data-plain" : "") + ">" + esc(src) + "</code></pre></div>";
 const outBox = (o, label) => o ? "<div class='out'><span>" + (label || "OUTPUT") + "</span><pre>" + esc(o) + "</pre></div>" : "";
+const imgBox = o => o.image ? "<figure class='plot'><img src='" + esc(o.image) + "' alt='" + esc(o.alt || "") + "' width='" + o.iw + "' height='" + o.ih + "' loading='lazy'><figcaption>The chart this code draws</figcaption></figure>" : "";
 const lineTable = (rows, h1, h2) => "<table class='lines'><thead><tr><th>" + h1 + "</th><th>" + h2 + "</th></tr></thead><tbody>" + rows.map(r => "<tr><td><code data-code>" + esc(r[0]) + "</code></td><td>" + fmt(r[1]) + "</td></tr>").join("") + "</tbody></table>";
 const list = (a, cls) => "<ul class='" + (cls || "mist") + "'>" + a.map(x => "<li>" + fmt(x) + "</li>").join("") + "</ul>";
 const qa = a => "<div class='qa'>" + a.map(q => "<details><summary>" + fmt(q[0]) + "</summary><p>" + fmt(q[1]) + "</p></details>").join("") + "</div>";
@@ -90,28 +92,30 @@ function detailPage(o) {
 const side = (title, items, activeId, mt) => "<span class='side-title'" + (mt ? " style='margin-top:14px'" : "") + ">" + esc(title) + "</span>" + items.map(x => "<a href='" + x.href + "'" + (x.id === activeId ? " class='active'" : "") + ">" + esc(x.title) + "</a>").join("");
 
 /* ---------- 1. Python lessons ---------- */
-LESSONS.forEach((L, i) => {
-  const s = PY[L.section - 1], p = urlPy(L.id), prev = LESSONS[i - 1], next = LESSONS[i + 1];
-  const desc = L.summary + " " + L.what, bc = [["Home", ""], ["Python", "python.html"], [L.title, p]];
-  const sideHtml = PY.map((x, k) => side(x.n + " · " + x.title.split(" &")[0], LESSONS.filter(l => l.section === k + 1).map(l => ({ id: l.id, title: l.title, href: urlPy(l.id) })), L.id, k)).join("");
-  let m = crumbs([["Home", "index.html"], ["Python", "python.html"], [s.title]]) + "<div class='with-side'><aside class='side' aria-label='Python lessons'>" + sideHtml + "</aside><article class='lesson'>" +
-    "<header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PYTHON</span><span class='badge badge-gray'>SECTION " + s.n + "</span><span class='badge badge-gray'>" + esc(L.time.toUpperCase()) + "</span></div><h1>" + esc(L.title) + "</h1><p class='lead'>" + fmt(L.summary) + "</p></header>" +
+LESSONS.forEach((L) => {
+  const isLib = !!L.lib, GROUP = LESSONS.filter(x => !!x.lib === isLib), gi = GROUP.indexOf(L);
+  const s = isLib ? LIBS.find(x => x.id === L.lib) : PY[L.section - 1], p = isLib ? urlLib(L.id) : urlPy(L.id), prev = GROUP[gi - 1], next = GROUP[gi + 1];
+  const hub = isLib ? ["Libraries", "libraries.html"] : ["Python", "python.html"], urlOf = x => isLib ? urlLib(x.id) : urlPy(x.id);
+  const desc = L.summary + " " + L.what, bc = [["Home", ""], hub, [L.title, p]];
+  const sideHtml = (isLib ? LIBS : PY).map((x, k) => side(x.n + " · " + x.title.split(" &")[0], GROUP.filter(l => isLib ? l.lib === x.id : l.section === k + 1).map(l => ({ id: l.id, title: l.title, href: urlOf(l) })), L.id, k)).join("");
+  let m = crumbs([["Home", "index.html"], [hub[0], hub[1]], [s.title]]) + "<div class='with-side'><aside class='side' aria-label='" + hub[0] + " lessons'>" + sideHtml + "</aside><article class='lesson'>" +
+    "<header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-" + (isLib ? s.color : "blue") + "'>" + (isLib ? s.name.toUpperCase() : "PYTHON") + "</span><span class='badge badge-gray'>" + (isLib ? "LIBRARY " : "SECTION ") + s.n + "</span><span class='badge badge-gray'>" + esc(L.time.toUpperCase()) + "</span></div><h1>" + esc(L.title) + "</h1><p class='lead'>" + fmt(L.summary) + "</p></header>" +
     btns("lesson-" + L.id, "lesson", L.id, "Bookmark lesson", "Lesson");
   m += sec(1, "What is it?", "<p>" + fmt(L.what) + "</p>") + sec(2, "Why do we need it?", "<p>" + fmt(L.why) + "</p>");
   let t = "<div class='explain'><div class='explain-tag'>Everyday example</div><p>" + fmt(L.simple) + "</p><div class='explain-tag'>Precise definition</div><p>" + fmt(L.tech) + "</p></div>";
   if (L.table) t += "<div class='table-wrap'><table class='ltable'><thead><tr>" + L.table.head.map(h => "<th>" + esc(h) + "</th>").join("") + "</tr></thead><tbody>" + L.table.rows.map(r => "<tr>" + r.map((c, k) => "<td>" + (k === 0 || /[\[\](){}=]/.test(c) ? "<code>" + esc(c) + "</code>" : esc(c)) + "</td>").join("") + "</tr>").join("") + "</tbody></table></div>";
   if (L.steps) t += "<ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'>" + L.steps.map(x => "<li>" + fmt(x) + "</li>").join("") + "</ol>";
   m += sec(3, "In plain words", t);
-  m += sec(4, "Code, step by step", L.blocks.map((b, n) => "<div class='block'><h3>" + esc(b.title) + "</h3>" + codeBox(b.plain ? "structure" : (b.noRun ? "example.py" : "lesson_" + (n + 1) + ".py"), b.code, b.plain) + outBox(b.output) +
+  m += sec(4, "Code, step by step", L.blocks.map((b, n) => "<div class='block'><h3>" + esc(b.title) + "</h3>" + codeBox(b.plain ? "structure" : (b.noRun ? "example.py" : "lesson_" + (n + 1) + ".py"), b.code, b.plain) + outBox(b.output) + imgBox(b) +
     "<table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody>" + b.lines.map(r => "<tr><td><code" + (b.plain ? "" : " data-code") + ">" + esc(r[0]) + "</code></td><td>" + fmt(r[1]) + "</td></tr>").join("") + "</tbody></table></div>").join(""));
   m += sec(5, "Common mistakes", list(L.mistakes)) + sec(6, "When should I use it?", "<p>" + fmt(L.use) + "</p>") + sec(7, "Interview questions", qa(L.qa));
   const tr = L.tryit;
-  m += sec(8, "Try it yourself", "<div class='try-card'><p>" + fmt(tr.task) + "</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> " + fmt(tr.hint) + "</div></div></details><details><summary>Show solution</summary>" + codeBox("solution.py", tr.solution) + outBox(tr.output) + "</details></div>", "try");
+  m += sec(8, "Try it yourself", "<div class='try-card'><p>" + fmt(tr.task) + "</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> " + fmt(tr.hint) + "</div></div></details><details><summary>Show solution</summary>" + codeBox("solution.py", tr.solution) + outBox(tr.output) + imgBox(tr) + "</details></div>", "try");
   const rel = (L.related || []).map(r => PROGS.find(x => x.id === r)).filter(Boolean);
   if (rel.length) m += sec(9, "Practise with real programs", "<div class='tags'>" + rel.map(x => "<a class='tag done' href='" + urlProg(x.id) + "'>" + esc(x.title) + " →</a>").join("") + "</div>");
-  m += pn(prev && [prev.title, urlPy(prev.id)], next && [next.title, urlPy(next.id)], ["All Python lessons", "python.html"]) + "</article></div>";
-  detailPage({ path: p, title: L.title + " — Python Tutorial for Beginners", desc, bodyPage: "python", main: m, ogType: "article",
-    ld: [crumbLd(bc), articleLd({ path: p, headline: L.title + " — Python tutorial", desc, about: "Python programming" })] });
+  m += pn(prev && [prev.title, urlOf(prev)], next && [next.title, urlOf(next)], [isLib ? "All library lessons" : "All Python lessons", hub[1]]) + "</article></div>";
+  detailPage({ path: p, title: isLib ? L.title + " — " + s.name + " Tutorial" : L.title + " — Python Tutorial for Beginners", desc, bodyPage: isLib ? "libraries" : "python", main: m, ogType: "article",
+    ld: [crumbLd(bc), articleLd({ path: p, headline: L.title + (isLib ? " — " + s.name + " tutorial" : " — Python tutorial"), desc, about: isLib ? s.name + " library for Python" : "Python programming" })] });
 });
 
 /* ---------- 2. DSA roadmap lessons ---------- */
@@ -219,9 +223,12 @@ const ROOT_PAGES = {
   "index.html": { title: "Python DSA Notes — Free Python & DSA Tutorials with Interview Programs", rawTitle: true,
     desc: "Learn Python and data structures & algorithms (DSA) for free: plain-language lessons, " + PROGS.length + " interview programs with dry runs, a roadmap and interview questions. No login.",
     ld: [{ "@context": "https://schema.org", "@type": "WebSite", name: SITE_NAME, url: abs(""), inLanguage: "en", description: "Free Python and DSA tutorials, interview programs and practice." }] },
-  "python.html": { title: "Python Tutorial for Beginners — " + LESSONS.length + " Lessons from Basics to OOP",
+  "python.html": { title: "Python Tutorial for Beginners — " + LESSONS.filter(l => !l.lib).length + " Lessons from Basics to OOP",
     desc: "Free Python tutorial: data types, loops, functions, lambda, OOP, file handling, exceptions and modules. Every lesson has line-by-line code, output and interview questions.",
     fill: () => wrap("", PY.map((s, k) => "<h2>" + esc(s.title) + "</h2><p>" + esc(s.blurb) + "</p>" + ul(LESSONS.filter(l => l.section === k + 1).map(l => [urlPy(l.id), l.title, l.summary]))).join("")) },
+  "libraries.html": { title: "Python Libraries for Data Analysis — Pandas, NumPy & Matplotlib Tutorials",
+    desc: "Free tutorials for the three core Python data libraries: Pandas for tables, NumPy for fast arrays and Matplotlib for charts. Runnable code, outputs, charts and interview questions.",
+    fill: () => wrap("", LIBS.map(m => "<h2>" + esc(m.title) + "</h2><p>" + esc(m.blurb) + "</p>" + ul(LESSONS.filter(l => l.lib === m.id).map(l => [urlLib(l.id), l.title, l.summary]))).join("")) },
   "programs.html": { title: "Python Interview Programs — " + PROGS.length + " Programs with Code & Dry Run",
     desc: "Most-asked Python interview programs with code, output and dry run: arrays, strings, recursion, sorting, linked lists, stack, queue, dynamic programming, bit manipulation and patterns.",
     fill: () => wrap("", GROUPS.map(g => "<h2>" + esc(g.label) + "</h2><p>" + esc(g.blurb) + "</p>" + ul(PROGS.filter(p => p.group === g.slug).map(p => [urlProg(p.id), p.title + " in Python"]))).join("")) },
@@ -245,7 +252,7 @@ const ROOT_PAGES = {
   "django-interview.html": { title: "Django & Web Interview Questions and Answers (" + IQ["django-interview"].length + " Questions)", desc: "Django and web development interview questions with answers: MVT, ORM, models, forms, authentication, REST and deployment basics.", fill: () => wrap("", faq(IQ["django-interview"])) },
   "hr-interview.html": { title: "HR & Behavioural Interview Questions with Sample Answers", desc: "Common HR and behavioural interview questions with answer frameworks and tips: tell me about yourself, strengths, weaknesses, conflict and teamwork.", fill: () => wrap("", faq(IQ["hr-interview"])) },
 };
-const DYNAMIC = { "lesson.html": { ids: LESSONS.map(l => l.id), to: dirs.py }, "dsa-lesson.html": { ids: DSAL.map(l => l.id), to: dirs.dsa }, "dsa-structure-program.html": { ids: DSP.map(l => l.id), to: dirs.impl } };
+const DYNAMIC = { "lesson.html": { ids: LESSONS.map(l => l.id), to: dirs.py, map: LESSONS.reduce((o, l) => (o[l.id] = l.lib ? dirs.lib : dirs.py, o), {}) }, "dsa-lesson.html": { ids: DSAL.map(l => l.id), to: dirs.dsa }, "dsa-structure-program.html": { ids: DSP.map(l => l.id), to: dirs.impl } };
 
 Object.keys(ROOT_PAGES).concat(Object.keys(DYNAMIC), ["404.html"]).forEach(file => {
   let src = fs.readFileSync(path.join(ROOT, file), "utf8");
@@ -262,7 +269,7 @@ Object.keys(ROOT_PAGES).concat(Object.keys(DYNAMIC), ["404.html"]).forEach(file 
   if (cfg && cfg.fill) src = src.replace(/<div id="content">(?:<!--seo:start-->[\s\S]*?<!--seo:end-->)?<\/div>/, () => "<div id=\"content\">" + cfg.fill() + "</div>");
   if (dyn) { // old ?id= URLs forward to the static page
     src = src.replace(/<script>\/\*seo-redirect\*\/[\s\S]*?<\/script>\s*/g, "");
-    const r = "<script>/*seo-redirect*/(function(){var ok=" + JSON.stringify(dyn.ids.reduce((o, k) => (o[k] = 1, o), {})) + ",id=new URLSearchParams(location.search).get('id');if(id&&ok[id])location.replace('" + dyn.to + "/'+id+'.html');})();</script>\n";
+    const r = "<script>/*seo-redirect*/(function(){var ok=" + JSON.stringify(dyn.map || dyn.ids.reduce((o, k) => (o[k] = dyn.to, o), {})) + ",id=new URLSearchParams(location.search).get('id');if(id&&ok[id])location.replace(ok[id]+'/'+id+'.html');})();</script>\n";
     src = src.replace(/<\/head>/, r + "</head>");
   }
   if (file !== "404.html" && file !== "index.html" && !cfg === false) sitemap.push(file);

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Titles, labels, legends and grids — Matplotlib Tutorial</title>
+  <meta name="description" content="Turn a bare chart into one that explains itself, with a title, axis labels, a legend and a grid. A chart without labels is a puzzle. Matplotlib lets you add…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/matplotlib-labels-titles.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Titles, labels, legends and grids — Matplotlib Tutorial">
+  <meta property="og:description" content="Turn a bare chart into one that explains itself, with a title, axis labels, a legend and a grid. A chart without labels is a puzzle. Matplotlib lets you add…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/matplotlib-labels-titles.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Titles, labels, legends and grids — Matplotlib Tutorial">
+  <meta name="twitter:description" content="Turn a bare chart into one that explains itself, with a title, axis labels, a legend and a grid. A chart without labels is a puzzle. Matplotlib lets you add…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Titles, labels, legends and grids","item":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-labels-titles.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Titles, labels, legends and grids — Matplotlib tutorial","description":"Turn a bare chart into one that explains itself, with a title, axis labels, a legend and a grid. A chart without labels is a puzzle. Matplotlib lets you add…","url":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-labels-titles.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"Matplotlib library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-labels-titles.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>Matplotlib for Charts</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html' class='active'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-orange'>MATPLOTLIB</span><span class='badge badge-gray'>LIBRARY 03</span><span class='badge badge-gray'>9 MIN</span></div><h1>Titles, labels, legends and grids</h1><p class='lead'>Turn a bare chart into one that explains itself, with a title, axis labels, a legend and a grid.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-matplotlib-labels-titles' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:matplotlib-labels-titles' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A chart without labels is a puzzle. Matplotlib lets you add a <strong>title</strong>, <strong>axis labels</strong>, a <strong>legend</strong> (a key that names each line) and a <strong>grid</strong> with one function call each.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>People often see your chart without you there to explain it, for example in a report or a LinkedIn post. Labels say what is measured and in which units, so the picture can be understood on its own.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Think of a map without a legend. You see colours and lines but cannot tell what they mean. Titles, labels and a legend are the key that makes the map readable.</p><div class='explain-tag'>Precise definition</div><p><code>plt.title()</code>, <code>plt.xlabel()</code> and <code>plt.ylabel()</code> set the text. To get a legend, give each plot call a <code>label=&#39;...&#39;</code> and then call <code>plt.legend()</code>. <code>plt.grid(True)</code> adds grid lines. Several <code>plt.plot()</code> calls before one <code>plt.show()</code> draw on the same chart.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Draw your data with <code>plt.plot(...)</code>.</li><li>Add <code>plt.title(&#39;...&#39;)</code> for the overall message.</li><li>Add <code>plt.xlabel()</code> and <code>plt.ylabel()</code>, including units.</li><li>Give each line <code>label=&#39;...&#39;</code> and call <code>plt.legend()</code>.</li><li>Add <code>plt.grid(True)</code> if it helps people read values.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Title and axis labels</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+days = [1, 2, 3, 4, 5, 6, 7]
+steps = [4, 6, 5, 8, 7, 9, 10]
+
+plt.plot(days, steps)
+plt.title(&#39;Daily steps&#39;)
+plt.xlabel(&#39;Day&#39;)
+plt.ylabel(&#39;Steps (thousands)&#39;)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-labels-titles-1.png' alt='Line chart titled Daily steps with the x axis labelled Day and the y axis labelled Steps in thousands.' width='562' height='455' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>plt.title(&#39;Daily steps&#39;)</code></td><td>Adds the title above the chart. Say what the chart shows.</td></tr><tr><td><code data-code>plt.xlabel(&#39;Day&#39;)</code></td><td>Names the horizontal axis.</td></tr><tr><td><code data-code>plt.ylabel(&#39;Steps (thousands)&#39;)</code></td><td>Names the vertical axis. Putting the unit in brackets saves guessing.</td></tr></tbody></table></div><div class='block'><h3>Two lines, a legend and a grid</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+days = [1, 2, 3, 4, 5, 6, 7]
+this_week = [4, 6, 5, 8, 7, 9, 10]
+last_week = [3, 4, 6, 5, 6, 7, 8]
+
+plt.plot(days, this_week, label=&#39;This week&#39;)
+plt.plot(days, last_week, label=&#39;Last week&#39;)
+plt.title(&#39;Steps compared&#39;)
+plt.xlabel(&#39;Day&#39;)
+plt.ylabel(&#39;Steps (thousands)&#39;)
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-labels-titles-2.png' alt='Two lines for this week and last week across seven days, with a legend in the corner and a light grid.' width='562' height='455' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>plt.plot(days, this_week, label=&#39;This week&#39;)</code></td><td>Draws the first line and gives it a name for the legend.</td></tr><tr><td><code data-code>plt.plot(days, last_week, label=&#39;Last week&#39;)</code></td><td>A second <code>plot</code> call before <code>show()</code> draws on the same chart. Matplotlib picks a different colour automatically.</td></tr><tr><td><code data-code>plt.legend()</code></td><td>Builds the legend from the labels. It does nothing if no line has a label.</td></tr><tr><td><code data-code>plt.grid(True)</code></td><td>Adds grid lines that make it easier to read the values.</td></tr></tbody></table></div><div class='block'><h3>Position and size</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+a = [2, 4, 5, 8]
+b = [1, 3, 6, 7]
+
+plt.plot(x, a, label=&#39;Team A&#39;)
+plt.plot(x, b, label=&#39;Team B&#39;)
+plt.title(&#39;Points per round&#39;, fontsize=16)
+plt.legend(loc=&#39;upper left&#39;)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-labels-titles-3.png' alt='Chart with a larger title and the legend placed in the upper left corner.' width='534' height='437' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>fontsize=16</code></td><td>Makes the title text bigger. Most text functions accept <code>fontsize</code>.</td></tr><tr><td><code data-code>plt.legend(loc=&#39;upper left&#39;)</code></td><td>Moves the legend. Other places include <code>&#39;lower right&#39;</code> and <code>&#39;center&#39;</code>. The default <code>&#39;best&#39;</code> lets Matplotlib choose the emptiest corner.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Calling <code>plt.legend()</code> without giving any line a <code>label</code>. The legend is empty or missing.</li><li>Leaving out units in the axis labels, so nobody knows if the numbers are minutes or kilometres.</li><li>Putting <code>plt.show()</code> between the plot calls. After <code>show()</code> the chart is finished and later calls start a new one.</li><li>Using a vague title such as <code>Graph</code>. Say what the chart tells the reader.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use titles and labels on every chart you share. Use a legend whenever more than one line or colour appears, and a grid when readers need to read off approximate values.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>How do you add a legend to a Matplotlib plot?</summary><p>Pass <code>label=&#39;...&#39;</code> to each plot call and then call <code>plt.legend()</code>.</p></details><details><summary>How do you draw two lines on one chart?</summary><p>Call <code>plt.plot()</code> twice before calling <code>plt.show()</code>.</p></details><details><summary>How do you move the legend?</summary><p>Use the <code>loc</code> argument, for example <code>plt.legend(loc=&#39;upper left&#39;)</code>.</p></details><details><summary>What are <code>plt.xlabel</code> and <code>plt.ylabel</code> for?</summary><p>They name the x axis and the y axis, ideally with units.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Plot <code>[10, 20, 15, 30]</code> against <code>[1, 2, 3, 4]</code>. Add the title <code>Sales</code>, the x label <code>Month</code> and the y label <code>Units</code>, and turn the grid on.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Use <code>plt.title</code>, <code>plt.xlabel</code>, <code>plt.ylabel</code> and <code>plt.grid(True)</code> before <code>plt.show()</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3, 4], [10, 20, 15, 30])
+plt.title(&#39;Sales&#39;)
+plt.xlabel(&#39;Month&#39;)
+plt.ylabel(&#39;Units&#39;)
+plt.grid(True)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-labels-titles-try.png' alt='Line chart titled Sales with Month on the x axis, Units on the y axis and grid lines.' width='576' height='455' loading='lazy'><figcaption>The chart this code draws</figcaption></figure></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/matplotlib-first-plot.html'>← Your first chart with Matplotlib</a><a class='button button-primary' href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

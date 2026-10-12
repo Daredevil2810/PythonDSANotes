@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Bar charts: compare categories — Matplotlib Tutorial | Python DSA Notes</title>
+  <meta name="description" content="Draw vertical and horizontal bar charts, colour the bars and print the value on top of each one. A bar chart shows one bar per category, and the bar&#39;s…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/matplotlib-bar-charts.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Bar charts: compare categories — Matplotlib Tutorial | Python DSA Notes">
+  <meta property="og:description" content="Draw vertical and horizontal bar charts, colour the bars and print the value on top of each one. A bar chart shows one bar per category, and the bar&#39;s…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/matplotlib-bar-charts.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bar charts: compare categories — Matplotlib Tutorial | Python DSA Notes">
+  <meta name="twitter:description" content="Draw vertical and horizontal bar charts, colour the bars and print the value on top of each one. A bar chart shows one bar per category, and the bar&#39;s…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Bar charts: compare categories","item":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-bar-charts.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Bar charts: compare categories — Matplotlib tutorial","description":"Draw vertical and horizontal bar charts, colour the bars and print the value on top of each one. A bar chart shows one bar per category, and the bar's…","url":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-bar-charts.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"Matplotlib library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/matplotlib-bar-charts.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>Matplotlib for Charts</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html' class='active'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-orange'>MATPLOTLIB</span><span class='badge badge-gray'>LIBRARY 03</span><span class='badge badge-gray'>9 MIN</span></div><h1>Bar charts: compare categories</h1><p class='lead'>Draw vertical and horizontal bar charts, colour the bars and print the value on top of each one.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-matplotlib-bar-charts' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:matplotlib-bar-charts' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A <strong>bar chart</strong> shows one bar per category, and the bar&#39;s length shows the value. It is the standard way to compare things such as sales per city or marks per subject.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>A line chart suggests that points are connected in order, which makes no sense for cities or subjects. Bars treat each category as a separate item and make the biggest and smallest obvious at a glance.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Think of a row of glass tubes filled with water. Each tube is one category, and the water level is its value. You can compare them without reading a single number.</p><div class='explain-tag'>Precise definition</div><p><code>plt.bar(categories, values)</code> draws vertical bars and <code>plt.barh(categories, values)</code> draws horizontal ones. The <code>color</code> argument accepts one colour or a list with one colour per bar. <code>plt.bar_label(bars)</code> prints each bar&#39;s value on the chart.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Prepare a list of category names and a list of values.</li><li>Call <code>plt.bar(names, values)</code>.</li><li>Use <code>color=[...]</code> for a colour per bar.</li><li>Use <code>plt.barh</code> when names are long.</li><li>Add <code>plt.bar_label(bars)</code> to show the numbers.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>A basic bar chart</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+cities = [&#39;Pune&#39;, &#39;Delhi&#39;, &#39;Mumbai&#39;]
+sales = [1350, 850, 300]
+
+plt.bar(cities, sales)
+plt.title(&#39;Sales by city&#39;)
+plt.ylabel(&#39;Sales&#39;)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-bar-charts-1.png' alt='Vertical bars showing sales of 1350 for Pune, 850 for Delhi and 300 for Mumbai.' width='580' height='435' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>plt.bar(cities, sales)</code></td><td>One bar per city. The first list gives the labels and the second gives the heights.</td></tr><tr><td><code data-code>plt.title(&#39;Sales by city&#39;)</code></td><td>A title that says what is compared.</td></tr><tr><td><code data-code>plt.ylabel(&#39;Sales&#39;)</code></td><td>Labels the vertical axis. The categories along the bottom speak for themselves.</td></tr></tbody></table></div><div class='block'><h3>Horizontal bars with your own colours</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+subjects = [&#39;Maths&#39;, &#39;Science&#39;, &#39;English&#39;, &#39;History&#39;]
+marks = [88, 76, 69, 54]
+colours = [&#39;#2563eb&#39;, &#39;#0d9488&#39;, &#39;#f59e0b&#39;, &#39;#ef4444&#39;]
+
+plt.barh(subjects, marks, color=colours)
+plt.xlabel(&#39;Marks&#39;)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-bar-charts-2.png' alt='Horizontal bars for four subjects in different colours, with Maths the longest.' width='579' height='432' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>plt.barh(subjects, marks, color=colours)</code></td><td><code>barh</code> draws horizontal bars. Handy when category names are long and would collide along the bottom.</td></tr><tr><td><code data-code>color=colours</code></td><td>A list with one colour for each bar, in the same order.</td></tr><tr><td><code data-code>plt.xlabel(&#39;Marks&#39;)</code></td><td>On a horizontal chart the values run along x, so the label goes on the x axis.</td></tr></tbody></table></div><div class='block'><h3>Show the value on each bar</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+cities = [&#39;Pune&#39;, &#39;Delhi&#39;, &#39;Mumbai&#39;]
+sales = [1350, 850, 300]
+
+bars = plt.bar(cities, sales, color=&#39;#0d9488&#39;, width=0.5)
+plt.bar_label(bars)
+plt.ylim(0, 1600)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-bar-charts-3.png' alt='Vertical bars for three cities with the value printed above each bar.' width='560' height='418' loading='lazy'><figcaption>The chart this code draws</figcaption></figure><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>bars = plt.bar(...)</code></td><td><code>bar</code> returns the bars it drew. We keep them so we can label them.</td></tr><tr><td><code data-code>width=0.5</code></td><td>Makes each bar narrower. The default width is 0.8.</td></tr><tr><td><code data-code>plt.bar_label(bars)</code></td><td>Prints the value above every bar.</td></tr><tr><td><code data-code>plt.ylim(0, 1600)</code></td><td>Sets the y range so the biggest label has room above its bar.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Using a line chart for categories. Lines imply a connection between neighbours.</li><li>Starting the y axis above zero. Bars are compared by length, so cutting the axis exaggerates differences.</li><li>Mixing up <code>bar</code> and <code>barh</code>. On a horizontal chart the value axis is x, not y.</li><li>Giving <code>color</code> a list of the wrong length. It needs one colour for each bar.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use bar charts to compare separate categories: sales by city, marks by subject, votes by option. Sort the bars from largest to smallest when the order is not important.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>When do you use a bar chart instead of a line chart?</summary><p>When the x values are separate categories, not an ordered sequence such as time.</p></details><details><summary>How do you draw horizontal bars?</summary><p>Use <code>plt.barh(names, values)</code>.</p></details><details><summary>How do you show each bar&#39;s value on the chart?</summary><p>Keep the result of <code>plt.bar</code> and pass it to <code>plt.bar_label</code>.</p></details><details><summary>Why should bar charts start at zero?</summary><p>Bars encode value by length, so a cut axis makes small differences look huge.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Draw a bar chart of fruit sold: apples 40, bananas 25, mangoes 60. Give it the title <code>Fruit sold</code> and show the value on each bar.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Keep the result of <code>plt.bar(...)</code> in a variable and pass it to <code>plt.bar_label</code>.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import matplotlib.pyplot as plt
+
+fruit = [&#39;Apples&#39;, &#39;Bananas&#39;, &#39;Mangoes&#39;]
+sold = [40, 25, 60]
+bars = plt.bar(fruit, sold)
+plt.bar_label(bars)
+plt.title(&#39;Fruit sold&#39;)
+plt.show()</code></pre></div><figure class='plot'><img src='assets/img/plots/matplotlib-bar-charts-try.png' alt='Three bars for apples, bananas and mangoes with their values printed on top and the title Fruit sold.' width='543' height='435' loading='lazy'><figcaption>The chart this code draws</figcaption></figure></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/matplotlib-line-styles.html'>← Markers, colours and line styles</a><a class='button button-primary' href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

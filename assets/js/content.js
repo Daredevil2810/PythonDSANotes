@@ -13,6 +13,16 @@ window.PYDSA_PYTHON = [
 ];
 
 
+/* Python libraries (lessons have a `lib` key and section 6, 7 or 8). */
+window.PYDSA_LIBRARIES = [
+  { id:"pandas", n:"01", name:"Pandas", color:"blue", section:6, title:"Pandas for Data Analysis", blurb:"Load, clean and explore tables of data with Pandas, the most used Python library for data work.",
+    topics:["Series & DataFrame","Reading CSV & JSON","Sorting & filtering","Missing values","Duplicates & wrong data","groupby summaries","Correlation"] },
+  { id:"numpy", n:"02", name:"NumPy", color:"teal", section:7, title:"NumPy for Numerical Work", blurb:"Fast arrays for numbers: create, slice, reshape, summarise and filter data the way data-science libraries do.",
+    topics:["Arrays & dtypes","zeros, arange, linspace","Indexing & slicing","reshape & transpose","sum, mean & axis","Broadcasting","Masks & np.where","Random numbers"] },
+  { id:"matplotlib", n:"03", name:"Matplotlib", color:"orange", section:8, title:"Matplotlib for Charts", blurb:"Turn numbers into line, bar, scatter, histogram and pie charts, then combine and save them.",
+    topics:["First chart","Titles, labels & legends","Markers & styles","Bar charts","Scatter plots","Histograms","Pie charts","Subplots & saving"] }
+];
+
 window.PYDSA_DSA = [
   { level:0, title:"Programming Logic", blurb:"Build the control-flow and problem-solving habits every DSA topic depends on.", live:true,
     items:[

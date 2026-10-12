@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   var PROGRAMS = window.PYDSA_PROGRAMS || [], GROUPS = window.PYDSA_GROUPS || [];
-  var PATTERNS = window.PYDSA_PATTERNS || [], CODING = window.PYDSA_CODING_PROBLEMS || [], LESSONS = window.PYDSA_LESSONS || [], DSALE = window.PYDSA_DSA_LESSONS || [], DSP = window.PYDSA_DSA_STRUCTURE_PROGRAMS || [], PY = window.PYDSA_PYTHON || [], DSA = window.PYDSA_DSA || [], INT = window.PYDSA_INTERVIEW || [], DSAIQ = window.PYDSA_DSA_INTERVIEW || [], PYIQ = window.PYDSA_PYTHON_INTERVIEW || [], DJIQ = window.PYDSA_DJANGO_INTERVIEW || [], HRIQ = window.PYDSA_HR_INTERVIEW || [];
+  var PATTERNS = window.PYDSA_PATTERNS || [], CODING = window.PYDSA_CODING_PROBLEMS || [], LESSONS = window.PYDSA_LESSONS || [], DSALE = window.PYDSA_DSA_LESSONS || [], DSP = window.PYDSA_DSA_STRUCTURE_PROGRAMS || [], PY = window.PYDSA_PYTHON || [], LIBS = window.PYDSA_LIBRARIES || [], DSA = window.PYDSA_DSA || [], INT = window.PYDSA_INTERVIEW || [], DSAIQ = window.PYDSA_DSA_INTERVIEW || [], PYIQ = window.PYDSA_PYTHON_INTERVIEW || [], DJIQ = window.PYDSA_DJANGO_INTERVIEW || [], HRIQ = window.PYDSA_HR_INTERVIEW || [];
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
@@ -41,7 +41,8 @@
 
   /* ---------- layout injection (one place to edit nav + footer) ---------- */
   var NAV = [
-    { id: "python", label: "Python", href: "python.html", sub: LESSONS.length + " lessons" },
+    { id: "python", label: "Python", href: "python.html", sub: LESSONS.filter(function (l) { return !l.lib; }).length + " lessons" },
+    { id: "libraries", label: "Libraries", href: "libraries.html", sub: "Pandas, NumPy, Matplotlib" },
     { id: "programs", label: "Programs", href: "programs.html", sub: PROGRAMS.length + " interview programs" },
     { id: "dsa", label: "DSA", href: "dsa.html", sub: "The learning roadmap" },
     { id: "interview", label: "Interview", href: "interview.html", sub: "Questions & prep" }
@@ -58,7 +59,7 @@
       '<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">' + '<a href="index.html"><span>Home</span><small>Start here</small></a>' + mlinks + "</nav>";
     $("#site-footer").outerHTML =
       '<footer class="footer"><div class="footer-grid"><div><a class="brand" href="index.html"><img class="brand-logo" src="assets/img/site-logo.png" alt="" width="36" height="36"><span>Python <span class="accent">DSA</span> Notes</span></a><p>Python DSA Notes: a free Python and data structures & algorithms learning hub. No login, no server, no sleeping backend. Your progress stays in your own browser.</p></div>' +
-      '<div><h5>Learn</h5><ul><li><a href="python.html">Python</a></li><li><a href="dsa.html">DSA roadmap</a></li><li><a href="programs.html">Programs</a></li></ul></div>' +
+      '<div><h5>Learn</h5><ul><li><a href="python.html">Python</a></li><li><a href="libraries.html">Libraries</a></li><li><a href="dsa.html">DSA roadmap</a></li><li><a href="programs.html">Programs</a></li></ul></div>' +
       '<div><h5>Prepare</h5><ul><li><a href="interview.html">Interview prep</a></li><li><a href="patterns.html">Pattern practice</a></li><li><a href="coding-problems.html">Coding problems</a></li></ul></div>' +
       '<div><h5>Project</h5><ul><li><a href="index.html#roadmap">Roadmap</a></li><li><a href="index.html#progress">Your progress</a></li></ul></div></div>' +
       '<div class="footer-bottom"><span>Built while learning. Every explanation is written in plain language.</span><span>Learn · Practice · Prepare</span></div></footer>';
@@ -157,7 +158,8 @@
   var INDEX = [];
   PROGRAMS.forEach(function (p) { var g = GROUPS.filter(function (x) { return x.slug === p.group; })[0]; INDEX.push({ kind: "Program", title: p.title, sub: g.label, href: "programs.html#" + p.id, id: p.id, c: g.accent, hay: (p.title + " " + g.label).toLowerCase() }); });
   PY.forEach(function (m) { INDEX.push({ kind: "Python", title: m.title, sub: "Module 1 · Section " + m.n, href: "python.html#" + m.id, c: "blue", hay: (m.title + " " + m.topics.join(" ")).toLowerCase() }); m.topics.forEach(function (t) { INDEX.push({ kind: "Python", title: t, sub: m.title, href: "python.html#" + m.id, c: "blue", hay: (t + " " + m.title).toLowerCase() }); }); });
-  LESSONS.forEach(function (l) { INDEX.push({ kind: "Lesson", title: l.title, sub: "Python · " + PY[l.section - 1].title, href: "lesson.html?id=" + l.id, c: "blue", hay: (l.title + " " + l.summary + " " + l.qa.map(function (q) { return q[0]; }).join(" ")).toLowerCase() }); });
+  LIBS.forEach(function (m) { INDEX.push({ kind: "Library", title: m.name + " · " + m.title, sub: "Libraries · " + m.n, href: "libraries.html#" + m.id, c: m.color, hay: (m.name + " " + m.title + " " + m.topics.join(" ")).toLowerCase() }); m.topics.forEach(function (t) { INDEX.push({ kind: "Library", title: t, sub: m.name, href: "libraries.html#" + m.id, c: m.color, hay: (t + " " + m.name).toLowerCase() }); }); });
+  LESSONS.forEach(function (l) { var lib = l.lib ? LIBS.filter(function (m) { return m.id === l.lib; })[0] : null; INDEX.push({ kind: "Lesson", title: l.title, sub: lib ? "Libraries · " + lib.title : "Python · " + PY[l.section - 1].title, href: "lesson.html?id=" + l.id, c: lib ? lib.color : "blue", hay: (l.title + " " + l.summary + " " + (lib ? lib.name + " " : "") + l.qa.map(function (q) { return q[0]; }).join(" ")).toLowerCase() }); });
   DSA.forEach(function (l) { l.items.forEach(function (it) { INDEX.push({ kind: "DSA", title: it.t, sub: "Level " + l.level + " · " + l.title, href: it.u || "dsa.html#level-" + l.level, c: "teal", hay: (it.t + " " + l.title).toLowerCase() }); }); });
   DSALE.forEach(function (l) { INDEX.push({ kind: "DSA Lesson", title: l.title, sub: "DSA · Level " + l.level, href: "dsa-lesson.html?id=" + l.id, c: "teal", hay: (l.title + " " + l.summary + " " + l.what).toLowerCase() }); });
   DSP.forEach(function (p) { INDEX.push({ kind: "DSA Program", title: p.title, sub: p.category + " · " + p.difficulty, href: "dsa-structure-program.html?id=" + p.id, c: "purple", hay: (p.title + " " + p.category + " " + p.concept + " " + p.why).toLowerCase() }); });
@@ -191,7 +193,7 @@
     if (!results.length) { list.innerHTML = '<div class="empty" style="border:0">No match for “' + esc(q) + "”. Try a topic like <b>binary</b>, <b>palindrome</b> or <b>linked list</b>.</div>"; return; }
     var html = q.trim() ? "" : '<div class="palette-label">Suggested</div>', last = "";
     results.forEach(function (r, i) {
-      if (q.trim() && r.kind !== last) { html += '<div class="palette-label">' + r.kind + "s</div>"; last = r.kind; }
+      if (q.trim() && r.kind !== last) { html += '<div class="palette-label">' + (/y$/.test(r.kind) ? r.kind.slice(0, -1) + "ies" : /s$/.test(r.kind) ? r.kind : r.kind + "s") + "</div>"; last = r.kind; }
       html += '<button class="palette-item" role="option" data-i="' + i + '" aria-selected="' + (i === 0) + '"><span class="badge badge-' + r.c + '">' + r.kind.toUpperCase() + '</span><span class="t">' + mark(r.title, q) + '</span><small style="color:var(--text-muted);font-size:11.5px">' + esc(r.sub) + "</small></button>";
     });
     list.innerHTML = html;
@@ -244,8 +246,8 @@
     var ring = $("#progressRing"); if (ring) { ring.style.setProperty("--p", pct); $("span", ring).textContent = pct + "%"; }
     var t = $("#progressText"); if (t) t.textContent = d + " of " + total + " programs completed";
     var bars = $("#progressBars");
-    var ld = LESSONS.filter(function (l) { return isDone("lesson-" + l.id); }).length;
-    var lessonBar = '<div class="bar-row"><div class="meta"><span><b style="color:var(--text)">Python lessons</b></span><b>' + ld + "/" + LESSONS.length + '</b></div><div class="track"><span style="width:' + (LESSONS.length ? Math.round(ld / LESSONS.length * 100) : 0) + '%"></span></div></div>';
+    function lessonBarFor(label, set) { var n = set.filter(function (l) { return isDone("lesson-" + l.id); }).length; return '<div class="bar-row"><div class="meta"><span><b style="color:var(--text)">' + label + '</b></span><b>' + n + "/" + set.length + '</b></div><div class="track"><span style="width:' + (set.length ? Math.round(n / set.length * 100) : 0) + '%"></span></div></div>'; }
+    var lessonBar = lessonBarFor("Python lessons", LESSONS.filter(function (l) { return !l.lib; })) + lessonBarFor("Library lessons", LESSONS.filter(function (l) { return l.lib; }));
     if (bars) bars.innerHTML = lessonBar + GROUPS.map(function (g) { var c = doneCount(g.slug), p = g.count ? Math.round(c / g.count * 100) : 0; return '<div class="bar-row"><div class="meta"><span>' + esc(g.label) + "</span><b>" + c + "/" + g.count + '</b></div><div class="track"><span style="width:' + p + '%"></span></div></div>'; }).join("");
     var bm = $("#bookmarkList");
     if (bm) {
@@ -255,7 +257,7 @@
         if (parts.length !== 2) return;
         var type = parts[0], id = parts[1], title = "", sub = "", href = "";
         if (type === "program") { var p = PROGRAMS.filter(function (x) { return x.id === id; })[0]; if (!p) return; title = p.title; sub = "Program · " + p.difficulty; href = "programs.html#" + p.id; }
-        else if (type === "lesson") { var l = LESSONS.filter(function (x) { return x.id === id; })[0]; if (!l) return; title = l.title; sub = "Python lesson · " + l.time; href = "lesson.html?id=" + l.id; }
+        else if (type === "lesson") { var l = LESSONS.filter(function (x) { return x.id === id; })[0]; if (!l) return; title = l.title; sub = (l.lib ? "Library lesson · " : "Python lesson · ") + l.time; href = "lesson.html?id=" + l.id; }
         else if (type === "interview") { var q = INT.filter(function (x) { return x.id === id; })[0]; if (!q) return; title = q.title; sub = "Interview · " + q.status; href = "interview.html#" + q.id; }
         else if (type === "dsa-interview") { var iq = DSAIQ.filter(function (x) { return x.id === id; })[0]; if (!iq) return; title = iq.q; sub = "DSA interview · " + iq.category; href = "interview.html#dsa-question-bank"; }
         items.push('<a class="bookmark-item" href="' + href + '"><span class="bookmark-star">★</span><span><b>' + esc(title) + '</b><small>' + esc(sub) + '</small></span></a>');

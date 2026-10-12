@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Shape, reshape and transpose — NumPy Tutorial | Python DSA Notes</title>
+  <meta name="description" content="Read the shape of an array and re-arrange the same numbers into rows and columns without changing the data. The shape of an array tells you how many items…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/numpy-shape-reshape.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Shape, reshape and transpose — NumPy Tutorial | Python DSA Notes">
+  <meta property="og:description" content="Read the shape of an array and re-arrange the same numbers into rows and columns without changing the data. The shape of an array tells you how many items…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/numpy-shape-reshape.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shape, reshape and transpose — NumPy Tutorial | Python DSA Notes">
+  <meta name="twitter:description" content="Read the shape of an array and re-arrange the same numbers into rows and columns without changing the data. The shape of an array tells you how many items…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Shape, reshape and transpose","item":"https://pythondsanotes.onrender.com/library-lessons/numpy-shape-reshape.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Shape, reshape and transpose — NumPy tutorial","description":"Read the shape of an array and re-arrange the same numbers into rows and columns without changing the data. The shape of an array tells you how many items…","url":"https://pythondsanotes.onrender.com/library-lessons/numpy-shape-reshape.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"NumPy library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/numpy-shape-reshape.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>NumPy for Numerical Work</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html' class='active'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-teal'>NUMPY</span><span class='badge badge-gray'>LIBRARY 02</span><span class='badge badge-gray'>10 MIN</span></div><h1>Shape, reshape and transpose</h1><p class='lead'>Read the shape of an array and re-arrange the same numbers into rows and columns without changing the data.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-numpy-shape-reshape' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:numpy-shape-reshape' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>The <strong>shape</strong> of an array tells you how many items it has in each direction, for example <code>(3, 4)</code> means 3 rows and 4 columns. <strong>Reshaping</strong> rearranges the same numbers into a different shape.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Data often arrives in the wrong layout: a long flat list that should be a table, or rows that should be columns. Machine-learning code is also very strict about shapes. Knowing how to read and change them avoids the most common NumPy errors.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Imagine twelve chairs. You can set them in one long line, in 3 rows of 4, or in 4 rows of 3. The chairs never change, only how you arrange them. That is reshaping.</p><div class='explain-tag'>Precise definition</div><p><code>arr.shape</code> is a tuple of dimension sizes, <code>arr.ndim</code> is the number of dimensions and <code>arr.size</code> is the total item count. <code>reshape</code> returns an array with the same items in a new shape; the product of the new shape must equal <code>size</code>. Passing <code>-1</code> for one dimension lets NumPy work it out. <code>.T</code> swaps rows and columns.</p></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Check <code>arr.shape</code> first, whenever something looks wrong.</li><li>Make sure the new shape multiplies out to the same total.</li><li>Use <code>-1</code> for the one dimension you want NumPy to calculate.</li><li>Use <code>.T</code> to flip rows and columns.</li><li>Use <code>ravel()</code> to flatten everything back into one row.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Reading the shape</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+a = np.array([[1, 2, 3],
+              [4, 5, 6]])
+print(a.shape)
+print(a.ndim)
+print(a.size)</code></pre></div><div class='out'><span>OUTPUT</span><pre>(2, 3)
+2
+6</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>a.shape</code></td><td>A tuple: 2 rows, 3 columns.</td></tr><tr><td><code data-code>a.ndim</code></td><td>The number of dimensions. A table has 2.</td></tr><tr><td><code data-code>a.size</code></td><td>The total number of items: 2 * 3 = 6.</td></tr></tbody></table></div><div class='block'><h3>Reshape</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+flat = np.arange(12)
+print(flat)
+
+print(flat.reshape(3, 4))
+print(flat.reshape(4, 3))
+print(flat.reshape(2, -1))</code></pre></div><div class='out'><span>OUTPUT</span><pre>[ 0  1  2  3  4  5  6  7  8  9 10 11]
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+[[ 0  1  2]
+ [ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]]
+[[ 0  1  2  3  4  5]
+ [ 6  7  8  9 10 11]]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>flat = np.arange(12)</code></td><td>Twelve numbers in one flat row, 0 to 11.</td></tr><tr><td><code data-code>flat.reshape(3, 4)</code></td><td>The same twelve numbers laid out as 3 rows of 4. <code>flat</code> itself is unchanged.</td></tr><tr><td><code data-code>flat.reshape(4, 3)</code></td><td>Another valid layout: 4 rows of 3.</td></tr><tr><td><code data-code>flat.reshape(2, -1)</code></td><td>You asked for 2 rows. NumPy sees that 12 / 2 = 6 and fills in the <code>-1</code> with 6 columns.</td></tr></tbody></table></div><div class='block'><h3>Transpose and flatten</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+a = np.array([[1, 2, 3],
+              [4, 5, 6]])
+print(a.T)
+print(a.T.shape)
+print(a.ravel())</code></pre></div><div class='out'><span>OUTPUT</span><pre>[[1 4]
+ [2 5]
+ [3 6]]
+(3, 2)
+[1 2 3 4 5 6]</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>a.T</code></td><td>Transpose: rows become columns and columns become rows.</td></tr><tr><td><code data-code>a.T.shape</code></td><td>The shape flips from <code>(2, 3)</code> to <code>(3, 2)</code>.</td></tr><tr><td><code data-code>a.ravel()</code></td><td>Flattens the array into one dimension, reading row by row.</td></tr></tbody></table></div><div class='block'><h3>When the numbers do not fit</h3><div class='code-box'><div class='code-header'><span>lesson_4.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+flat = np.arange(12)
+try:
+    flat.reshape(5, 3)
+except ValueError as e:
+    print(&quot;Error:&quot;, e)</code></pre></div><div class='out'><span>OUTPUT</span><pre>Error: cannot reshape array of size 12 into shape (5,3)</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>flat.reshape(5, 3)</code></td><td>5 * 3 = 15, but the array only has 12 items, so NumPy refuses.</td></tr><tr><td><code data-code>except ValueError as e</code></td><td>Reshape problems raise a <code>ValueError</code>. Here we catch it and print the message, which says exactly what did not fit.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Asking for a shape whose total differs from <code>size</code>. Always check <code>rows * columns == size</code>.</li><li>Using more than one <code>-1</code> in a reshape. NumPy can only work out one unknown.</li><li>Thinking <code>reshape</code> changes the original array. It returns a new view; assign it to a variable to keep it.</li><li>Confusing <code>(3,)</code> and <code>(3, 1)</code>. The first is a flat list of 3, the second is a column with 3 rows, and they behave differently in maths.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Use <code>reshape</code> to turn flat data into a table (or the reverse), and <code>.T</code> when your data has rows and columns the wrong way round for a function.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>What does <code>shape</code> return?</summary><p>A tuple with the size of each dimension, for example <code>(3, 4)</code>.</p></details><details><summary>What does <code>reshape(2, -1)</code> mean?</summary><p>Make 2 rows and let NumPy calculate the number of columns from the total size.</p></details><details><summary>What is the difference between <code>reshape</code> and <code>resize</code>?</summary><p><code>reshape</code> keeps the same items and requires the total to match. <code>resize</code> can change the total size by repeating or cutting values.</p></details><details><summary>What does <code>.T</code> do?</summary><p>It transposes an array: rows become columns and columns become rows.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>Create the numbers 1 to 6 with <code>arange</code>, reshape them into 2 rows and 3 columns, and print the array and its transpose.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> <code>np.arange(1, 7)</code> gives 1 to 6. Then <code>.reshape(2, 3)</code>, and <code>.T</code> for the transpose.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import numpy as np
+
+a = np.arange(1, 7).reshape(2, 3)
+print(a)
+print(a.T)</code></pre></div><div class='out'><span>OUTPUT</span><pre>[[1 2 3]
+ [4 5 6]]
+[[1 4]
+ [2 5]
+ [3 6]]</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/numpy-indexing-slicing.html'>← Indexing and slicing arrays</a><a class='button button-primary' href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

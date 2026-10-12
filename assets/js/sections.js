@@ -53,9 +53,9 @@ window.PyDSA_page = function (api) {
 
   /* ================= PYTHON ================= */
   if (page === "python") {
-    var LS = window.PYDSA_LESSONS, ldone = LS.filter(function (l) { return api.isDone("lesson-" + l.id); }).length;
+    var LS = window.PYDSA_LESSONS.filter(function (l) { return !l.lib; }), ldone = LS.filter(function (l) { return api.isDone("lesson-" + l.id); }).length;
     root.innerHTML =
-      "<div class='notice teal' style='margin-bottom:28px'><div><b>" + LS.length + " lessons.</b> Core Python from the basics to OOP. Every lesson has a plain-language explanation, line-by-line code meaning, interview questions and a practice task. <b>" + ldone + " of " + LS.length + "</b> completed.</div></div>" +
+      "<div class='notice teal' style='margin-bottom:28px'><div><b>" + LS.length + " lessons.</b> Core Python from the basics to OOP. Looking for Pandas, NumPy or Matplotlib? They have their own <a href='libraries.html'>Libraries</a> section. Every lesson has a plain-language explanation, line-by-line code meaning, interview questions and a practice task. <b>" + ldone + " of " + LS.length + "</b> completed.</div></div>" +
       "<div class='module-grid'>" + window.PYDSA_PYTHON.map(function (m, i) {
         var ls = LS.filter(function (l) { return l.section === i + 1; });
         return "<article class='module-card' id='" + m.id + "'><header><div class='num'>" + m.n + "</div><div><span class='badge badge-blue'>PYTHON</span><h3>" + esc(m.title) + "</h3></div></header><p>" + esc(m.blurb) + "</p><div class='lesson-links'>" +
@@ -63,6 +63,20 @@ window.PyDSA_page = function (api) {
           "</div><footer><span class='status live'>" + ls.filter(function (l) { return api.isDone('lesson-' + l.id); }).length + "/" + ls.length + " done</span><a class='button button-small button-secondary' href='lesson.html?id=" + ls[0].id + "'>Start section →</a></footer></article>";
       }).join("") + "</div>" ;
     if (location.hash) { var el = document.getElementById(location.hash.slice(1)); if (el) setTimeout(function () { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.style.borderColor = "var(--blue-bright)"; }, 150); }
+  }
+
+  /* ================= LIBRARIES ================= */
+  if (page === "libraries") {
+    var LL = window.PYDSA_LESSONS.filter(function (l) { return l.lib; }), lldone = LL.filter(function (l) { return api.isDone("lesson-" + l.id); }).length;
+    root.innerHTML =
+      "<div class='notice teal' style='margin-bottom:28px'><div><b>" + LL.length + " lessons across " + window.PYDSA_LIBRARIES.length + " libraries.</b> Learn core Python first, then use these three libraries to load, clean, calculate and chart real data. Every lesson has code you can run, line-by-line meaning, interview questions and a practice task. <b>" + lldone + " of " + LL.length + "</b> completed.</div></div>" +
+      "<div class='module-grid'>" + window.PYDSA_LIBRARIES.map(function (m) {
+        var ls = LL.filter(function (l) { return l.lib === m.id; });
+        return "<article class='module-card' id='" + m.id + "'><header><div class='num'>" + m.n + "</div><div><span class='badge badge-" + m.color + "'>" + esc(m.name.toUpperCase()) + "</span><h3>" + esc(m.title) + "</h3></div></header><p>" + esc(m.blurb) + "</p><div class='lesson-links'>" +
+          ls.map(function (l) { var d = api.isDone("lesson-" + l.id); return "<a class='" + (d ? "is-done" : "") + "' href='lesson.html?id=" + l.id + "'><span>" + (d ? "✓ " : "") + esc(l.title) + "</span><small>" + esc(l.time) + "</small></a>"; }).join("") +
+          "</div><footer><span class='status live'>" + ls.filter(function (l) { return api.isDone("lesson-" + l.id); }).length + "/" + ls.length + " done</span><a class='button button-small button-secondary' href='lesson.html?id=" + ls[0].id + "'>Start " + esc(m.name) + " →</a></footer></article>";
+      }).join("") + "</div>";
+    if (location.hash) { var lel = document.getElementById(location.hash.slice(1)); if (lel) setTimeout(function () { lel.scrollIntoView({ behavior: "smooth", block: "center" }); lel.style.borderColor = "var(--blue-bright)"; }, 150); }
   }
 
   /* ================= DSA ================= */

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--seo:head-start-->
+  <base href='../'>
+  <title>Handle missing values — Pandas Tutorial | Python DSA Notes</title>
+  <meta name="description" content="Find empty cells, then either drop those rows or fill the gaps with a sensible value. A missing value is a cell with no data. Pandas shows it as NaN (&quot;not a…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://pythondsanotes.onrender.com/library-lessons/pandas-missing-values.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Python DSA Notes">
+  <meta property="og:title" content="Handle missing values — Pandas Tutorial | Python DSA Notes">
+  <meta property="og:description" content="Find empty cells, then either drop those rows or fill the gaps with a sensible value. A missing value is a cell with no data. Pandas shows it as NaN (&quot;not a…">
+  <meta property="og:url" content="https://pythondsanotes.onrender.com/library-lessons/pandas-missing-values.html">
+  <meta property="og:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Handle missing values — Pandas Tutorial | Python DSA Notes">
+  <meta name="twitter:description" content="Find empty cells, then either drop those rows or fill the gaps with a sensible value. A missing value is a cell with no data. Pandas shows it as NaN (&quot;not a…">
+  <meta name="twitter:image" content="https://pythondsanotes.onrender.com/assets/img/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pythondsanotes.onrender.com/"},{"@type":"ListItem","position":2,"name":"Libraries","item":"https://pythondsanotes.onrender.com/libraries.html"},{"@type":"ListItem","position":3,"name":"Handle missing values","item":"https://pythondsanotes.onrender.com/library-lessons/pandas-missing-values.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Handle missing values — Pandas tutorial","description":"Find empty cells, then either drop those rows or fill the gaps with a sensible value. A missing value is a cell with no data. Pandas shows it as NaN (\"not a…","url":"https://pythondsanotes.onrender.com/library-lessons/pandas-missing-values.html","inLanguage":"en","isAccessibleForFree":true,"image":"https://pythondsanotes.onrender.com/assets/img/og-image.png","dateModified":"2026-10-12","about":"Pandas library for Python","publisher":{"@type":"Organization","name":"Python DSA Notes","url":"https://pythondsanotes.onrender.com/"},"mainEntityOfPage":"https://pythondsanotes.onrender.com/library-lessons/pandas-missing-values.html"}</script>
+  <!--seo:head-end-->
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="libraries">
+  <div id="site-header"></div>
+  <main id="main">
+<div class='page-head' style='padding-bottom:10px'><div class='crumbs'><a href='index.html'>Home</a><span>/</span><a href='libraries.html'>Libraries</a><span>/</span><span>Pandas for Data Analysis</span></div></div><div class='with-side'><aside class='side' aria-label='Libraries lessons'><span class='side-title'>01 · Pandas for Data Analysis</span><a href='library-lessons/pandas-series.html'>Pandas Series: labelled 1-D data</a><a href='library-lessons/pandas-dataframe.html'>Pandas DataFrame: tables in Python</a><a href='library-lessons/pandas-read-files.html'>Read and save CSV and JSON files</a><a href='library-lessons/pandas-explore-filter.html'>Explore, sort and filter data</a><a href='library-lessons/pandas-missing-values.html' class='active'>Handle missing values</a><a href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates</a><a href='library-lessons/pandas-groupby.html'>Group and summarise data with groupby</a><a href='library-lessons/pandas-correlation.html'>Correlation: do two columns move together?</a><span class='side-title' style='margin-top:14px'>02 · NumPy for Numerical Work</span><a href='library-lessons/numpy-arrays-intro.html'>NumPy arrays: fast lists of numbers</a><a href='library-lessons/numpy-create-arrays.html'>Create arrays: zeros, ones, arange, linspace</a><a href='library-lessons/numpy-indexing-slicing.html'>Indexing and slicing arrays</a><a href='library-lessons/numpy-shape-reshape.html'>Shape, reshape and transpose</a><a href='library-lessons/numpy-math-aggregates.html'>Array maths and summaries: sum, mean, max, axis</a><a href='library-lessons/numpy-broadcasting.html'>Broadcasting: maths between different shapes</a><a href='library-lessons/numpy-filter-where.html'>Filter arrays with conditions and np.where</a><a href='library-lessons/numpy-random.html'>Random numbers and simulations</a><span class='side-title' style='margin-top:14px'>03 · Matplotlib for Charts</span><a href='library-lessons/matplotlib-first-plot.html'>Your first chart with Matplotlib</a><a href='library-lessons/matplotlib-labels-titles.html'>Titles, labels, legends and grids</a><a href='library-lessons/matplotlib-line-styles.html'>Markers, colours and line styles</a><a href='library-lessons/matplotlib-bar-charts.html'>Bar charts: compare categories</a><a href='library-lessons/matplotlib-scatter.html'>Scatter plots: find relationships</a><a href='library-lessons/matplotlib-histogram.html'>Histograms: see how values are spread</a><a href='library-lessons/matplotlib-pie-charts.html'>Pie charts: parts of a whole</a><a href='library-lessons/matplotlib-subplots-save.html'>Subplots and saving charts</a></aside><article class='lesson'><header class='lesson-head'><div class='demo-row' style='margin:0 0 12px'><span class='badge badge-blue'>PANDAS</span><span class='badge badge-gray'>LIBRARY 01</span><span class='badge badge-gray'>10 MIN</span></div><h1>Handle missing values</h1><p class='lead'>Find empty cells, then either drop those rows or fill the gaps with a sensible value.</p></header><div class='drawer-actions' style='margin:18px 0'><button class='button button-small button-secondary done-btn' data-done='lesson-pandas-missing-values' data-done-label='Lesson'>Mark as completed</button><button class='button button-small button-ghost bookmark-btn' data-bm='lesson:pandas-missing-values' data-bm-label='Bookmark lesson'>☆ Bookmark lesson</button></div><section class='ls'><h2><i>1</i>What is it?</h2><p>A <strong>missing value</strong> is a cell with no data. Pandas shows it as <code>NaN</code> (&quot;not a number&quot;), or <code>NaT</code> for dates. Cleaning means finding these gaps and deciding what to do with them.</p></section><section class='ls'><h2><i>2</i>Why do we need it?</h2><p>Empty cells quietly give wrong answers. An average calculated over half-empty data may not describe reality, and some operations fail outright. Handling missing data is one of the most common data-cleaning jobs.</p></section><section class='ls'><h2><i>3</i>In plain words</h2><div class='explain'><div class='explain-tag'>Everyday example</div><p>Imagine a marks register where two students were absent and nothing was written. You can cross those rows out (<strong>drop</strong>), write 0 (<strong>fill with a value</strong>), or write the class average (<strong>fill with the mean</strong>). Each choice tells a different story, so you pick on purpose.</p><div class='explain-tag'>Precise definition</div><p><code>isna()</code> returns True for missing cells. <code>dropna()</code> returns a copy without rows that have gaps (use <code>subset=</code> to look only at some columns). <code>fillna(value)</code> returns a copy with the gaps replaced. A column with a missing number is stored as float, because <code>NaN</code> is a float.</p></div><div class='table-wrap'><table class='ltable'><thead><tr><th>Fill with</th><th>Good when</th><th>Code</th></tr></thead><tbody><tr><td><code>A fixed value</code></td><td><code>A default makes sense (e.g. &quot;Unknown&quot;)</code></td><td><code>fillna(&quot;Unknown&quot;)</code></td></tr><tr><td><code>Mean</code></td><td>Numbers are spread fairly evenly</td><td><code>fillna(df[&quot;c&quot;].mean())</code></td></tr><tr><td><code>Median</code></td><td>A few extreme values would distort the mean</td><td><code>fillna(df[&quot;c&quot;].median())</code></td></tr><tr><td><code>Mode</code></td><td>The column holds categories</td><td><code>fillna(df[&quot;c&quot;].mode()[0])</code></td></tr></tbody></table></div><ol class='steps-list' style='grid-template-columns:1fr;margin-top:14px'><li>Count the gaps with <code>df.isna().sum()</code>.</li><li>Decide: remove the rows or fill them.</li><li>To remove: <code>dropna()</code> (optionally with <code>subset</code>).</li><li>To fill: <code>fillna()</code> with a value, mean, median or mode.</li><li>Assign the result back, because both methods return a new DataFrame.</li></ol></section><section class='ls'><h2><i>4</i>Code, step by step</h2><div class='block'><h3>Find the gaps</h3><div class='code-box'><div class='code-header'><span>lesson_1.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;name&quot;: [&quot;Asha&quot;, &quot;Ravi&quot;, &quot;Meena&quot;, &quot;Kabir&quot;, &quot;Isha&quot;],
+    &quot;marks&quot;: [78, None, 66, None, 91],
+    &quot;city&quot;: [&quot;Pune&quot;, &quot;Delhi&quot;, None, &quot;Pune&quot;, &quot;Pune&quot;],
+})
+print(df)
+print(df.isna())
+print(df.isna().sum())</code></pre></div><div class='out'><span>OUTPUT</span><pre>    name  marks   city
+0   Asha   78.0   Pune
+1   Ravi    NaN  Delhi
+2  Meena   66.0    NaN
+3  Kabir    NaN   Pune
+4   Isha   91.0   Pune
+    name  marks   city
+0  False  False  False
+1  False   True  False
+2  False  False   True
+3  False   True  False
+4  False  False  False
+name     0
+marks    2
+city     1
+dtype: int64</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>None</code></td><td>Python&#39;s &quot;nothing&quot; value. Pandas stores it as <code>NaN</code> in number columns and as a missing value in text columns.</td></tr><tr><td><code data-code>df.isna()</code></td><td>A table of True/False: True wherever a cell is missing.</td></tr><tr><td><code data-code>df.isna().sum()</code></td><td>True counts as 1, so summing each column gives the number of gaps per column.</td></tr></tbody></table></div><div class='block'><h3>Drop rows with gaps</h3><div class='code-box'><div class='code-header'><span>lesson_2.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;name&quot;: [&quot;Asha&quot;, &quot;Ravi&quot;, &quot;Meena&quot;, &quot;Kabir&quot;, &quot;Isha&quot;],
+    &quot;marks&quot;: [78, None, 66, None, 91],
+    &quot;city&quot;: [&quot;Pune&quot;, &quot;Delhi&quot;, None, &quot;Pune&quot;, &quot;Pune&quot;],
+})
+print(df.dropna())
+print(df.dropna(subset=[&quot;marks&quot;]))
+print(len(df))</code></pre></div><div class='out'><span>OUTPUT</span><pre>   name  marks  city
+0  Asha   78.0  Pune
+4  Isha   91.0  Pune
+    name  marks  city
+0   Asha   78.0  Pune
+2  Meena   66.0   NaN
+4   Isha   91.0  Pune
+5</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df.dropna()</code></td><td>Removes any row that has at least one gap, in any column.</td></tr><tr><td><code data-code>df.dropna(subset=[&quot;marks&quot;])</code></td><td>Looks only at the <code>marks</code> column, so a missing city doesn&#39;t remove a row.</td></tr><tr><td><code data-code>len(df)</code></td><td><code>df</code> itself still has 5 rows. <code>dropna()</code> returned a new DataFrame and left the original alone.</td></tr></tbody></table></div><div class='block'><h3>Fill gaps with a value</h3><div class='code-box'><div class='code-header'><span>lesson_3.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;name&quot;: [&quot;Asha&quot;, &quot;Ravi&quot;, &quot;Meena&quot;, &quot;Kabir&quot;, &quot;Isha&quot;],
+    &quot;marks&quot;: [78, None, 66, None, 91],
+    &quot;city&quot;: [&quot;Pune&quot;, &quot;Delhi&quot;, None, &quot;Pune&quot;, &quot;Pune&quot;],
+})
+filled = df.fillna({&quot;marks&quot;: 0, &quot;city&quot;: &quot;Unknown&quot;})
+print(filled)</code></pre></div><div class='out'><span>OUTPUT</span><pre>    name  marks     city
+0   Asha   78.0     Pune
+1   Ravi    0.0    Delhi
+2  Meena   66.0  Unknown
+3  Kabir    0.0     Pune
+4   Isha   91.0     Pune</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df.fillna({&quot;marks&quot;: 0, &quot;city&quot;: &quot;Unknown&quot;})</code></td><td>A dictionary lets each column have its own fill value. Columns not in the dictionary are left alone.</td></tr></tbody></table></div><div class='block'><h3>Fill with mean, median or mode</h3><div class='code-box'><div class='code-header'><span>lesson_4.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({
+    &quot;marks&quot;: [78, None, 66, None, 91],
+    &quot;city&quot;: [&quot;Pune&quot;, &quot;Delhi&quot;, None, &quot;Pune&quot;, &quot;Pune&quot;],
+})
+mean = df[&quot;marks&quot;].mean()
+median = df[&quot;marks&quot;].median()
+common_city = df[&quot;city&quot;].mode()[0]
+print(&quot;mean:&quot;, mean, &quot;median:&quot;, median, &quot;mode:&quot;, common_city)
+
+df[&quot;marks&quot;] = df[&quot;marks&quot;].fillna(mean)
+df[&quot;city&quot;] = df[&quot;city&quot;].fillna(common_city)
+print(df)</code></pre></div><div class='out'><span>OUTPUT</span><pre>mean: 78.33333333333333 median: 78.0 mode: Pune
+       marks   city
+0  78.000000   Pune
+1  78.333333  Delhi
+2  66.000000   Pune
+3  78.333333   Pune
+4  91.000000   Pune</pre></div><table class='lines'><thead><tr><th>Line</th><th>What it means</th></tr></thead><tbody><tr><td><code data-code>df[&quot;marks&quot;].mean()</code></td><td>Average of the existing marks. Missing values are skipped automatically.</td></tr><tr><td><code data-code>df[&quot;city&quot;].mode()[0]</code></td><td><code>mode()</code> returns the most common value(s) as a Series, so <code>[0]</code> takes the first one.</td></tr><tr><td><code data-code>df[&quot;marks&quot;] = df[&quot;marks&quot;].fillna(mean)</code></td><td>Fills the gaps and assigns the result back into the column. This is the safe pattern for one column.</td></tr></tbody></table></div></section><section class='ls'><h2><i>5</i>Common mistakes</h2><ul class='mist'><li>Using <code>inplace=True</code> on a single column, as in <code>df[&quot;marks&quot;].fillna(0, inplace=True)</code>. In current Pandas this does not change <code>df</code>. Assign the result back instead.</li><li>Filling with 0 when 0 is a real value. A student who was absent did not necessarily score zero.</li><li>Dropping rows blindly. If a third of your rows have a gap somewhere, <code>dropna()</code> throws away a third of your data.</li></ul></section><section class='ls'><h2><i>6</i>When should I use it?</h2><p>Drop rows when only a few are affected and they aren&#39;t important. Fill when you want to keep every row: use the mean or median for numbers and the mode or a label such as &quot;Unknown&quot; for categories.</p></section><section class='ls'><h2><i>7</i>Interview questions</h2><div class='qa'><details><summary>How do you count missing values in each column?</summary><p><code>df.isna().sum()</code>.</p></details><details><summary>What is the difference between dropna() and fillna()?</summary><p><code>dropna()</code> removes rows (or columns) that contain gaps. <code>fillna()</code> keeps them and replaces the gaps with a value.</p></details><details><summary>When would you use the median instead of the mean?</summary><p>When a few extreme values would pull the mean away from a typical value, such as incomes or house prices.</p></details><details><summary>Why does an integer column become float when it has a missing value?</summary><p>Because <code>NaN</code> is a floating-point value, so the whole column is stored as floats like <code>78.0</code>.</p></details></div></section><section class='ls try'><h2><i>8</i>Try it yourself</h2><div class='try-card'><p>A <code>price</code> column holds 25, None, 30, None, 28. Fill the gaps with the median price and print the column.</p><details><summary>Show hint</summary><div class='notice teal'><div><b>Hint:</b> Compute <code>df[&quot;price&quot;].median()</code> first, then <code>fillna()</code> with it and assign the result back to the column.</div></div></details><details><summary>Show solution</summary><div class='code-box'><div class='code-header'><span>solution.py</span><button class='copy-button' data-copy>Copy code</button></div><pre><code data-code>import pandas as pd
+
+df = pd.DataFrame({&quot;price&quot;: [25, None, 30, None, 28]})
+df[&quot;price&quot;] = df[&quot;price&quot;].fillna(df[&quot;price&quot;].median())
+print(df[&quot;price&quot;])</code></pre></div><div class='out'><span>OUTPUT</span><pre>0    25.0
+1    28.0
+2    30.0
+3    28.0
+4    28.0
+Name: price, dtype: float64</pre></div></details></div></section><footer class='lesson-foot'><div class='pn'><a class='button button-ghost' href='library-lessons/pandas-explore-filter.html'>← Explore, sort and filter data</a><a class='button button-primary' href='library-lessons/pandas-clean-data.html'>Fix wrong formats, wrong values and duplicates →</a></div></footer></article></div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/lessons-python.js"></script>
+  <script src="assets/js/dsa-lessons.js"></script>
+  <script src="assets/js/dsa-structure-programs.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/static-page.js"></script>
+</body>
+</html>

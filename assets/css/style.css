@@ -226,7 +226,7 @@ pre { margin: 0; overflow: auto; font-family: var(--mono); font-size: 12.5px; li
 .link-arrow:hover { text-decoration: underline; }
 
 /* ---------- Path cards ---------- */
-.path-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.path-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
 .path-card {
   position: relative; display: flex; flex-direction: column; padding: 24px; overflow: hidden;
   border: 1px solid var(--border); border-radius: var(--radius-lg);
@@ -776,3 +776,11 @@ body.light .ls code { color: #0f766e; }
 .seo-static li{margin:4px 0}
 .seo-static a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .lesson details>summary{cursor:pointer;margin:10px 0}
+
+/* ---- chart images in lessons ---- */
+.plot{margin:12px 0 0;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-soft);overflow:hidden}
+.plot img{display:block;margin:0 auto;max-width:100%;height:auto;background:#fff}
+.plot figcaption{padding:7px 14px;color:var(--text-muted);font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}
+
+/* code inside a code box is a block, not an inline-code pill (fixes a per-line background on lesson pages) */
+.code-box pre code { padding: 0; border-radius: 0; background: none; color: inherit; font-size: inherit; }

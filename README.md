@@ -118,8 +118,25 @@ The lesson/program data lives in JavaScript, so search engines would see empty p
 node tools/build_seo.js https://your-domain.com
 ```
 
-- Generated folders: `python-lessons/`, `dsa-lessons/`, `python-programs/`, `dsa-implementations/`, `coding-problems/` (do not edit by hand; re-run the script).
+- Generated folders: `python-lessons/`, `library-lessons/`, `dsa-lessons/`, `python-programs/`, `dsa-implementations/`, `coding-problems/` (do not edit by hand; re-run the script).
 - Old `lesson.html?id=…` style links still work: they redirect to the new static page.
 - Site name is the `SITE_NAME` constant at the top of the script and the brand text in `assets/js/app.js`.
 - Progress/bookmarks keep the internal `pydsa:` localStorage prefix on purpose, so existing users do not lose their progress.
 - Submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+
+## Adding or editing lessons
+
+Python lessons are written in `tools/lessons/part1.py` and `part2.py`; the library lessons are in `part3.py` (Pandas), `part4.py` (NumPy) and `part5.py` (Matplotlib). Then run:
+
+```bash
+python3 tools/lessons/build_lessons.py   # runs every code block, fills real outputs, writes assets/js/lessons-python.js
+node tools/build_seo.js https://pythondsanotes.onrender.com   # regenerates the static SEO pages and sitemap
+```
+
+Set `output=AUTO` in a block and the real output is captured for you, so it can never be wrong.
+
+Matplotlib lessons (`part5.py`) mark runnable chart blocks with `plot=True` and an `alt=` description. The builder runs the code, saves the chart that `plt.show()` would display into `assets/img/plots/`, and shows it under the code, so the picture always matches the code.
+
+## Libraries section
+
+Pandas, NumPy and Matplotlib live in their own **Libraries** page (`libraries.html`, navbar link). Their lessons are the ones with a `lib` key in `tools/lessons/part3.py` to `part5.py`; the three libraries are listed in `window.PYDSA_LIBRARIES` in `assets/js/content.js`. To add a new library, add an entry there and write lessons with that `lib` id.
